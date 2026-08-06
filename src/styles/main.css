@@ -1,0 +1,96 @@
+:root {
+  --font-spartan: 'League Spartan', sans-serif;
+  --font-merriweather: 'Merriweather', serif;
+  --font-merriweather-sans: 'Merriweather Sans', sans-serif;
+  
+  --color-bg: #000000;
+  --color-text: #FFFFFF;
+  --color-text-muted: #B9B9B9;
+  --color-overlay: rgba(217, 217, 217, 0);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-merriweather-sans);
+  overflow-x: hidden;
+}
+
+.page-overlay {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 123px;
+}
+
+.header-container {
+  padding-top: 60px;
+  padding-bottom: 20px;
+}
+
+.footer-container {
+  padding-top: 20px;
+  padding-bottom: 60px;
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Layout for all non-homepage content pages */
+.page-content {
+  flex-grow: 1;
+  display: block;
+  padding-top: 200px;
+  padding-bottom: 100px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 60px;
+  }
+  .page-overlay {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .page-content {
+    padding-top: 140px;
+    padding-bottom: 80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 30px;
+  }
+  .page-overlay {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .header-container {
+    padding-top: 40px;
+  }
+  .footer-container {
+    padding-bottom: 40px;
+  }
+  .page-content {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+}

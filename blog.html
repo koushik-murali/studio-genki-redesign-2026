@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="view-transition" content="same-origin" />
+    <meta name="description" content="Read stories, reflections, and updates from Studio Genki — a pottery and ceramics studio in Coimbatore." />
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    
+    <title>Blog - Studio Genki</title>
+
+    <style>
+      /* ---- LISTING VIEW ---- */
+      .listing h2 {
+        font-family: var(--font-merriweather, 'Merriweather', serif);
+        font-weight: 400;
+        font-size: 40px;
+        line-height: 1.2;
+        color: #FFFFFF;
+        margin: 0 0 48px 0;
+      }
+
+      .post-card {
+        margin-bottom: 48px;
+        padding-bottom: 48px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .post-card:last-child {
+        border-bottom: none;
+      }
+
+      .post-meta {
+        font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
+        font-weight: 300;
+        font-size: 14px;
+        color: #B9B9B9;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 12px;
+      }
+
+      .meta-separator {
+        margin: 0 8px;
+        opacity: 0.5;
+      }
+
+      .post-title {
+        font-family: var(--font-merriweather, 'Merriweather', serif);
+        font-weight: 400;
+        font-size: 28px;
+        color: #FFFFFF;
+        margin-bottom: 12px;
+      }
+
+      .post-title a {
+        color: #FFFFFF;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+      }
+
+      .post-title a:hover {
+        opacity: 0.7;
+      }
+
+      .post-excerpt {
+        font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 1.6;
+        color: #B9B9B9;
+        max-width: 800px;
+      }
+
+      @media (max-width: 1024px) {
+        .listing h2 { font-size: 36px; }
+        .post-title { font-size: 24px; }
+      }
+
+      @media (max-width: 768px) {
+        .listing h2 { font-size: 32px; }
+        .post-title { font-size: 22px; }
+        .post-excerpt { font-size: 16px; }
+      }
+    </style>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:title" content="Studio Genki – Hand-made Ceramics & Pottery Classes">
+  <meta property="og:description" content="Studio Genki is an art & design studio in Coimbatore offering handcrafted pottery and hands-on classes.">
+  <meta property="og:url" content="https://studiogenki.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://studiogenki.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Studio Genki – Hand-made Ceramics & Pottery Classes">
+  <meta name="twitter:description" content="Studio Genki is an art & design studio in Coimbatore offering handcrafted pottery and hands-on classes.">
+  <meta name="twitter:image" content="https://studiogenki.com/og-image.jpg">
+
+</head>
+  <body>
+    <static-background image-url="https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?q=80&w=2070&auto=format&fit=crop"></static-background>
+    
+    <div class="page-overlay">
+      <div class="container header-container">
+        <site-header></site-header>
+      </div>
+      
+      <div class="container page-content">
+        <div class="listing">
+          <h2>Blog</h2>
+          
+    <div class="post-card">
+      <div class="post-meta">9 October 2025<span class="meta-separator">·</span>Koushik</div>
+      <div class="post-title">
+        <a href="/blog/coimbatore-pottery-scene.html">Coimbatore Pottery Scene</a>
+      </div>
+      <div class="post-excerpt">What we foresee about art and culture in Coimbatore</div>
+    </div>
+  
+
+    <div class="post-card">
+      <div class="post-meta">20 June 2025<span class="meta-separator">·</span>Koushik</div>
+      <div class="post-title">
+        <a href="/blog/1-on-1-pottery-classes-coimbatore.html">1-on-1 pottery classes in Coimbatore</a>
+      </div>
+      <div class="post-excerpt">Our approach to teaching pottery at Studio Genki</div>
+    </div>
+  
+        </div>
+      </div>
+
+      <div class="container footer-container">
+        <site-footer></site-footer>
+      </div>
+    </div>
+    
+    <script type="module">
+      import '/src/styles/main.css';
+      import '/src/components/site-header.js';
+      import '/src/components/site-footer.js';
+      import '/src/components/static-background.js';
+    </script>
+  </body>
+</html>
