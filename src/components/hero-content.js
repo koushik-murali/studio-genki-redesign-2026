@@ -81,7 +81,7 @@ export class HeroContent extends LitElement {
 
     @media (max-width: 768px) {
       :host {
-        text-align: center;
+        text-align: left;
       }
       h1 { 
         font-size: 30px; 
@@ -92,15 +92,12 @@ export class HeroContent extends LitElement {
         font-size: 18px; 
         line-height: 1.5;
         margin-bottom: 32px;
-        margin-left: auto;
-        margin-right: auto;
       }
       .button-group {
         flex-direction: column;
         gap: 14px;
         width: 100%;
         max-width: 360px;
-        margin: 0 auto;
       }
       .btn { 
         width: 100%; 
