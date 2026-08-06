@@ -1,6 +1,24 @@
 import { LitElement, html, css } from 'lit';
 
 export class SiteHeader extends LitElement {
+  static properties = {
+    isMenuOpen: { type: Boolean, state: true }
+  };
+
+  constructor() {
+    super();
+    this.isMenuOpen = false;
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+    if (this.isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+  }
+
   static styles = css`
     * {
       box-sizing: border-box;
@@ -21,6 +39,19 @@ export class SiteHeader extends LitElement {
     .logo-container {
       display: flex;
       align-items: center;
+      position: relative;
+      z-index: 100;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      z-index: 100;
+      padding: 5px;
+      color: #FFFFFF;
     }
 
     nav {
@@ -47,14 +78,42 @@ export class SiteHeader extends LitElement {
 
     @media (max-width: 768px) {
       header {
-        flex-direction: column;
-        gap: 30px;
+        flex-direction: row;
+        gap: 0;
       }
       
+      .menu-toggle {
+        display: block;
+      }
+
       nav {
-        flex-wrap: wrap;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--color-bg, #000000);
+        z-index: 50;
+        flex-direction: column;
         justify-content: center;
-        gap: 20px;
+        align-items: flex-start;
+        padding-left: 10%;
+        gap: 40px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+      }
+
+      nav.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      nav a {
+        font-size: 30px;
+        width: 100%;
+        display: block;
+        padding: 10px 0;
       }
     }
   `;
@@ -71,7 +130,14 @@ export class SiteHeader extends LitElement {
           </a>
         </div>
         
-        <nav>
+        <button class="menu-toggle" @click="${this.toggleMenu}" aria-label="Toggle menu" aria-expanded="${this.isMenuOpen}">
+          ${this.isMenuOpen 
+            ? html`<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>`
+            : html`<svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>`
+          }
+        </button>
+
+        <nav class="${this.isMenuOpen ? 'open' : ''}">
           <a href="/pottery-classes-coimbatore.html">Classes</a>
           <a href="/works.html">Works</a>
           <a href="/blog.html">Blog</a>
