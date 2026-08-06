@@ -9,7 +9,7 @@ export class ContactContent extends LitElement {
     :host {
       display: block;
       width: 100%;
-      text-align: left;
+      text-align: center;
     }
 
     h2 {
@@ -36,6 +36,7 @@ export class ContactContent extends LitElement {
       display: flex;
       flex-direction: column;
       gap: 16px;
+      align-items: center;
     }
 
     .contact-item {
@@ -45,6 +46,7 @@ export class ContactContent extends LitElement {
       color: #FFFFFF;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 12px;
     }
 

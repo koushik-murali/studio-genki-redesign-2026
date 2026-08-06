@@ -83,8 +83,8 @@ export class HeroContent extends LitElement {
         text-align: center;
       }
       h1 { 
-        font-size: 60px; 
-        line-height: 1.1;
+        font-size: 48px; 
+        line-height: 1.15;
       }
       p { 
         font-size: 20px; 

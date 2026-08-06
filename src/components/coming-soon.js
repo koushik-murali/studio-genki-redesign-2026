@@ -13,7 +13,7 @@ export class ComingSoon extends LitElement {
     :host {
       display: block;
       width: 100%;
-      text-align: left;
+      text-align: center;
     }
 
     h2 {
