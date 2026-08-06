@@ -74,8 +74,9 @@ export class HeroContent extends LitElement {
     }
 
     @media (max-width: 1024px) {
-      p { font-size: 28px; }
-      .btn { padding: 15px 40px; }
+      h1 { font-size: 42px; }
+      p { font-size: 26px; margin-bottom: 40px; }
+      .btn { padding: 16px 48px; font-size: 18px; }
     }
 
     @media (max-width: 768px) {
@@ -83,22 +84,28 @@ export class HeroContent extends LitElement {
         text-align: center;
       }
       h1 { 
-        font-size: 48px; 
-        line-height: 1.15;
+        font-size: 30px; 
+        line-height: 1.25;
+        margin-bottom: 20px;
       }
       p { 
-        font-size: 20px; 
+        font-size: 18px; 
+        line-height: 1.5;
+        margin-bottom: 32px;
         margin-left: auto;
         margin-right: auto;
       }
       .button-group {
         flex-direction: column;
-        gap: 16px;
+        gap: 14px;
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
       }
       .btn { 
         width: 100%; 
-        padding: 12px 0;
-        font-size: 18px;
+        padding: 14px 24px;
+        font-size: 16px;
       }
     }
   `;

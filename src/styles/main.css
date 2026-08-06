@@ -63,11 +63,18 @@ html, body {
 /* Responsive adjustments */
 @media (max-width: 1024px) {
   .container {
-    padding: 0 60px;
+    padding: 0 48px;
   }
-  .page-overlay {
+  .header-container {
     padding-top: 40px;
+    padding-bottom: 20px;
+  }
+  .footer-container {
+    padding-top: 20px;
     padding-bottom: 40px;
+  }
+  .main-content {
+    padding: 40px 0;
   }
   .page-content {
     padding-top: 140px;
@@ -77,20 +84,22 @@ html, body {
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 30px;
-  }
-  .page-overlay {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding: 0 24px;
   }
   .header-container {
-    padding-top: 40px;
+    padding-top: 24px;
+    padding-bottom: 16px;
   }
   .footer-container {
-    padding-bottom: 40px;
+    padding-top: 24px;
+    padding-bottom: 32px;
+  }
+  .main-content {
+    padding-top: 36px;
+    padding-bottom: 48px;
   }
   .page-content {
-    padding-top: 100px;
+    padding-top: 80px;
     padding-bottom: 60px;
   }
 }
