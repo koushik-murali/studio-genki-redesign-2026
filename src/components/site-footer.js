@@ -18,12 +18,25 @@ export class SiteFooter extends LitElement {
       width: 100%;
     }
 
-    .copyright {
+    .copyright-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
       font-weight: 300;
       font-size: 20px;
       line-height: 1.5;
       color: #FFFFFF;
+    }
+
+    .policies-link {
+      color: #FFFFFF;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .policies-link:hover {
+      opacity: 0.7;
     }
 
     .social-icons {
@@ -56,13 +69,20 @@ export class SiteFooter extends LitElement {
         gap: 30px;
         align-items: center;
       }
+      .copyright-container {
+        font-size: 16px;
+      }
     }
   `;
 
   render() {
     return html`
       <footer>
-        <div class="copyright">© Studio Genki 2026</div>
+        <div class="copyright-container">
+          <span class="copyright">© Studio Genki 2026</span>
+          <span class="separator">•</span>
+          <a href="/policies.html" class="policies-link">Policies</a>
+        </div>
         
         <div class="social-icons">
           <!-- Instagram icon -->
