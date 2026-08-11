@@ -21,7 +21,7 @@ export default defineConfig({
         contact: resolve(__dirname, 'contact.html'),
         about: resolve(__dirname, 'about.html'),
         works: resolve(__dirname, 'works.html'),
-        classes: resolve(__dirname, 'pottery-classes-coimbatore.html'),
+        classes: resolve(__dirname, 'beginners-pottery-classes-coimbatore.html'),
         policies: resolve(__dirname, 'policies.html'),
         blog: resolve(__dirname, 'blog.html'),
         ...blogPosts

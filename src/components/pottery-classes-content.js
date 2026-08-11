@@ -1,6 +1,21 @@
 import { LitElement, html, css } from 'lit';
 
 export class PotteryClassesContent extends LitElement {
+  static properties = {
+    galleryImages: { type: Array }
+  };
+
+  constructor() {
+    super();
+    // Edit this array to add, remove, or rename gallery images
+    this.galleryImages = [
+      '01.png',
+      '02.png',
+      '03.png',
+      '04.png'
+    ];
+  }
+
   static styles = css`
     :host {
       display: block;
@@ -69,6 +84,44 @@ export class PotteryClassesContent extends LitElement {
       line-height: 1.6;
       margin: 0;
       font-size: 18px;
+    }
+
+    /* Gallery section */
+    .gallery-wrapper {
+      margin: 80px 0;
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 16px;
+      height: 350px;
+      width: max-content;
+    }
+
+    .gallery-track img {
+      height: 100%;
+      width: auto;
+      object-fit: cover;
+      border-radius: 8px;
+      flex-shrink: 0;
+      background-color: #222; /* Placeholder background */
+    }
+
+    @media (min-width: 769px) {
+      .gallery-track {
+        animation: marquee 30s linear infinite;
+      }
+      .gallery-track:hover {
+        animation-play-state: paused;
+      }
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 8px)); }
     }
 
     /* Instructor section */
@@ -169,8 +222,8 @@ export class PotteryClassesContent extends LitElement {
     }
 
     .info-list {
-      list-style: none;
-      padding: 0;
+      list-style-type: disc;
+      padding-left: 24px;
       margin: 0;
     }
 
@@ -178,6 +231,7 @@ export class PotteryClassesContent extends LitElement {
       font-size: 18px;
       line-height: 1.8;
       color: #B9B9B9;
+      margin-bottom: 8px;
     }
     
     /* Button */
@@ -230,6 +284,32 @@ export class PotteryClassesContent extends LitElement {
         padding: 24px;
       }
 
+      .gallery-wrapper {
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -ms-overflow-style: none;  
+        scrollbar-width: none;  
+      }
+      
+      .gallery-wrapper::-webkit-scrollbar {
+        display: none;
+      }
+
+      .gallery-track {
+        height: 250px;
+        padding: 0 16px;
+      }
+
+      .gallery-track img {
+        scroll-snap-align: center;
+      }
+
+      .duplicate-for-marquee {
+        display: none;
+      }
+
       .instructor-section {
         flex-direction: column;
         text-align: center;
@@ -253,7 +333,7 @@ export class PotteryClassesContent extends LitElement {
       <p class="description">
         Our beginners wheel throwing course is designed for those wanting an intensive introduction to wheel throwing and ceramics.
       </p>
-      <p class="subtitle" style="margin-bottom: 24px;">Only 4 slots per batch &gt;</p>
+      <p class="subtitle" style="margin-bottom: 24px;">Only 3 slots left.</p>
       
       <a href="https://wa.me/917373074962" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 0; margin-bottom: 64px;">Contact Us</a>
 
@@ -271,6 +351,20 @@ export class PotteryClassesContent extends LitElement {
           <p>The course is designed to make you an independent potter. You will learn the entire process from start to finish.</p>
         </li>
       </ul>
+
+      <div class="gallery-wrapper">
+        <div class="gallery-track">
+          <!-- Primary images (loads from the array above) -->
+          ${this.galleryImages.map(img => html`
+            <img src="/classes-gallery/${img}" alt="Pottery Class Gallery" onerror="this.style.width='300px'" />
+          `)}
+          
+          <!-- Duplicated for desktop marquee loop -->
+          ${this.galleryImages.map(img => html`
+            <img src="/classes-gallery/${img}" alt="Pottery Class Gallery" class="duplicate-for-marquee" onerror="this.style.width='300px'" />
+          `)}
+        </div>
+      </div>
 
       <div class="instructor-section">
         <img src="/profile-picture.png" alt="Koushik Murali" class="instructor-image" />
@@ -313,18 +407,19 @@ export class PotteryClassesContent extends LitElement {
             <td>Beginner</td>
             <td>Rs. 15,000</td>
           </tr>
-          <tr>
-            <td>20</td>
-            <td>Beginner</td>
-            <td>Rs. 30,000</td>
-          </tr>
-          <tr>
-            <td>30</td>
-            <td>Intermediate</td>
-            <td>Rs. 40,000</td>
-          </tr>
         </tbody>
       </table>
+
+      <div class="info-section">
+        <h2>Course inclusions</h2>
+        <ul class="info-list">
+          <li>Clay for throwing</li>
+          <li>Apron</li>
+          <li>Basic tools</li>
+          <li>Firing upto 5 pieces.</li>
+          <li>Additional pieces can be fired at the rate of 1000 rupees per kg.</li>
+        </ul>
+      </div>
 
       <div class="info-section">
         <h2>Schedule</h2>
