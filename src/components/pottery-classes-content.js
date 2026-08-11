@@ -5,7 +5,7 @@ export class PotteryClassesContent extends LitElement {
     :host {
       display: block;
       width: 100%;
-      max-width: 1200px;
+      max-width: 900px;
       margin: 0 auto;
       color: #FFFFFF;
       font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
@@ -24,7 +24,7 @@ export class PotteryClassesContent extends LitElement {
       font-family: var(--font-merriweather, 'Merriweather', serif);
       font-weight: 700;
       font-size: 28px;
-      margin: 0 0 16px 0;
+      margin: 0 0 24px 0;
       color: #FFFFFF;
     }
     
@@ -42,7 +42,6 @@ export class PotteryClassesContent extends LitElement {
       line-height: 1.6;
       color: #B9B9B9;
       margin-bottom: 24px;
-      max-width: 800px;
       font-family: var(--font-merriweather, 'Merriweather', serif);
     }
     
@@ -57,12 +56,11 @@ export class PotteryClassesContent extends LitElement {
     .features-list {
       list-style-type: disc;
       padding-left: 24px;
-      margin-bottom: 48px;
-      max-width: 800px;
+      margin-bottom: 80px;
     }
     
     .features-list li {
-      margin-bottom: 24px;
+      margin-bottom: 32px;
       color: #FFFFFF;
     }
     
@@ -77,12 +75,12 @@ export class PotteryClassesContent extends LitElement {
     .instructor-section {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 40px;
+      padding: 56px;
       border-radius: 12px;
-      margin-bottom: 48px;
+      margin-bottom: 80px;
       display: flex;
       align-items: center;
-      gap: 32px;
+      gap: 40px;
     }
     
     .instructor-image {
@@ -108,14 +106,14 @@ export class PotteryClassesContent extends LitElement {
     .reviews-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 32px;
-      margin-bottom: 64px;
+      gap: 40px;
+      margin-bottom: 96px;
     }
     
     .review-card {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 32px;
+      padding: 40px;
       border-radius: 12px;
       display: flex;
       flex-direction: column;
@@ -147,9 +145,8 @@ export class PotteryClassesContent extends LitElement {
     /* Table styles */
     table {
       width: 100%;
-      max-width: 800px;
       border-collapse: collapse;
-      margin-bottom: 48px;
+      margin-bottom: 80px;
     }
 
     th, td {
@@ -168,7 +165,7 @@ export class PotteryClassesContent extends LitElement {
     }
 
     .info-section {
-      margin-bottom: 48px;
+      margin-bottom: 80px;
     }
 
     .info-list {
@@ -214,7 +211,7 @@ export class PotteryClassesContent extends LitElement {
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-      margin-bottom: 24px;
+      margin-bottom: 40px;
     }
     
     .map-container iframe {
