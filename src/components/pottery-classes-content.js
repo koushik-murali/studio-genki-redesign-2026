@@ -145,10 +145,19 @@ export class PotteryClassesContent extends LitElement {
     }
 
     .instructor-info h2 {
-      margin-top: 0;
+      margin: 0 0 16px 0;
     }
 
-    .instructor-info p {
+    .instructor-label {
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #B9B9B9;
+      margin: 0 0 8px 0;
+      font-weight: 600;
+    }
+
+    .instructor-info p.instructor-bio {
       color: #B9B9B9;
       line-height: 1.6;
       margin: 0;
@@ -280,6 +289,48 @@ export class PotteryClassesContent extends LitElement {
       .description { font-size: 18px; }
       th, td { padding: 12px 16px; }
       
+      /* Vertical table on mobile */
+      table, thead, tbody, th, td, tr { 
+        display: block; 
+      }
+      
+      thead tr { 
+        display: none; 
+      }
+      
+      tr { 
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        margin-bottom: 16px;
+      }
+      
+      td { 
+        border: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+        position: relative;
+        padding-left: 50%; 
+        text-align: right;
+      }
+      
+      td:before { 
+        position: absolute;
+        top: 12px;
+        left: 16px;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+        text-align: left;
+        font-weight: 700;
+        color: #FFFFFF;
+      }
+      
+      td:nth-of-type(1):before { content: "No. of sessions"; }
+      td:nth-of-type(2):before { content: "Level"; }
+      td:nth-of-type(3):before { content: "Fee"; }
+      
+      td:last-child {
+        border-bottom: 0;
+      }
+      
       .instructor-section, .review-card {
         padding: 24px;
       }
@@ -369,8 +420,9 @@ export class PotteryClassesContent extends LitElement {
       <div class="instructor-section">
         <img src="/profile-picture.png" alt="Koushik Murali" class="instructor-image" />
         <div class="instructor-info">
-          <h2>Your instructor: Koushik Murali</h2>
-          <p>Koushik Murali is a studio potter and designer. He has spent the last 4 years working with clay and understanding the complex material. He runs the studio full-time and is looking forward to sharing his knowledge and helping you on your clay journey.</p>
+          <p class="instructor-label">Your instructor</p>
+          <h2>Koushik Murali</h2>
+          <p class="instructor-bio">Koushik Murali is a studio potter and designer. He has spent the last 4 years working with clay and understanding the complex material. He runs the studio full-time and is looking forward to sharing his knowledge and helping you on your clay journey.</p>
         </div>
       </div>
 
