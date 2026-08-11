@@ -96,8 +96,8 @@ export class SiteHeader extends LitElement {
         z-index: 50;
         flex-direction: column;
         justify-content: center;
-        align-items: flex-start;
-        padding-left: 10%;
+        align-items: flex-end;
+        padding-right: 10%;
         gap: 40px;
         opacity: 0;
         pointer-events: none;
@@ -114,6 +114,7 @@ export class SiteHeader extends LitElement {
         width: 100%;
         display: block;
         padding: 10px 0;
+        text-align: right;
       }
     }
   `;
@@ -142,6 +143,7 @@ export class SiteHeader extends LitElement {
           <a href="/works.html">Works</a>
           <a href="/blog.html">Blog</a>
           <a href="/contact.html">Contact</a>
+          <a href="/directions.html">Directions</a>
           <a href="/about.html">About</a>
         </nav>
       </header>

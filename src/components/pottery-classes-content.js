@@ -5,6 +5,8 @@ export class PotteryClassesContent extends LitElement {
     :host {
       display: block;
       width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
       color: #FFFFFF;
       font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
       font-weight: 300;
@@ -16,18 +18,133 @@ export class PotteryClassesContent extends LitElement {
       font-size: 40px;
       line-height: 1.2;
       margin: 0 0 24px 0;
-      text-transform: uppercase;
+    }
+
+    h2 {
+      font-family: var(--font-merriweather, 'Merriweather', serif);
+      font-weight: 700;
+      font-size: 28px;
+      margin: 0 0 16px 0;
+      color: #FFFFFF;
+    }
+    
+    h3 {
+      font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
+      font-weight: 600;
+      font-size: 20px;
+      margin: 0 0 12px 0;
+      color: #FFFFFF;
+      line-height: 1.4;
     }
 
     .description {
       font-size: 20px;
       line-height: 1.6;
       color: #B9B9B9;
-      margin-bottom: 48px;
+      margin-bottom: 24px;
       max-width: 800px;
       font-family: var(--font-merriweather, 'Merriweather', serif);
     }
+    
+    .subtitle {
+      font-size: 18px;
+      color: #FFFFFF;
+      margin-bottom: 48px;
+      font-weight: 400;
+    }
 
+    /* Features list */
+    .features-list {
+      list-style-type: disc;
+      padding-left: 24px;
+      margin-bottom: 48px;
+      max-width: 800px;
+    }
+    
+    .features-list li {
+      margin-bottom: 24px;
+      color: #FFFFFF;
+    }
+    
+    .features-list p {
+      color: #B9B9B9;
+      line-height: 1.6;
+      margin: 0;
+      font-size: 18px;
+    }
+
+    /* Instructor section */
+    .instructor-section {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 40px;
+      border-radius: 12px;
+      margin-bottom: 48px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    
+    .instructor-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .instructor-info h2 {
+      margin-top: 0;
+    }
+
+    .instructor-info p {
+      color: #B9B9B9;
+      line-height: 1.6;
+      margin: 0;
+      font-size: 18px;
+    }
+
+    /* Reviews section */
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      margin-bottom: 64px;
+    }
+    
+    .review-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 32px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .review-text {
+      color: #B9B9B9;
+      font-style: italic;
+      line-height: 1.6;
+      margin: 0 0 24px 0;
+      font-size: 16px;
+    }
+    
+    .review-author {
+      font-weight: 600;
+      color: #FFFFFF;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .stars {
+      color: #F5C518;
+      font-size: 18px;
+      letter-spacing: 2px;
+    }
+
+    /* Table styles */
     table {
       width: 100%;
       max-width: 800px;
@@ -50,13 +167,6 @@ export class PotteryClassesContent extends LitElement {
       color: #B9B9B9;
     }
 
-    h2 {
-      font-family: var(--font-merriweather, 'Merriweather', serif);
-      font-weight: 700;
-      font-size: 24px;
-      margin: 0 0 24px 0;
-    }
-
     .info-section {
       margin-bottom: 48px;
     }
@@ -72,21 +182,126 @@ export class PotteryClassesContent extends LitElement {
       line-height: 1.8;
       color: #B9B9B9;
     }
+    
+    /* Button */
+    .contact-button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 68px;
+      background-color: #FFFFFF;
+      color: #000000;
+      border: 1px solid #FFFFFF;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 1.5;
+      transition: all 0.2s ease;
+      margin-top: 24px;
+      margin-bottom: 48px;
+      font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
+      cursor: pointer;
+    }
+    
+    .contact-button:hover {
+      background: #e0e0e0;
+      border-color: #e0e0e0;
+    }
+
+    /* Map container */
+    .map-container {
+      width: 100%;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+      margin-bottom: 24px;
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      display: block;
+    }
 
     @media (max-width: 768px) {
       h1 { font-size: 32px; }
+      h2 { font-size: 24px; }
+      h3 { font-size: 18px; }
       .description { font-size: 18px; }
       th, td { padding: 12px 16px; }
+      
+      .instructor-section, .review-card {
+        padding: 24px;
+      }
+
+      .instructor-section {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .contact-button { 
+        width: 100%; 
+        padding: 14px 24px;
+        font-size: 16px;
+        box-sizing: border-box;
+      }
     }
   `;
 
   render() {
     return html`
-      <h1>Professional Pottery Courses</h1>
+      <h1>Beginners Wheel Throwing Course</h1>
       <p class="description">
-        Our wheel throwing course is designed to set strong foundation in wheel-throwing and ceramics.
+        Studio Genki is a place for aspiring potters and people who take the craft seriously.
       </p>
+      <p class="description">
+        Our beginners wheel throwing course is designed for those wanting an intensive introduction to wheel throwing and ceramics.
+      </p>
+      <p class="subtitle" style="margin-bottom: 24px;">Only 4 slots per batch &gt;</p>
+      
+      <a href="https://wa.me/917373074962" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 0; margin-bottom: 64px;">Contact Us</a>
 
+      <ul class="features-list">
+        <li>
+          <h3>During the course, you will learn the fundamentals of wheel work.</h3>
+          <p>Preparing clay for throwing, throwing cylinders and bowls, trimming, attaching handles, and an introduction to glazing.</p>
+        </li>
+        <li>
+          <h3>The course is catered to the individual student's needs.</h3>
+          <p>Training is personalized. We take on a maximum of 4 students per course to ensure that everyone has ample time and a solid foundation.</p>
+        </li>
+        <li>
+          <h3>From making to firing. Understand the whole process.</h3>
+          <p>The course is designed to make you an independent potter. You will learn the entire process from start to finish.</p>
+        </li>
+      </ul>
+
+      <div class="instructor-section">
+        <img src="/profile-picture.png" alt="Koushik Murali" class="instructor-image" />
+        <div class="instructor-info">
+          <h2>Your instructor: Koushik Murali</h2>
+          <p>Koushik Murali is a studio potter and designer. He has spent the last 4 years working with clay and understanding the complex material. He runs the studio full-time and is looking forward to sharing his knowledge and helping you on your clay journey.</p>
+        </div>
+      </div>
+
+      <h2>What students say</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <p class="review-text">"Have recently taken a 10 day course on pottery from this studio. The classes are really informative and insightful and taught so well by Koushik. Its a must for those looking to learn pottery. The best in terms of clarity, technique, creativity and also exposure."</p>
+          <div class="review-author">
+            <span>Afshan</span>
+            <span class="stars">★★★★</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <p class="review-text">"Had an opportunity to attend 10 days of pottery classes on wheel throwing. It was an amazing experience and to mentally rewire our minds into the world of creation. Koushik patiently teaches the techniques and answers all our doubts. Anyone wishing to have an experience in creating things out of clay can definitely step into STUDIO GENKI and enjoy the experience."</p>
+          <div class="review-author">
+            <span>Priya</span>
+            <span class="stars">★★★★★</span>
+          </div>
+        </div>
+      </div>
+
+      <h2>Course Details</h2>
       <table>
         <thead>
           <tr>
@@ -118,17 +333,22 @@ export class PotteryClassesContent extends LitElement {
         <h2>Schedule</h2>
         <ul class="info-list">
           <li>Dates : Flexible (ongoing regular classes)</li>
-          <li>Days : Tuesday &ndash; Sunday</li>
+          <li>Days : All 7 days of the week</li>
           <li>Duration per session : 3.5 hrs / session</li>
           <li>Clean-up after classes is mandatory</li>
         </ul>
       </div>
 
       <div class="info-section">
-        <h2>Contact</h2>
-        <ul class="info-list">
-          <li>Koushik Murali &ndash; 73730 74962</li>
-        </ul>
+        <h2>Directions</h2>
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1263.342810426298!2d77.0667372865575!3d11.050664523413825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba857740d223e7b%3A0xa10dd35b49e304ba!2sStudio%20Genki%3A%20Pottery%20Studio!5e0!3m2!1sen!2sin!4v1786421043892!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h2>Ready to start?</h2>
+        <a href="https://wa.me/917373074962" target="_blank" rel="noopener noreferrer" class="contact-button">Contact Us</a>
       </div>
     `;
   }
