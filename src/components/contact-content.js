@@ -67,6 +67,20 @@ export class ContactContent extends LitElement {
       width: 120px;
     }
 
+    .map-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 64px auto 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    }
+    
+    .map-container iframe {
+      width: 100%;
+      display: block;
+    }
+
     @media (max-width: 1024px) {
       h2 { font-size: 36px; }
     }
@@ -101,6 +115,10 @@ export class ContactContent extends LitElement {
           <span class="label">Whatsapp:</span>
           <a href="https://wa.me/917373074962" target="_blank" rel="noopener noreferrer">+91 73730 74962</a>
         </div>
+      </div>
+
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1263.342810426298!2d77.0667372865575!3d11.050664523413825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba857740d223e7b%3A0xa10dd35b49e304ba!2sStudio%20Genki%3A%20Pottery%20Studio!5e0!3m2!1sen!2sin!4v1786421043892!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
     `;
   }

@@ -384,7 +384,7 @@ export class PotteryClassesContent extends LitElement {
       <p class="description">
         Our beginners wheel throwing course is designed for those wanting an intensive introduction to wheel throwing and ceramics.
       </p>
-      <p class="subtitle" style="margin-bottom: 24px;">Only 3 slots left.</p>
+      <p class="subtitle" style="margin-bottom: 24px; color: #F5C518; font-weight: 600;">Only 2 spots left.</p>
       
       <a href="https://wa.me/917373074962" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 0; margin-bottom: 64px;">Contact Us</a>
 
@@ -439,6 +439,13 @@ export class PotteryClassesContent extends LitElement {
           <p class="review-text">"Had an opportunity to attend 10 days of pottery classes on wheel throwing. It was an amazing experience and to mentally rewire our minds into the world of creation. Koushik patiently teaches the techniques and answers all our doubts. Anyone wishing to have an experience in creating things out of clay can definitely step into STUDIO GENKI and enjoy the experience."</p>
           <div class="review-author">
             <span>Priya</span>
+            <span class="stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <p class="review-text">"I recently took the 30 day pottery class at Studio Genki and it was one of the best decisions ever. Koushik was a great instructor and was very patient with me throughout the class. He knew when to step in and when to let me figure out on my own. Highly recommend :)"</p>
+          <div class="review-author">
+            <span>Dharani</span>
             <span class="stars">★★★★★</span>
           </div>
         </div>

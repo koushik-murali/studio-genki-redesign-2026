@@ -143,7 +143,6 @@ export class SiteHeader extends LitElement {
           <a href="/works.html">Works</a>
           <a href="/blog.html">Blog</a>
           <a href="/contact.html">Contact</a>
-          <a href="/directions.html">Directions</a>
           <a href="/about.html">About</a>
         </nav>
       </header>
