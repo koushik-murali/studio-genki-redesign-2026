@@ -139,7 +139,7 @@ export class SiteHeader extends LitElement {
         </button>
 
         <nav class="${this.isMenuOpen ? 'open' : ''}">
-          <a href="/beginners-pottery-classes-coimbatore.html">Classes</a>
+          <a href="/classes.html">Classes</a>
           <a href="/works.html">Works</a>
           <a href="/blog.html">Blog</a>
           <a href="/contact.html">Contact</a>

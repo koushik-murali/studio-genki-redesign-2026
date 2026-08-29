@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 
-export class PotteryClassesContent extends LitElement {
+export class HandbuildingClassContent extends LitElement {
   static properties = {
     galleryImages: { type: Array }
   };
@@ -9,10 +9,10 @@ export class PotteryClassesContent extends LitElement {
     super();
     // Edit this array to add, remove, or rename gallery images
     this.galleryImages = [
-      '01.png',
-      '02.png',
-      '03.png',
-      '04.png'
+      '05.png',
+      '06.png',
+      '08.png',
+      '09.png'
     ];
   }
 
@@ -398,36 +398,36 @@ export class PotteryClassesContent extends LitElement {
 
   render() {
     return html`
-      <h1>Beginners Wheel Throwing Course</h1>
+      <h1>Beginners Handbuilding Classes</h1>
       <p class="description">
         Studio Genki is a place for aspiring potters and people who take the craft seriously.
       </p>
       <p class="description">
-        Our beginners wheel throwing course is designed for those wanting an intensive introduction to wheel throwing and ceramics. Absolutely no prior experience or artistic background is required!
+        An immersive introduction to the art of handbuilding ceramics. Learn to make functional and decorative forms without the potter's wheel. Absolutely no prior experience or artistic background is required!
       </p>
 
       <div class="course-meta-bar">
-        <span><strong>Sessions:</strong> 10</span>
-        <span><strong>Fee:</strong> Rs. 15,000</span>
+        <span><strong>Sessions:</strong> 6</span>
+        <span><strong>Fee:</strong> Rs. 10,000</span>
         <span><strong>Duration:</strong> September 16 - October 15</span>
       </div>
 
-      <p class="subtitle" style="margin-bottom: 24px; color: #F5C518; font-weight: 600;">Only 4 spots left.</p>
+      <p class="subtitle" style="margin-bottom: 24px; color: #F5C518; font-weight: 600;">Only 6 spots left.</p>
       
       <a href="https://wa.me/917373074962" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 0; margin-bottom: 64px;">Reserve Your Spot</a>
 
       <ul class="features-list">
         <li>
-          <h3>During the course, you will learn the fundamentals of wheel work.</h3>
-          <p>Preparing clay for throwing, throwing cylinders and bowls, trimming, attaching handles, and an introduction to glazing.</p>
+          <h3>Learn the fundamental techniques of handbuilding.</h3>
+          <p>Master pinching, coiling, and slab building techniques to create unique ceramic pieces.</p>
         </li>
         <li>
-          <h3>The course is catered to the individual student's needs.</h3>
-          <p>Training is personalized. We take on a maximum of 4 students per course to ensure that everyone has ample time and a solid foundation.</p>
+          <h3>Personalized attention and guidance.</h3>
+          <p>We take on a maximum of 6 students per class to ensure you receive ample one-on-one time and a solid foundation.</p>
         </li>
         <li>
-          <h3>From making to firing. Understand the whole process.</h3>
-          <p>The course is designed to make you an independent potter. You will learn the entire process from start to finish, and take home 3-5 finished, food-safe pieces you threw yourself.</p>
+          <h3>From wet clay to finished piece.</h3>
+          <p>Understand the complete cycle of making, drying, bisque firing, and glazing. You will take home 3-5 finished, food-safe pieces made entirely by you (e.g., mugs, bowls, or planters).</p>
         </li>
       </ul>
 
@@ -490,9 +490,9 @@ export class PotteryClassesContent extends LitElement {
         </thead>
         <tbody>
           <tr>
-            <td>10</td>
+            <td>6</td>
             <td>Beginner</td>
-            <td>Rs. 15,000</td>
+            <td>Rs. 10,000</td>
           </tr>
         </tbody>
       </table>
@@ -512,7 +512,7 @@ export class PotteryClassesContent extends LitElement {
         <h2>Schedule</h2>
         <ul class="info-list">
           <li>Dates : September 16 - October 15</li>
-          <li>Days : All 7 days of the week</li>
+          <li>Days : Saturday and Sunday</li>
           <li>Duration per session : 3 hrs / session</li>
           <li>Clean-up after classes is mandatory</li>
         </ul>
@@ -523,7 +523,7 @@ export class PotteryClassesContent extends LitElement {
         <ul class="info-list">
           <li>Wear comfortable clothes you don't mind getting dirty.</li>
           <li>Bring a hand towel for personal use.</li>
-          <li>Keep your fingernails trimmed short for the best experience on the wheel.</li>
+          <li>Keep your fingernails trimmed short for the best handbuilding experience.</li>
         </ul>
       </div>
 
@@ -550,4 +550,4 @@ export class PotteryClassesContent extends LitElement {
   }
 }
 
-customElements.define('pottery-classes-content', PotteryClassesContent);
+customElements.define('handbuilding-class-content', HandbuildingClassContent);
