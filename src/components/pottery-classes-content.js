@@ -414,7 +414,7 @@ export class PotteryClassesContent extends LitElement {
 
       <p class="subtitle" style="margin-bottom: 24px; color: #F5C518; font-weight: 600;">Only 4 spots left.</p>
       
-      <a href="https://wa.me/917373074962" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 0; margin-bottom: 64px;">Reserve Your Spot</a>
+      <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20wheel%20throwing%20course" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 0; margin-bottom: 64px;">Reserve Your Spot</a>
 
       <ul class="features-list">
         <li>
@@ -545,7 +545,7 @@ export class PotteryClassesContent extends LitElement {
 
       <div class="info-section">
         <h2>Ready to start?</h2>
-        <a href="https://wa.me/917373074962" target="_blank" rel="noopener noreferrer" class="contact-button">Reserve Your Spot</a>
+        <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20wheel%20throwing%20course" target="_blank" rel="noopener noreferrer" class="contact-button">Reserve Your Spot</a>
       </div>
     `;
   }
