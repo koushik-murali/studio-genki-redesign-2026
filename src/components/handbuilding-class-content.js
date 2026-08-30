@@ -427,7 +427,7 @@ export class HandbuildingClassContent extends LitElement {
         </li>
         <li>
           <h3>From wet clay to finished piece.</h3>
-          <p>Understand the complete cycle of making, drying, bisque firing, and glazing. You will take home 3-5 finished, food-safe pieces made entirely by you (e.g., mugs, bowls, or planters).</p>
+          <p>Understand the complete cycle of making, drying, bisque firing, and glazing. You will take home 3-5 finished pieces made entirely by you (e.g., mugs, bowls, or planters).</p>
         </li>
       </ul>
 
