@@ -500,7 +500,7 @@ export class HandbuildingClassContent extends LitElement {
       <div class="info-section">
         <h2>Course inclusions</h2>
         <ul class="info-list">
-          <li>Clay for throwing</li>
+          <li>Clay</li>
           <li>Apron</li>
           <li>Basic tools</li>
           <li>Firing upto 5 pieces.</li>
@@ -524,6 +524,7 @@ export class HandbuildingClassContent extends LitElement {
           <li>Wear comfortable clothes you don't mind getting dirty.</li>
           <li>Bring a hand towel for personal use.</li>
           <li>Keep your fingernails trimmed short for the best handbuilding experience.</li>
+          <li>Bring some snacks if you feel necessary.</li>
         </ul>
       </div>
 
