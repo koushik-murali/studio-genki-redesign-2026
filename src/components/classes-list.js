@@ -15,7 +15,8 @@ export class ClassesList extends LitElement {
         link: '/beginners-pottery-classes-coimbatore.html',
         sessions: '10',
         fees: 'Rs. 15,000',
-        duration: 'September 16 - October 15'
+        duration: 'September 16 - October 15',
+        spots: '4'
       },
       {
         id: 'handbuilding-classes',
@@ -24,7 +25,8 @@ export class ClassesList extends LitElement {
         link: '/handbuilding-workshop.html',
         sessions: '6',
         fees: 'Rs. 10,000',
-        duration: 'September 16 - October 15'
+        duration: 'September 16 - October 15',
+        spots: '6'
       }
     ];
   }
@@ -51,7 +53,8 @@ export class ClassesList extends LitElement {
 
     .classes-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 450px));
+      justify-content: center;
       gap: 40px;
     }
 
@@ -88,8 +91,20 @@ export class ClassesList extends LitElement {
       font-family: var(--font-merriweather, 'Merriweather', serif);
       font-weight: 400;
       font-size: 20px;
-      margin: 0 0 16px 0;
+      margin: 0 0 12px 0;
       color: #FFFFFF;
+    }
+
+    .spots-tag {
+      display: inline-block;
+      background-color: rgba(245, 197, 24, 0.15);
+      color: #F5C518;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      align-self: flex-start;
     }
 
     .card-meta {
@@ -145,6 +160,7 @@ export class ClassesList extends LitElement {
             <img src="${cls.image}" alt="${cls.title}" class="card-image" onerror="this.style.backgroundColor='#333'" />
             <div class="card-content">
               <h2 class="card-title">${cls.title}</h2>
+              ${cls.spots ? html`<div class="spots-tag">Only ${cls.spots} spots left</div>` : ''}
               <div class="card-meta">
                 <span><strong>Sessions:</strong> ${cls.sessions}</span>
                 <span><strong>Fee:</strong> ${cls.fees}</span>

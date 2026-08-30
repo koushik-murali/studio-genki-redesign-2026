@@ -50,11 +50,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  <url>
-    <loc>https://studiogenki.in/blog/learning-from-fire.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+
   <url>
     <loc>https://studiogenki.in/policies.html</loc>
     <changefreq>monthly</changefreq>

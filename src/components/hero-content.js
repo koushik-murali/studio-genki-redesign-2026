@@ -113,7 +113,7 @@ export class HeroContent extends LitElement {
       <p>Studio Genki is a dual-practice space, dedicated to both small-batch ceramic production and an alternative, progressive design curriculum.</p>
       
       <div class="button-group">
-        <a href="/beginners-pottery-classes-coimbatore.html" class="btn btn-primary">Explore courses</a>
+        <a href="/classes.html" class="btn btn-primary">Explore courses</a>
         <a href="/works.html" class="btn btn-secondary">Explore Products</a>
       </div>
     `;

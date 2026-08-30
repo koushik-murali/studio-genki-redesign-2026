@@ -71,11 +71,11 @@ posts.forEach(post => {
   const metaInfo = post.meta.author ? `${dateStr}<span class="meta-separator">·</span>${post.meta.author}` : dateStr;
   
   let postPage = POST_TEMPLATE
-    .replace('{{TITLE}}', post.meta.title || post.slug)
-    .replace('{{TITLE}}', post.meta.title || post.slug) // Replace both <title> and <h1>
-    .replace('{{DESCRIPTION}}', post.meta.description || `Read ${post.meta.title} on Studio Genki.`)
-    .replace('{{META_INFO}}', metaInfo)
-    .replace('{{POST_CONTENT}}', renderedHtml);
+    .replaceAll('{{TITLE}}', post.meta.title || post.slug)
+    .replaceAll('{{DESCRIPTION}}', post.meta.description || `Read ${post.meta.title} on Studio Genki.`)
+    .replaceAll('{{SLUG}}', post.slug)
+    .replaceAll('{{META_INFO}}', metaInfo)
+    .replaceAll('{{POST_CONTENT}}', renderedHtml);
     
   fs.writeFileSync(path.join(BLOG_OUT_DIR, `${post.slug}.html`), postPage);
 });
