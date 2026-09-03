@@ -461,7 +461,7 @@ export class MiniatureSculptingContent extends LitElement {
       </div>
 
       <div class="instructor-section">
-        <img src="/profile-picture.png" alt="Karthik Kannan" class="instructor-image" />
+        <img src="/karthik-profile.jpg" alt="Karthik Kannan" class="instructor-image" />
         <div class="instructor-info">
           <p class="instructor-label">Your instructor</p>
           <h2>Karthik Kannan</h2>
