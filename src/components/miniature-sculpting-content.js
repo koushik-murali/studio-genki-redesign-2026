@@ -461,11 +461,11 @@ export class MiniatureSculptingContent extends LitElement {
       </div>
 
       <div class="instructor-section">
-        <img src="/karthik-profile.jpg" alt="Karthik Kannan" class="instructor-image" />
+        <img src="/karthik-profile.jpg" alt="Karthik Subramanian" class="instructor-image" />
         <div class="instructor-info">
           <p class="instructor-label">Your instructor</p>
-          <h2>Karthik Kannan</h2>
-          <p class="instructor-bio">Karthik Kannan holds an MFA from the Government College of Arts, Chennai, and brings 10 years of experience in sculpting and art education. He specializes in miniature forms and detail-oriented craftsmanship.</p>
+          <h2>Karthik Subramanian</h2>
+          <p class="instructor-bio">Karthik Subramanian holds an MFA from the Government College of Arts, Chennai, and brings 10 years of experience in sculpting and art education. He specializes in miniature forms and detail-oriented craftsmanship.</p>
         </div>
       </div>
 
