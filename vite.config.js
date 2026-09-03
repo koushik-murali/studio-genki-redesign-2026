@@ -24,6 +24,7 @@ export default defineConfig({
         classes: resolve(__dirname, 'classes.html'),
         'beginners-pottery': resolve(__dirname, 'beginners-pottery-classes-coimbatore.html'),
         handbuilding: resolve(__dirname, 'handbuilding-workshop.html'),
+        'miniature-sculpting': resolve(__dirname, 'miniature-sculpting-crash-course.html'),
         policies: resolve(__dirname, 'policies.html'),
         blog: resolve(__dirname, 'blog.html'),
         ...blogPosts
