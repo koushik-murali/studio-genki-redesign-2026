@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'lit';
 
-export class HandbuildingClassContent extends LitElement {
+export class MiniatureSculptingContent extends LitElement {
   static properties = {
     galleryImages: { type: Array }
   };
@@ -9,10 +9,10 @@ export class HandbuildingClassContent extends LitElement {
     super();
     // Edit this array to add, remove, or rename gallery images
     this.galleryImages = [
-      '05.png',
-      '06.png',
-      '08.png',
-      '09.png'
+      '11.png',
+      '12.png',
+      '13.png',
+      '14.png'
     ];
   }
 
@@ -415,35 +415,34 @@ export class HandbuildingClassContent extends LitElement {
   render() {
     return html`
       <a href="/classes.html" class="back-link">&larr; Back to courses</a>
-      <h1>Weekend Handbuilding Workshop</h1>
-    
+      <h1>Miniature Sculpting Crash Course</h1>
       <p class="description">
-        An immersive introduction to the art of handbuilding ceramics. Learn to make functional and decorative forms without the potter's wheel. Absolutely no prior experience or artistic background is required!
+        Learn to sculpt miniature animals and objects and paint on them.
       </p>
 
       <div class="course-meta-bar">
         <span><strong>Level:</strong> Beginner</span>
-        <span><strong>Sessions:</strong> 2</span>
-        <span><strong>Fee:</strong> Rs. 5,000 INR</span>
-        <span><strong>Duration:</strong> September 26, 27</span>
+        <span><strong>Sessions:</strong> 3</span>
+        <span><strong>Fee:</strong> Rs. 5,000</span>
+        <span><strong>Duration:</strong> October 2, 3, 4</span>
       </div>
 
-      <p class="subtitle" style="margin-bottom: 24px; color: #F5C518; font-weight: 600;">Only 6 spots left.</p>
+      <p class="subtitle" style="margin-bottom: 24px; color: #F5C518; font-weight: 600;">Only 8 spots left.</p>
       
-      <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20handbuilding%20course" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 0; margin-bottom: 64px;">Reserve Your Spot</a>
+      <a href="https://wa.me/917373074962?text=I%20want%20to%20sign%20up%20for%20sculpting%20course" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 0; margin-bottom: 64px;">Reserve Your Spot</a>
 
       <ul class="features-list">
         <li>
-          <h3>Learn the fundamental techniques of handbuilding.</h3>
-          <p>Understand pinching, coiling, and slab building techniques to create unique ceramic pieces.</p>
+          <h3>During the course, you will learn the fundamentals of miniature sculpting.</h3>
+          <p>Working with air-dry clay, shaping miniature forms, detailing, and proper painting techniques.</p>
         </li>
         <li>
-          <h3>Personalized attention and guidance.</h3>
-          <p>We take in a limited number of students per session to ensure you receive ample one-on-one time and a solid foundation.</p>
+          <h3>Sculpt independently with confidence.</h3>
+          <p>The course is designed to equip you with everything you need to sculpt on your own time. You will learn fundamental principles, effective methods for joining clay, and techniques to accurately replicate subjects from reference images or real life.</p>
         </li>
         <li>
-          <h3>From wet clay to finished piece.</h3>
-          <p>Understand the complete cycle of making, drying, bisque firing, and glazing. You will take home 3-5 finished pieces made entirely by you (e.g., mugs, bowls, or planters).</p>
+          <h3>From making to finishing. Understand the whole process.</h3>
+          <p>You will learn the entire process from start to finish, and take home several finished, hand-painted miniature pieces you sculpted yourself.</p>
         </li>
       </ul>
 
@@ -451,49 +450,26 @@ export class HandbuildingClassContent extends LitElement {
         <div class="gallery-track">
           <!-- Primary images (loads from the array above) -->
           ${this.galleryImages.map(img => html`
-            <img src="/classes-gallery/${img}" alt="Pottery Class Gallery" onerror="this.style.width='300px'" />
+            <img src="/classes-gallery/${img}" alt="Sculpting Class Gallery" onerror="this.style.width='300px'" />
           `)}
           
           <!-- Duplicated for desktop marquee loop -->
           ${this.galleryImages.map(img => html`
-            <img src="/classes-gallery/${img}" alt="Pottery Class Gallery" class="duplicate-for-marquee" onerror="this.style.width='300px'" />
+            <img src="/classes-gallery/${img}" alt="Sculpting Class Gallery" class="duplicate-for-marquee" onerror="this.style.width='300px'" />
           `)}
         </div>
       </div>
 
       <div class="instructor-section">
-        <img src="/profile-picture.png" alt="Koushik Murali" class="instructor-image" />
+        <img src="/profile-picture.png" alt="Karthik Kannan" class="instructor-image" />
         <div class="instructor-info">
           <p class="instructor-label">Your instructor</p>
-          <h2>Koushik Murali</h2>
-          <p class="instructor-bio">Koushik Murali is a studio potter and designer. He has spent the last 4 years working with clay and understanding the complex material. He runs the studio full-time and is looking forward to sharing his knowledge and helping you on your clay journey.</p>
+          <h2>Karthik Kannan</h2>
+          <p class="instructor-bio">Karthik Kannan holds an MFA from the Government College of Arts, Chennai, and brings 10 years of experience in sculpting and art education. He specializes in miniature forms and detail-oriented craftsmanship.</p>
         </div>
       </div>
 
-      <h2>What students say</h2>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <p class="review-text">"Have recently taken a 10 day course on pottery from this studio. The classes are really informative and insightful and taught so well by Koushik. Its a must for those looking to learn pottery. The best in terms of clarity, technique, creativity and also exposure."</p>
-          <div class="review-author">
-            <span>Afshan</span>
-            <span class="stars">★★★★</span>
-          </div>
-        </div>
-        <div class="review-card">
-          <p class="review-text">"Had an opportunity to attend 10 days of pottery classes on wheel throwing. It was an amazing experience and to mentally rewire our minds into the world of creation. Koushik patiently teaches the techniques and answers all our doubts. Anyone wishing to have an experience in creating things out of clay can definitely step into STUDIO GENKI and enjoy the experience."</p>
-          <div class="review-author">
-            <span>Priya</span>
-            <span class="stars">★★★★★</span>
-          </div>
-        </div>
-        <div class="review-card">
-          <p class="review-text">"I recently took the 30 day pottery class at Studio Genki and it was one of the best decisions ever. Koushik was a great instructor and was very patient with me throughout the class. He knew when to step in and when to let me figure out on my own. Highly recommend :)"</p>
-          <div class="review-author">
-            <span>Dharani</span>
-            <span class="stars">★★★★★</span>
-          </div>
-        </div>
-      </div>
+
 
       <h2>Course Details</h2>
       <table>
@@ -506,9 +482,9 @@ export class HandbuildingClassContent extends LitElement {
         </thead>
         <tbody>
           <tr>
-            <td>2</td>
+            <td>3</td>
             <td>Beginner</td>
-            <td>Rs. 5,000 INR</td>
+            <td>Rs. 5,000</td>
           </tr>
         </tbody>
       </table>
@@ -516,20 +492,15 @@ export class HandbuildingClassContent extends LitElement {
       <div class="info-section">
         <h2>Course inclusions</h2>
         <ul class="info-list">
-          <li>Clay</li>
-          <li>Apron and basic tools for use in the studio.</li>
-          <li>Firing upto 2 pieces.</li>
-          <li>Additional pieces can be fired at the rate of 1000 rupees per kg.</li>
+          <li>1.5 kg of air-dry clay</li>
         </ul>
       </div>
 
       <div class="info-section">
         <h2>Schedule</h2>
         <ul class="info-list">
-          <li>Dates : September 26, 27</li>
-          <li>Days : Saturday and Sunday</li>
-          <li>Duration per session : 3 hrs / session</li>
-          <li>Clean-up after classes is mandatory</li>
+          <li>Dates : October 2, 3, 4</li>
+          <li>Duration per session : 2 hours / session</li>
         </ul>
       </div>
 
@@ -538,7 +509,7 @@ export class HandbuildingClassContent extends LitElement {
         <ul class="info-list">
           <li>Wear comfortable clothes you don't mind getting dirty.</li>
           <li>Bring a hand towel for personal use.</li>
-          <li>Keep your fingernails trimmed short for the best handbuilding experience.</li>
+          <li>Keep your fingernails trimmed short for the best experience.</li>
           <li>Bring some snacks if you feel necessary.</li>
         </ul>
       </div>
@@ -546,8 +517,7 @@ export class HandbuildingClassContent extends LitElement {
       <div class="info-section">
         <h2>Policies</h2>
         <ul class="info-list">
-          <li>Up to 2 makeup sessions are allowed during the course duration.</li>
-          <li>Course passes will expire strictly after the set course dates.</li>
+          <li>Crash course purchases are final and no reschedule is possible.</li>
         </ul>
       </div>
 
@@ -560,10 +530,10 @@ export class HandbuildingClassContent extends LitElement {
 
       <div class="info-section">
         <h2>Ready to start?</h2>
-        <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20handbuilding%20course" target="_blank" rel="noopener noreferrer" class="contact-button">Reserve Your Spot</a>
+        <a href="https://wa.me/917373074962?text=I%20want%20to%20sign%20up%20for%20sculpting%20course" target="_blank" rel="noopener noreferrer" class="contact-button">Reserve Your Spot</a>
       </div>
     `;
   }
 }
 
-customElements.define('handbuilding-class-content', HandbuildingClassContent);
+customElements.define('miniature-sculpting-content', MiniatureSculptingContent);

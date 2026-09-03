@@ -27,6 +27,22 @@ export class PotteryClassesContent extends LitElement {
       font-weight: 300;
     }
 
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      color: #B9B9B9;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 400;
+      margin-bottom: 24px;
+      transition: color 0.2s ease;
+      font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
+    }
+    
+    .back-link:hover {
+      color: #FFFFFF;
+    }
+
     h1 {
       font-family: var(--font-merriweather, 'Merriweather', serif);
       font-weight: 400;
@@ -398,21 +414,23 @@ export class PotteryClassesContent extends LitElement {
 
   render() {
     return html`
-      <h1>Beginners Wheel Throwing Course</h1>
+      <a href="/classes.html" class="back-link">&larr; Back to courses</a>
+      <h1>Weekday Wheel Throwing Classes</h1>
       <p class="description">
         Studio Genki is a place for aspiring potters and people who take the craft seriously.
       </p>
       <p class="description">
-        Our beginners wheel throwing course is designed for those wanting an intensive introduction to wheel throwing and ceramics. Absolutely no prior experience or artistic background is required!
+        Our weekday wheel throwing classes are designed as an introduction to wheel throwing and ceramics. Absolutely no prior experience or artistic background is required!
       </p>
 
       <div class="course-meta-bar">
-        <span><strong>Sessions:</strong> 10</span>
-        <span><strong>Fee:</strong> Rs. 15,000</span>
-        <span><strong>Duration:</strong> September 16 - October 15</span>
+        <span><strong>Level:</strong> Beginner</span>
+        <span><strong>Sessions:</strong> 6</span>
+        <span><strong>Fee:</strong> Rs. 12,000</span>
+        <span><strong>Duration:</strong> September & October</span>
       </div>
 
-      <p class="subtitle" style="margin-bottom: 24px; color: #F5C518; font-weight: 600;">Only 4 spots left.</p>
+      <p class="subtitle" style="margin-bottom: 24px; color: #F5C518; font-weight: 600;">Only 6 spots left.</p>
       
       <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20wheel%20throwing%20course" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 0; margin-bottom: 64px;">Reserve Your Spot</a>
 
@@ -423,7 +441,7 @@ export class PotteryClassesContent extends LitElement {
         </li>
         <li>
           <h3>The course is catered to the individual student's needs.</h3>
-          <p>Training is personalized. We take on a maximum of 4 students per course to ensure that everyone has ample time and a solid foundation.</p>
+          <p>Training is personalized. We take in a limited number of students per session to ensure that everyone has ample time and a solid foundation.</p>
         </li>
         <li>
           <h3>From making to firing. Understand the whole process.</h3>
@@ -490,9 +508,9 @@ export class PotteryClassesContent extends LitElement {
         </thead>
         <tbody>
           <tr>
-            <td>10</td>
+            <td>6</td>
             <td>Beginner</td>
-            <td>Rs. 15,000</td>
+            <td>Rs. 12,000</td>
           </tr>
         </tbody>
       </table>
@@ -501,9 +519,8 @@ export class PotteryClassesContent extends LitElement {
         <h2>Course inclusions</h2>
         <ul class="info-list">
           <li>Clay</li>
-          <li>Apron</li>
-          <li>Basic tools</li>
-          <li>Firing upto 5 pieces.</li>
+          <li>Apron and basic tools for use in the studio.</li>
+          <li>Firing upto 4 pieces.</li>
           <li>Additional pieces can be fired at the rate of 1000 rupees per kg.</li>
         </ul>
       </div>
@@ -511,8 +528,8 @@ export class PotteryClassesContent extends LitElement {
       <div class="info-section">
         <h2>Schedule</h2>
         <ul class="info-list">
-          <li>Dates : September 16 - October 15</li>
-          <li>Days : All 7 days of the week</li>
+          <li>Dates : September & October</li>
+          <li>Days : Mon-Friday</li>
           <li>Duration per session : 3 hrs / session</li>
           <li>Clean-up after classes is mandatory</li>
         </ul>
