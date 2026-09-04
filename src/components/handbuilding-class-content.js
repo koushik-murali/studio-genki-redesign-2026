@@ -423,6 +423,7 @@ export class HandbuildingClassContent extends LitElement {
 
       <div class="course-meta-bar">
         <span><strong>Sessions:</strong> 6</span>
+        <span><strong>Fee:</strong> Rs. 10,000</span>
         <span><strong>Duration:</strong> Regular classes</span>
         <span><strong>Class Passes:</strong> Weekday & Weekend</span>
       </div>
@@ -492,6 +493,13 @@ export class HandbuildingClassContent extends LitElement {
             <span class="stars">★★★★★</span>
           </div>
         </div>
+      </div>
+
+      <div class="info-section">
+        <h2>Course Fee</h2>
+        <ul class="info-list">
+          <li>Course fee: Rs. 10,000</li>
+        </ul>
       </div>
 
       <h2>Class Passes</h2>
