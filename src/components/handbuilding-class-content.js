@@ -360,9 +360,9 @@ export class HandbuildingClassContent extends LitElement {
         color: #FFFFFF;
       }
       
-      td:nth-of-type(1):before { content: "No. of sessions"; }
-      td:nth-of-type(2):before { content: "Level"; }
-      td:nth-of-type(3):before { content: "Fee"; }
+      td:nth-of-type(1):before { content: "Pass Type"; }
+      td:nth-of-type(2):before { content: "Validity"; }
+      td:nth-of-type(3):before { content: "Glaze Completion"; }
       
       td:last-child {
         border-bottom: 0;
@@ -415,17 +415,16 @@ export class HandbuildingClassContent extends LitElement {
   render() {
     return html`
       <a href="/classes.html" class="back-link">&larr; Back to courses</a>
-      <h1>Weekend Handbuilding Workshop</h1>
+      <h1>Handbuilding Classes</h1>
     
       <p class="description">
-        An immersive introduction to the art of handbuilding ceramics. Learn to make functional and decorative forms without the potter's wheel. Absolutely no prior experience or artistic background is required!
+        An introduction to handbuilding ceramics. Learn to make functional and decorative forms without the potter's wheel. No prior experience or artistic background is required.
       </p>
 
       <div class="course-meta-bar">
-        <span><strong>Level:</strong> Beginner</span>
-        <span><strong>Sessions:</strong> 2</span>
-        <span><strong>Fee:</strong> Rs. 5,000 INR</span>
-        <span><strong>Duration:</strong> September 26, 27</span>
+        <span><strong>Sessions:</strong> 6</span>
+        <span><strong>Duration:</strong> Regular classes</span>
+        <span><strong>Class Passes:</strong> Weekday & Weekend</span>
       </div>
 
       <p class="subtitle" style="margin-bottom: 24px; color: #F5C518; font-weight: 600;">Only 6 spots left.</p>
@@ -495,20 +494,25 @@ export class HandbuildingClassContent extends LitElement {
         </div>
       </div>
 
-      <h2>Course Details</h2>
+      <h2>Class Passes</h2>
       <table>
         <thead>
           <tr>
-            <th>No. of sessions</th>
-            <th>Level</th>
-            <th>Fee</th>
+            <th>Pass Type</th>
+            <th>Validity</th>
+            <th>Glaze Completion</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>2</td>
-            <td>Beginner</td>
-            <td>Rs. 5,000 INR</td>
+            <td>Weekday Pass</td>
+            <td>Valid for 2 weeks</td>
+            <td>Within a week after last session</td>
+          </tr>
+          <tr>
+            <td>Weekend Pass</td>
+            <td>Valid for 3 weeks</td>
+            <td>The following weekend</td>
           </tr>
         </tbody>
       </table>
@@ -526,8 +530,8 @@ export class HandbuildingClassContent extends LitElement {
       <div class="info-section">
         <h2>Schedule</h2>
         <ul class="info-list">
-          <li>Dates : September 26, 27</li>
-          <li>Days : Saturday and Sunday</li>
+          <li>Dates : On-going regular classes</li>
+          <li>Days : All days (flexible schedule)</li>
           <li>Duration per session : 3 hrs / session</li>
           <li>Clean-up after classes is mandatory</li>
         </ul>
@@ -546,8 +550,10 @@ export class HandbuildingClassContent extends LitElement {
       <div class="info-section">
         <h2>Policies</h2>
         <ul class="info-list">
-          <li>Up to 2 makeup sessions are allowed during the course duration.</li>
-          <li>Course passes will expire strictly after the set course dates.</li>
+          <li>Registration validity: Weekday Pass is valid for 2 weeks; Weekend Pass is valid for 3 weeks.</li>
+          <li>All 6 sessions must be completed within the pass validity period unless a reschedule is initiated by the studio due to production work or official holidays.</li>
+          <li>Glaze completion: Within a week after the last session for Weekday Passes, and the following weekend for Weekend Passes.</li>
+          <li>Finished articles must be collected within the designated pick-up window communicated by the studio. Articles will not be retained or saved in the studio beyond the pick-up deadline.</li>
         </ul>
       </div>
 

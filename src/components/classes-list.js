@@ -10,23 +10,23 @@ export class ClassesList extends LitElement {
     this.classes = [
       {
         id: 'beginners-wheel-throwing',
-        title: 'Weekday Wheel Throwing Classes',
+        title: 'Wheel Throwing Classes',
         image: '/classes-gallery/02.png',
         link: '/beginners-pottery-classes-coimbatore.html',
         sessions: '6',
-        fees: 'Rs. 12,000',
-        duration: 'September & October',
+        fees: 'Rs. 10,000',
+        duration: 'Regular classes',
         spots: '6',
         level: 'beginner'
       },
       {
         id: 'handbuilding-classes',
-        title: 'Weekend Handbuilding Workshop',
+        title: 'Handbuilding Classes',
         image: '/classes-gallery/09.png',
         link: '/handbuilding-workshop.html',
-        sessions: '2',
-        fees: 'Rs. 5,000 INR',
-        duration: 'September 26, 27',
+        sessions: '6',
+        fees: 'Rs. 10,000',
+        duration: 'Regular classes',
         spots: '6',
         level: 'beginner'
       },

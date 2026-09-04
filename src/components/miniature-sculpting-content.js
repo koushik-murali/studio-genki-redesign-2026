@@ -518,6 +518,7 @@ export class MiniatureSculptingContent extends LitElement {
         <h2>Policies</h2>
         <ul class="info-list">
           <li>Crash course purchases are final and no reschedule is possible.</li>
+          <li>Finished articles must be collected within the designated pick-up window communicated by the studio. Articles will not be retained or saved in the studio beyond the pick-up deadline.</li>
         </ul>
       </div>
 
