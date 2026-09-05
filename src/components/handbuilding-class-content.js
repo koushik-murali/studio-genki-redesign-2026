@@ -360,9 +360,11 @@ export class HandbuildingClassContent extends LitElement {
         color: #FFFFFF;
       }
       
-      td:nth-of-type(1):before { content: "Pass Type"; }
-      td:nth-of-type(2):before { content: "Validity"; }
-      td:nth-of-type(3):before { content: "Glaze Completion"; }
+      td:nth-of-type(1):before { content: "Sessions"; }
+      td:nth-of-type(2):before { content: "Fee"; }
+      td:nth-of-type(3):before { content: "Weekday Pass"; }
+      td:nth-of-type(4):before { content: "Weekend Pass"; }
+      td:nth-of-type(5):before { content: "Glaze Completion"; }
       
       td:last-child {
         border-bottom: 0;
@@ -422,8 +424,8 @@ export class HandbuildingClassContent extends LitElement {
       </p>
 
       <div class="course-meta-bar">
-        <span><strong>Sessions:</strong> 6</span>
-        <span><strong>Fee:</strong> Rs. 10,000</span>
+        <span><strong>Sessions:</strong> 6, 10, or 20</span>
+        <span><strong>Fee:</strong> From Rs. 10,500</span>
         <span><strong>Duration:</strong> Regular classes</span>
         <span><strong>Class Passes:</strong> Weekday & Weekend</span>
       </div>
@@ -495,32 +497,38 @@ export class HandbuildingClassContent extends LitElement {
         </div>
       </div>
 
-      <div class="info-section">
-        <h2>Course Fee</h2>
-        <ul class="info-list">
-          <li>Course fee: Rs. 10,000</li>
-        </ul>
-      </div>
-
-      <h2>Class Passes</h2>
+      <h2>Packages & Class Passes</h2>
       <table>
         <thead>
           <tr>
-            <th>Pass Type</th>
-            <th>Validity</th>
+            <th>Sessions</th>
+            <th>Fee</th>
+            <th>Weekday Pass</th>
+            <th>Weekend Pass</th>
             <th>Glaze Completion</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Weekday Pass</td>
+            <td>6 Sessions</td>
+            <td>Rs. 10,500</td>
             <td>Valid for 2 weeks</td>
-            <td>Within a week after last session</td>
+            <td>Valid for 3 weeks</td>
+            <td>Weekday: within 1 week post last session<br>Weekend: following weekend</td>
           </tr>
           <tr>
-            <td>Weekend Pass</td>
-            <td>Valid for 3 weeks</td>
-            <td>The following weekend</td>
+            <td>10 Sessions</td>
+            <td>Rs. 17,500</td>
+            <td>Valid for 4 weeks</td>
+            <td>Valid for 5 weeks</td>
+            <td>Weekday: within 1 week post last session<br>Weekend: following weekend</td>
+          </tr>
+          <tr>
+            <td>20 Sessions</td>
+            <td>Rs. 35,000</td>
+            <td>Valid for 8 weeks</td>
+            <td>Valid for 10 weeks</td>
+            <td>Weekday: within 1 week post last session<br>Weekend: following weekend</td>
           </tr>
         </tbody>
       </table>
@@ -558,8 +566,8 @@ export class HandbuildingClassContent extends LitElement {
       <div class="info-section">
         <h2>Policies</h2>
         <ul class="info-list">
-          <li>Registration validity: Weekday Pass is valid for 2 weeks; Weekend Pass is valid for 3 weeks.</li>
-          <li>All 6 sessions must be completed within the pass validity period unless a reschedule is initiated by the studio due to production work or official holidays.</li>
+          <li>Registration validity depends on the selected session package and pass type (Weekday or Weekend pass).</li>
+          <li>All sessions must be completed within the designated pass validity period unless a reschedule is initiated by the studio due to production work or official holidays.</li>
           <li>Glaze completion: Within a week after the last session for Weekday Passes, and the following weekend for Weekend Passes.</li>
           <li>Finished articles must be collected within the designated pick-up window communicated by the studio. Articles will not be retained or saved in the studio beyond the pick-up deadline.</li>
         </ul>

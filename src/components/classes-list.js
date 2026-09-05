@@ -13,8 +13,8 @@ export class ClassesList extends LitElement {
         title: 'Wheel Throwing Classes',
         image: '/classes-gallery/02.png',
         link: '/beginners-pottery-classes-coimbatore.html',
-        sessions: '6',
-        fees: 'Rs. 10,000',
+        sessions: '6, 10, or 20',
+        fees: 'From Rs. 10,500',
         duration: 'Regular classes',
         spots: '6',
         level: 'beginner'
@@ -24,8 +24,8 @@ export class ClassesList extends LitElement {
         title: 'Handbuilding Classes',
         image: '/classes-gallery/09.png',
         link: '/handbuilding-workshop.html',
-        sessions: '6',
-        fees: 'Rs. 10,000',
+        sessions: '6, 10, or 20',
+        fees: 'From Rs. 10,500',
         duration: 'Regular classes',
         spots: '6',
         level: 'beginner'
