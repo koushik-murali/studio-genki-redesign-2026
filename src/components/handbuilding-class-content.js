@@ -362,9 +362,10 @@ export class HandbuildingClassContent extends LitElement {
       
       td:nth-of-type(1):before { content: "Sessions"; }
       td:nth-of-type(2):before { content: "Fee"; }
-      td:nth-of-type(3):before { content: "Weekday Pass"; }
-      td:nth-of-type(4):before { content: "Weekend Pass"; }
-      td:nth-of-type(5):before { content: "Glaze Completion"; }
+      td:nth-of-type(3):before { content: "Firing Included"; }
+      td:nth-of-type(4):before { content: "Weekday Pass"; }
+      td:nth-of-type(5):before { content: "Weekend Pass"; }
+      td:nth-of-type(6):before { content: "Glaze Completion"; }
       
       td:last-child {
         border-bottom: 0;
@@ -445,7 +446,7 @@ export class HandbuildingClassContent extends LitElement {
         </li>
         <li>
           <h3>From wet clay to finished piece.</h3>
-          <p>Understand the complete cycle of making, drying, bisque firing, and glazing. You will take home 3-5 finished pieces made entirely by you (e.g., mugs, bowls, or planters).</p>
+          <p>Understand the complete cycle of making, drying, bisque firing, and glazing. You will take home finished pieces made entirely by you (e.g., mugs, bowls, or planters).</p>
         </li>
       </ul>
 
@@ -503,6 +504,7 @@ export class HandbuildingClassContent extends LitElement {
           <tr>
             <th>Sessions</th>
             <th>Fee</th>
+            <th>Firing Included</th>
             <th>Weekday Pass</th>
             <th>Weekend Pass</th>
             <th>Glaze Completion</th>
@@ -512,6 +514,7 @@ export class HandbuildingClassContent extends LitElement {
           <tr>
             <td>6 Sessions</td>
             <td>Rs. 10,500</td>
+            <td>2 pieces</td>
             <td>Valid for 2 weeks</td>
             <td>Valid for 3 weeks</td>
             <td>Weekday: within 1 week post last session<br>Weekend: following weekend</td>
@@ -519,6 +522,7 @@ export class HandbuildingClassContent extends LitElement {
           <tr>
             <td>10 Sessions</td>
             <td>Rs. 17,500</td>
+            <td>5 pieces</td>
             <td>Valid for 4 weeks</td>
             <td>Valid for 5 weeks</td>
             <td>Weekday: within 1 week post last session<br>Weekend: following weekend</td>
@@ -526,6 +530,7 @@ export class HandbuildingClassContent extends LitElement {
           <tr>
             <td>20 Sessions</td>
             <td>Rs. 35,000</td>
+            <td>10 pieces</td>
             <td>Valid for 8 weeks</td>
             <td>Valid for 10 weeks</td>
             <td>Weekday: within 1 week post last session<br>Weekend: following weekend</td>
@@ -538,7 +543,7 @@ export class HandbuildingClassContent extends LitElement {
         <ul class="info-list">
           <li>Clay</li>
           <li>Apron and basic tools for use in the studio.</li>
-          <li>Firing upto 2 pieces.</li>
+          <li>Firing included based on package: 2 pieces (6 sessions), 5 pieces (10 sessions), or 10 pieces (20 sessions).</li>
           <li>Additional pieces can be fired at the rate of 1000 rupees per kg.</li>
         </ul>
       </div>
