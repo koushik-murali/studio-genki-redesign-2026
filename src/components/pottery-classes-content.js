@@ -428,7 +428,7 @@ export class PotteryClassesContent extends LitElement {
 
       <div class="course-meta-bar">
         <span><strong>Sessions:</strong> 6, 10, or 20</span>
-        <span><strong>Fee:</strong> From Rs. 10,500</span>
+        <span><strong>Fee:</strong> From Rs. 9,900</span>
         <span><strong>Duration:</strong> Regular classes</span>
         <span><strong>Class Passes:</strong> Weekday & Weekend</span>
       </div>
@@ -515,7 +515,7 @@ export class PotteryClassesContent extends LitElement {
         <tbody>
           <tr>
             <td>6 Sessions</td>
-            <td>Rs. 10,500</td>
+            <td>Rs. 9,900</td>
             <td>2 pieces</td>
             <td>Valid for 2 weeks</td>
             <td>Valid for 3 weeks</td>
@@ -523,7 +523,7 @@ export class PotteryClassesContent extends LitElement {
           </tr>
           <tr>
             <td>10 Sessions</td>
-            <td>Rs. 17,500</td>
+            <td>Rs. 16,500</td>
             <td>5 pieces</td>
             <td>Valid for 4 weeks</td>
             <td>Valid for 5 weeks</td>
@@ -531,7 +531,7 @@ export class PotteryClassesContent extends LitElement {
           </tr>
           <tr>
             <td>20 Sessions</td>
-            <td>Rs. 35,000</td>
+            <td>Rs. 33,000</td>
             <td>10 pieces</td>
             <td>Valid for 8 weeks</td>
             <td>Valid for 10 weeks</td>
