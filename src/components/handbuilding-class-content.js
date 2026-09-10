@@ -716,7 +716,11 @@ export class HandbuildingClassContent extends LitElement {
           <ul class="card-features">
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
-              <span><strong>20 Sessions</strong> (60 hrs total)</span>
+              <span><strong>20 Sessions</strong> (60 hrs guided instruction)</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>Unlimited free studio practice</strong> within validity</span>
             </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
@@ -857,6 +861,7 @@ export class HandbuildingClassContent extends LitElement {
           <div class="accordion-content">
             <ul>
               <li><strong>Validity periods:</strong> 3 weeks for Explore (6 sessions), 5 weeks for Foundation (10 sessions), and 8 weeks for Intensive (20 sessions).</li>
+              <li><strong>Unlimited studio practice:</strong> Intensive course students receive unlimited free studio practice access within their 8-week validity period to establish an independent workflow and practice rhythm.</li>
               <li>All sessions must be completed within your designated pass validity period unless a reschedule is initiated by the studio due to production work or official holidays.</li>
               <li>Glaze completion: Within one week following your final session.</li>
               <li>Finished articles must be collected within the designated pick-up window communicated by the studio. Articles will not be retained or saved in the studio beyond the pick-up deadline.</li>
