@@ -595,92 +595,89 @@ export class PotteryClassesContent extends LitElement {
       </p>
 
       <div class="pricing-grid">
-        <!-- 6 Sessions -->
+        <!-- Explore (6 Sessions) -->
         <div class="pricing-card">
           <div class="card-header">
-            <h3 class="card-title">6 Sessions</h3>
+            <h3 class="card-title">Explore</h3>
             <div class="card-price">₹9,900</div>
-            <div class="card-subtext">₹1,650 / session</div>
           </div>
           <ul class="card-features">
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>6 Sessions</strong> (3 hrs each / 18 hrs total)</span>
+            </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
               <span><strong>2 pieces</strong> glazed & fired included</span>
             </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
-              <span><strong>Weekday Pass:</strong> Valid for 2 weeks</span>
+              <span><strong>Validity:</strong> 3 weeks</span>
             </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
-              <span><strong>Weekend Pass:</strong> Valid for 3 weeks</span>
-            </li>
-            <li class="card-feature-item">
-              <span class="card-feature-bullet">✓</span>
-              <span><strong>3 hours</strong> per session (18 hrs total)</span>
+              <span>Flexible scheduling across all days</span>
             </li>
           </ul>
-          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%206%20sessions%20wheel%20throwing%20package" 
-             target="_blank" rel="noopener noreferrer" class="card-btn">Choose 6 Sessions</a>
+          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20Explore%20(6%20sessions)%20wheel%20throwing%20course" 
+             target="_blank" rel="noopener noreferrer" class="card-btn">Choose Explore</a>
         </div>
 
-        <!-- 10 Sessions (Featured) -->
+        <!-- Foundation (10 Sessions - Featured) -->
         <div class="pricing-card featured">
           <div class="pricing-badge">Most Popular</div>
           <div class="card-header">
-            <h3 class="card-title">10 Sessions</h3>
+            <h3 class="card-title">Foundation</h3>
             <div class="card-price">₹16,500</div>
-            <div class="card-subtext">₹1,650 / session</div>
           </div>
           <ul class="card-features">
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>10 Sessions</strong> (3 hrs each / 30 hrs total)</span>
+            </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
               <span><strong>5 pieces</strong> glazed & fired included</span>
             </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
-              <span><strong>Weekday Pass:</strong> Valid for 4 weeks</span>
+              <span><strong>Validity:</strong> 5 weeks</span>
             </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
-              <span><strong>Weekend Pass:</strong> Valid for 5 weeks</span>
-            </li>
-            <li class="card-feature-item">
-              <span class="card-feature-bullet">✓</span>
-              <span><strong>3 hours</strong> per session (30 hrs total)</span>
+              <span>Flexible scheduling across all days</span>
             </li>
           </ul>
-          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%2010%20sessions%20wheel%20throwing%20package" 
-             target="_blank" rel="noopener noreferrer" class="card-btn">Choose 10 Sessions</a>
+          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20Foundation%20(10%20sessions)%20wheel%20throwing%20course" 
+             target="_blank" rel="noopener noreferrer" class="card-btn">Choose Foundation</a>
         </div>
 
-        <!-- 20 Sessions -->
+        <!-- Intensive (20 Sessions) -->
         <div class="pricing-card">
           <div class="card-header">
-            <h3 class="card-title">20 Sessions</h3>
+            <h3 class="card-title">Intensive</h3>
             <div class="card-price">₹33,000</div>
-            <div class="card-subtext">₹1,650 / session</div>
           </div>
           <ul class="card-features">
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>20 Sessions</strong> (3 hrs each / 60 hrs total)</span>
+            </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
               <span><strong>10 pieces</strong> glazed & fired included</span>
             </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
-              <span><strong>Weekday Pass:</strong> Valid for 8 weeks</span>
+              <span><strong>Validity:</strong> 8 weeks</span>
             </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
-              <span><strong>Weekend Pass:</strong> Valid for 10 weeks</span>
-            </li>
-            <li class="card-feature-item">
-              <span class="card-feature-bullet">✓</span>
-              <span><strong>3 hours</strong> per session (60 hrs total)</span>
+              <span>Flexible scheduling across all days</span>
             </li>
           </ul>
-          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%2020%20sessions%20wheel%20throwing%20package" 
-             target="_blank" rel="noopener noreferrer" class="card-btn">Choose 20 Sessions</a>
+          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20Intensive%20(20%20sessions)%20wheel%20throwing%20course" 
+             target="_blank" rel="noopener noreferrer" class="card-btn">Choose Intensive</a>
         </div>
       </div>
 
@@ -785,9 +782,9 @@ export class PotteryClassesContent extends LitElement {
           </summary>
           <div class="accordion-content">
             <ul>
-              <li>Registration validity depends on the selected session package and pass type (Weekday or Weekend pass).</li>
-              <li>All sessions must be completed within the designated pass validity period unless a reschedule is initiated by the studio due to production work or official holidays.</li>
-              <li>Glaze completion: Within a week after the last session for Weekday Passes, and the following weekend for Weekend Passes.</li>
+              <li><strong>Validity periods:</strong> 3 weeks for Explore (6 sessions), 5 weeks for Foundation (10 sessions), and 8 weeks for Intensive (20 sessions).</li>
+              <li>All sessions must be completed within your designated pass validity period unless a reschedule is initiated by the studio due to production work or official holidays.</li>
+              <li>Glaze completion: Within one week following your final session.</li>
               <li>Finished articles must be collected within the designated pick-up window communicated by the studio. Articles will not be retained or saved in the studio beyond the pick-up deadline.</li>
             </ul>
           </div>
