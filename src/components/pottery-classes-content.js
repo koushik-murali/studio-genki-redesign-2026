@@ -441,22 +441,77 @@ export class PotteryClassesContent extends LitElement {
       border-color: #e0e0e0;
     }
 
-    .packages-footer-note {
+    /* Inclusions Feature Cards */
+    .inclusions-section {
+      margin: 48px 0 80px 0;
+    }
+
+    .inclusions-title {
+      font-family: var(--font-merriweather, serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 0 0 24px 0;
+      text-align: center;
+    }
+
+    .inclusions-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .inclusion-card {
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 64px;
-      font-size: 15px;
-      color: #B9B9B9;
-      line-height: 1.6;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.2s ease, border-color 0.2s ease;
     }
 
-    .packages-footer-note h3 {
-      margin: 0 0 8px 0;
+    .inclusion-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .inclusion-icon {
+      font-size: 24px;
+      margin-bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    .inclusion-heading {
+      font-family: var(--font-merriweather-sans, sans-serif);
       font-size: 16px;
+      font-weight: 700;
       color: #FFFFFF;
-      font-weight: 600;
+      margin: 0 0 8px 0;
+      line-height: 1.3;
+    }
+
+    .inclusion-desc {
+      font-size: 14px;
+      color: #A0A0A0;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .inclusions-extra-note {
+      text-align: center;
+      font-size: 14px;
+      color: #8E8E8E;
+      margin: 0;
+      font-style: italic;
     }
 
     .info-section {
@@ -528,6 +583,15 @@ export class PotteryClassesContent extends LitElement {
       
       .pricing-card {
         padding: 32px 20px;
+      }
+
+      .inclusions-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .inclusions-title, .inclusions-extra-note {
+        text-align: left;
       }
 
       .accordion-header {
@@ -608,6 +672,10 @@ export class PotteryClassesContent extends LitElement {
             </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
+              <span><strong>Prerequisite:</strong> None</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
               <span><strong>2 pieces</strong> glazed & fired included</span>
             </li>
             <li class="card-feature-item">
@@ -634,6 +702,10 @@ export class PotteryClassesContent extends LitElement {
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
               <span><strong>10 Sessions</strong> (3 hrs each / 30 hrs total)</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>Prerequisite:</strong> None</span>
             </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
@@ -665,6 +737,10 @@ export class PotteryClassesContent extends LitElement {
             </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
+              <span><strong>Prerequisite:</strong> Beginner course required</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
               <span><strong>10 pieces</strong> glazed & fired included</span>
             </li>
             <li class="card-feature-item">
@@ -681,9 +757,34 @@ export class PotteryClassesContent extends LitElement {
         </div>
       </div>
 
-      <div class="packages-footer-note">
-        <h3>All packages include:</h3>
-        Clay, studio aprons, trimming and throwing tools, bisque & glaze firings, and dedicated one-on-one guidance (max 4 students per slot). Additional pieces beyond package allowance can be fired at ₹1,000 / kg.
+      <div class="inclusions-section">
+        <h2 class="inclusions-title">All packages include</h2>
+        <div class="inclusions-grid">
+          <div class="inclusion-card">
+            <div class="inclusion-icon">🏺</div>
+            <div class="inclusion-heading">Clay & Wheels</div>
+            <p class="inclusion-desc">High-grade stoneware clay for practice, with your own electric wheel for every session.</p>
+          </div>
+
+          <div class="inclusion-card">
+            <div class="inclusion-icon">🛠️</div>
+            <div class="inclusion-heading">Tools & Apron</div>
+            <p class="inclusion-desc">Complete set of throwing ribs, trimming tools, wire cutters, sponges, and clean studio aprons.</p>
+          </div>
+
+          <div class="inclusion-card">
+            <div class="inclusion-icon">🔥</div>
+            <div class="inclusion-heading">Firings & Glaze</div>
+            <p class="inclusion-desc">Professional high-fire bisque and food-safe glaze firings included for your quota of finished pieces.</p>
+          </div>
+
+          <div class="inclusion-card">
+            <div class="inclusion-icon">👥</div>
+            <div class="inclusion-heading">1-on-1 Guidance</div>
+            <p class="inclusion-desc">Intimate studio format capped at max 4 students for focused, individualized instruction.</p>
+          </div>
+        </div>
+        <p class="inclusions-extra-note">* Additional pieces beyond your package quota can be fired at ₹1,000 / kg.</p>
       </div>
 
       <ul class="features-list">
