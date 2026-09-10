@@ -2,7 +2,8 @@ import { LitElement, html, css } from 'lit';
 
 export class ClassesList extends LitElement {
   static properties = {
-    classes: { type: Array }
+    classes: { type: Array },
+    theme: { type: String, state: true }
   };
 
   constructor() {
@@ -16,7 +17,7 @@ export class ClassesList extends LitElement {
         sessions: '6, 10, or 20',
         fees: 'From Rs. 9,900',
         duration: 'Regular classes',
-        spots: '6',
+        spots: '3 per slot',
         level: 'beginner'
       },
       {
@@ -27,7 +28,7 @@ export class ClassesList extends LitElement {
         sessions: '6, 10, or 20',
         fees: 'From Rs. 9,900',
         duration: 'Regular classes',
-        spots: '6',
+        spots: '3 per slot',
         level: 'beginner'
       },
       {
@@ -42,6 +43,36 @@ export class ClassesList extends LitElement {
         level: 'beginner'
       }
     ];
+    this.theme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'dark';
+    this._onThemeChange = () => {
+      const t = document.documentElement.getAttribute('data-theme') || 'dark';
+      this.theme = t;
+      this.setAttribute('data-theme', t);
+    };
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    const currentTheme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'dark';
+    this.theme = currentTheme;
+    this.setAttribute('data-theme', currentTheme);
+
+    window.addEventListener('theme-changed', this._onThemeChange);
+    this._themeObserver = new MutationObserver(() => {
+      this._onThemeChange();
+    });
+    this._themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    window.removeEventListener('theme-changed', this._onThemeChange);
+    if (this._themeObserver) {
+      this._themeObserver.disconnect();
+    }
   }
 
   static styles = css`
@@ -53,6 +84,11 @@ export class ClassesList extends LitElement {
       padding: 40px 0;
       color: #FFFFFF;
       font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
+      transition: color 0.3s ease;
+    }
+
+    :host([data-theme="light"]) {
+      color: #141414;
     }
 
     h1 {
@@ -62,6 +98,7 @@ export class ClassesList extends LitElement {
       line-height: 1.2;
       margin: 0 0 48px 0;
       text-align: center;
+      transition: color 0.3s ease;
     }
 
     .classes-grid {
@@ -77,7 +114,7 @@ export class ClassesList extends LitElement {
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      transition: transform 0.3s ease, border-color 0.3s ease;
+      transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     .class-card:hover {
@@ -106,6 +143,7 @@ export class ClassesList extends LitElement {
       color: #FFFFFF;
       margin: 0 0 12px 0;
       line-height: 1.3;
+      transition: color 0.3s ease;
     }
 
     .level-tag {
@@ -143,6 +181,7 @@ export class ClassesList extends LitElement {
       color: #B9B9B9;
       margin-bottom: 24px;
       line-height: 1.6;
+      transition: color 0.3s ease;
     }
 
     .card-meta span {
@@ -153,6 +192,7 @@ export class ClassesList extends LitElement {
     .card-meta strong {
       color: #FFFFFF;
       font-weight: 600;
+      transition: color 0.3s ease;
     }
 
     .read-more {
@@ -168,10 +208,61 @@ export class ClassesList extends LitElement {
       text-align: center;
       transition: all 0.2s ease;
       align-self: flex-start;
+      border-radius: 6px;
     }
 
     .read-more:hover {
       background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Light mode styles */
+    :host([data-theme="light"]) h1,
+    .light-mode h1,
+    :host([data-theme="light"]) .card-title,
+    .light-mode .card-title {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .class-card,
+    .light-mode .class-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    :host([data-theme="light"]) .class-card:hover,
+    .light-mode .class-card:hover {
+      border-color: rgba(0, 0, 0, 0.25);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    :host([data-theme="light"]) .card-meta,
+    .light-mode .card-meta {
+      color: #555555;
+    }
+
+    :host([data-theme="light"]) .card-meta strong,
+    .light-mode .card-meta strong {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .level-beginner,
+    .light-mode .level-beginner {
+      background-color: #F4F1EC;
+      color: #555555;
+      border: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    :host([data-theme="light"]) .read-more,
+    .light-mode .read-more {
+      color: #141414;
+      border-color: #141414;
+    }
+
+    :host([data-theme="light"]) .read-more:hover,
+    .light-mode .read-more:hover {
+      background-color: #141414;
+      color: #FFFFFF;
     }
 
     @media (max-width: 1024px) {
@@ -190,24 +281,29 @@ export class ClassesList extends LitElement {
   `;
 
   render() {
+    const isLight = this.theme === 'light';
+
     return html`
-      <h1>Classes & Workshops</h1>
-      <div class="classes-grid">
-        ${this.classes.map(cls => html`
-          <div class="class-card">
-            <img src="${cls.image}" alt="${cls.title}" class="card-image" onerror="this.style.backgroundColor='#333'" />
-            <div class="card-content">
-              ${cls.level ? html`<div class="level-tag level-${cls.level}">${cls.level}</div>` : ''}
-              <h2 class="card-title">${cls.title}</h2>
-              <div class="card-meta">
-                <span><strong>Sessions:</strong> ${cls.sessions}</span>
-                <span><strong>Fee:</strong> ${cls.fees}</span>
-                <span><strong>Duration:</strong> ${cls.duration}</span>
+      <div class="${isLight ? 'light-mode' : ''}">
+        <h1>Classes & Workshops</h1>
+        <div class="classes-grid">
+          ${this.classes.map(cls => html`
+            <div class="class-card">
+              <img src="${cls.image}" alt="${cls.title}" class="card-image" onerror="this.style.backgroundColor='#333'" />
+              <div class="card-content">
+                ${cls.level ? html`<div class="level-tag level-${cls.level}">${cls.level}</div>` : ''}
+                <h2 class="card-title">${cls.title}</h2>
+                <div class="card-meta">
+                  <span><strong>Sessions:</strong> ${cls.sessions}</span>
+                  <span><strong>Fee:</strong> ${cls.fees}</span>
+                  <span><strong>Duration:</strong> ${cls.duration}</span>
+                  <span><strong>Batch:</strong> ${cls.spots}</span>
+                </div>
+                <a href="${cls.link}" class="read-more">Read more</a>
               </div>
-              <a href="${cls.link}" class="read-more">Read more</a>
             </div>
-          </div>
-        `)}
+          `)}
+        </div>
       </div>
     `;
   }

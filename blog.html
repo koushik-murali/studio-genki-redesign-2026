@@ -13,6 +13,15 @@
     
     <title>Blog - Studio Genki</title>
 
+    <script>
+      (function() {
+        var savedTheme = localStorage.getItem('sg_theme');
+        var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = savedTheme ? savedTheme : (systemDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+
     <style>
       /* ---- LISTING VIEW ---- */
       .listing h2 {
@@ -20,14 +29,16 @@
         font-weight: 400;
         font-size: 40px;
         line-height: 1.2;
-        color: #FFFFFF;
+        color: var(--color-text, #FFFFFF);
         margin: 0 0 48px 0;
+        transition: color 0.3s ease;
       }
 
       .post-card {
         margin-bottom: 48px;
         padding-bottom: 48px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: border-color 0.3s ease;
       }
 
       .post-card:last-child {
@@ -38,10 +49,11 @@
         font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
         font-weight: 300;
         font-size: 14px;
-        color: #B9B9B9;
+        color: var(--color-text-muted, #B9B9B9);
         text-transform: uppercase;
         letter-spacing: 1px;
         margin-bottom: 12px;
+        transition: color 0.3s ease;
       }
 
       .meta-separator {
@@ -53,14 +65,15 @@
         font-family: var(--font-merriweather, 'Merriweather', serif);
         font-weight: 400;
         font-size: 28px;
-        color: #FFFFFF;
+        color: var(--color-text, #FFFFFF);
         margin-bottom: 12px;
+        transition: color 0.3s ease;
       }
 
       .post-title a {
-        color: #FFFFFF;
+        color: var(--color-text, #FFFFFF);
         text-decoration: none;
-        transition: opacity 0.2s ease;
+        transition: opacity 0.2s ease, color 0.3s ease;
       }
 
       .post-title a:hover {
@@ -72,8 +85,13 @@
         font-weight: 300;
         font-size: 18px;
         line-height: 1.6;
-        color: #B9B9B9;
+        color: var(--color-text-muted, #B9B9B9);
         max-width: 800px;
+        transition: color 0.3s ease;
+      }
+
+      :root[data-theme="light"] .post-card {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
       }
 
       @media (max-width: 1024px) {
@@ -93,21 +111,21 @@
   <link rel="apple-touch-icon" href="/favicon.svg">
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Studio Genki – Hand-made Ceramics & Pottery Classes">
-  <meta property="og:description" content="Studio Genki is an art & design studio in Coimbatore offering handcrafted pottery and hands-on classes.">
-  <meta property="og:url" content="https://studiogenki.in/">
+  <meta property="og:title" content="Studio Genki – Blog">
+  <meta property="og:description" content="Stories, updates, and reflections on ceramics and craft from Studio Genki in Coimbatore.">
+  <meta property="og:url" content="https://studiogenki.in/blog.html">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://studiogenki.in/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Studio Genki – Hand-made Ceramics & Pottery Classes">
-  <meta name="twitter:description" content="Studio Genki is an art & design studio in Coimbatore offering handcrafted pottery and hands-on classes.">
+  <meta name="twitter:title" content="Studio Genki – Blog">
+  <meta name="twitter:description" content="Stories, updates, and reflections on ceramics and craft from Studio Genki in Coimbatore.">
   <meta name="twitter:image" content="https://studiogenki.in/og-image.jpg">
 
 </head>
   <body>
-    
+    <theme-toggle></theme-toggle>
     <div class="page-overlay">
       <div class="container header-container">
         <site-header></site-header>
@@ -144,6 +162,7 @@
     
     <script type="module">
       import '/src/styles/main.css';
+      import '/src/components/theme-toggle.js';
       import '/src/components/site-header.js';
       import '/src/components/site-footer.js';
       import '/src/components/static-background.js';

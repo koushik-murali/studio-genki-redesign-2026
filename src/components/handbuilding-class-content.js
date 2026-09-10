@@ -2,7 +2,8 @@ import { LitElement, html, css } from 'lit';
 
 export class HandbuildingClassContent extends LitElement {
   static properties = {
-    galleryImages: { type: Array }
+    galleryImages: { type: Array },
+    theme: { type: String, state: true }
   };
 
   constructor() {
@@ -14,6 +15,36 @@ export class HandbuildingClassContent extends LitElement {
       '08.png',
       '09.png'
     ];
+    this.theme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'dark';
+    this._onThemeChange = () => {
+      const t = document.documentElement.getAttribute('data-theme') || 'dark';
+      this.theme = t;
+      this.setAttribute('data-theme', t);
+    };
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    const currentTheme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'dark';
+    this.theme = currentTheme;
+    this.setAttribute('data-theme', currentTheme);
+
+    window.addEventListener('theme-changed', this._onThemeChange);
+    this._themeObserver = new MutationObserver(() => {
+      this._onThemeChange();
+    });
+    this._themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    window.removeEventListener('theme-changed', this._onThemeChange);
+    if (this._themeObserver) {
+      this._themeObserver.disconnect();
+    }
   }
 
   static styles = css`
@@ -23,6 +54,11 @@ export class HandbuildingClassContent extends LitElement {
       color: #FFFFFF;
       font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
       font-weight: 300;
+      transition: color 0.3s ease;
+    }
+
+    :host([data-theme="light"]) {
+      color: #141414;
     }
 
     .course-content-column {
@@ -151,10 +187,24 @@ export class HandbuildingClassContent extends LitElement {
       padding-top: 18px;
     }
 
+    .accordion-content p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #B9B9B9;
+      margin: 0;
+    }
+
     .accordion-content ul {
       list-style-type: disc;
       padding-left: 20px;
       margin: 0;
+    }
+
+    .accordion-content .sub-list {
+      list-style-type: circle;
+      padding-left: 20px;
+      margin-top: 6px;
+      margin-bottom: 6px;
     }
 
     .accordion-content li {
@@ -189,7 +239,7 @@ export class HandbuildingClassContent extends LitElement {
       object-fit: cover;
       border-radius: 8px;
       flex-shrink: 0;
-      background-color: #222; /* Placeholder background */
+      background-color: #222;
     }
 
     @media (min-width: 769px) {
@@ -246,43 +296,124 @@ export class HandbuildingClassContent extends LitElement {
       font-size: 18px;
     }
 
-    /* Reviews section */
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      margin-bottom: 96px;
+    /* Reviews Carousel */
+    .reviews-carousel {
+      margin-bottom: 80px;
+      position: relative;
     }
-    
+
+    .reviews-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 6px 4px 18px 4px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    }
+
+    .reviews-track::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .reviews-track::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .reviews-track::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
     .review-card {
+      flex: 0 0 340px;
+      scroll-snap-align: start;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 40px;
+      padding: 26px 24px;
       border-radius: 12px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      box-sizing: border-box;
     }
-    
+
+    .review-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .review-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .review-tag {
+      font-size: 11px;
+      color: #8E8E8E;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
     .review-text {
       color: #B9B9B9;
       font-style: italic;
       line-height: 1.6;
-      margin: 0 0 24px 0;
-      font-size: 16px;
+      margin: 0 0 20px 0;
+      font-size: 15px;
+      flex-grow: 1;
     }
-    
+
     .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 14px;
+    }
+
+    .review-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-merriweather-sans, sans-serif);
+      flex-shrink: 0;
+    }
+
+    .review-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .review-name {
       font-weight: 600;
       color: #FFFFFF;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      font-size: 14px;
+    }
+
+    .review-verified {
+      font-size: 11px;
+      color: #7E7E7E;
     }
     
     .stars {
       color: #F5C518;
-      font-size: 18px;
+      font-size: 15px;
       letter-spacing: 2px;
     }
 
@@ -353,7 +484,35 @@ export class HandbuildingClassContent extends LitElement {
       font-weight: 700;
       color: #FFFFFF;
       line-height: 1;
-      margin-bottom: 6px;
+      margin-bottom: 12px;
+    }
+
+    .card-ideal-for {
+      font-size: 13.5px;
+      color: #A0A0A0;
+      line-height: 1.45;
+      margin: 0;
+      min-height: 40px;
+    }
+
+    .pricing-helper {
+      text-align: center;
+      margin: 28px 0 64px 0;
+      font-size: 15px;
+      color: #8E8E8E;
+    }
+
+    .pricing-helper a {
+      color: #FFFFFF;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      margin-left: 6px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .pricing-helper a:hover {
+      color: #F5C518;
     }
 
     .card-features {
@@ -499,19 +658,6 @@ export class HandbuildingClassContent extends LitElement {
       margin-bottom: 80px;
     }
 
-    .info-list {
-      list-style-type: disc;
-      padding-left: 24px;
-      margin: 0;
-    }
-
-    .info-list li {
-      font-size: 18px;
-      line-height: 1.8;
-      color: #B9B9B9;
-      margin-bottom: 8px;
-    }
-    
     /* Button */
     .contact-button {
       display: inline-flex;
@@ -551,7 +697,15 @@ export class HandbuildingClassContent extends LitElement {
       display: block;
     }
 
+    .mobile-sticky-bar {
+      display: none;
+    }
+
     @media (max-width: 768px) {
+      :host {
+        padding-bottom: 80px;
+      }
+
       h1 { font-size: 32px; }
       h2 { font-size: 24px; }
       h3 { font-size: 18px; }
@@ -561,7 +715,7 @@ export class HandbuildingClassContent extends LitElement {
         grid-template-columns: 1fr;
         gap: 28px;
       }
-      
+
       .pricing-card {
         padding: 32px 20px;
       }
@@ -584,9 +738,16 @@ export class HandbuildingClassContent extends LitElement {
         padding: 0 20px 20px 20px;
         padding-top: 14px;
       }
-
-      .instructor-section, .review-card {
+      
+      .instructor-section {
         padding: 24px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .review-card {
+        flex: 0 0 290px;
+        padding: 22px 18px;
       }
 
       .gallery-wrapper {
@@ -614,11 +775,6 @@ export class HandbuildingClassContent extends LitElement {
       .duplicate-for-marquee {
         display: none;
       }
-
-      .instructor-section {
-        flex-direction: column;
-        text-align: center;
-      }
       
       .contact-button { 
         width: 100%; 
@@ -626,12 +782,389 @@ export class HandbuildingClassContent extends LitElement {
         font-size: 16px;
         box-sizing: border-box;
       }
+
+      .mobile-sticky-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(12, 12, 12, 0.95);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)) 16px;
+        z-index: 999;
+        box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.75);
+      }
+
+      .mobile-sticky-btn {
+        width: 100%;
+        box-sizing: border-box;
+        background: #FFFFFF;
+        color: #000000;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 16px 20px;
+        border-radius: 10px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        letter-spacing: 0.3px;
+        transition: background 0.2s ease, transform 0.1s ease;
+        font-family: var(--font-merriweather-sans, sans-serif);
+      }
+
+      .mobile-sticky-btn:hover {
+        background: #e0e0e0;
+      }
+
+      .mobile-sticky-btn:active {
+        transform: scale(0.98);
+      }
+    }
+
+    /* ==========================================================================
+       Light Mode Overrides (Warm Japanese Ceramic Bisque Minimalist)
+       ========================================================================== */
+    :host([data-theme="light"]) h1,
+    .light-mode h1,
+    :host([data-theme="light"]) h2,
+    .light-mode h2,
+    :host([data-theme="light"]) h3,
+    .light-mode h3 {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .description,
+    .light-mode .description {
+      color: #555555;
+    }
+
+    :host([data-theme="light"]) .back-link,
+    .light-mode .back-link {
+      color: #666666;
+    }
+
+    :host([data-theme="light"]) .back-link:hover,
+    .light-mode .back-link:hover {
+      color: #000000;
+    }
+
+    :host([data-theme="light"]) .pricing-card,
+    .light-mode .pricing-card {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    :host([data-theme="light"]) .pricing-card:hover,
+    .light-mode .pricing-card:hover {
+      border-color: rgba(0, 0, 0, 0.28);
+      background: #FFFFFF;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    :host([data-theme="light"]) .pricing-card.featured,
+    .light-mode .pricing-card.featured {
+      background: #FFFFFF;
+      border: 2px solid #141414;
+      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.09);
+    }
+
+    :host([data-theme="light"]) .pricing-badge,
+    .light-mode .pricing-badge {
+      background: #141414;
+      color: #FFFFFF;
+    }
+
+    :host([data-theme="light"]) .card-title,
+    .light-mode .card-title,
+    :host([data-theme="light"]) .card-price,
+    .light-mode .card-price {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .card-ideal-for,
+    .light-mode .card-ideal-for {
+      color: #666666;
+    }
+
+    :host([data-theme="light"]) .card-features,
+    .light-mode .card-features {
+      border-top-color: rgba(0, 0, 0, 0.08);
+    }
+
+    :host([data-theme="light"]) .card-feature-item,
+    .light-mode .card-feature-item {
+      color: #444444;
+    }
+
+    :host([data-theme="light"]) .card-feature-item strong,
+    .light-mode .card-feature-item strong,
+    :host([data-theme="light"]) .card-feature-bullet,
+    .light-mode .card-feature-bullet {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .card-btn,
+    .light-mode .card-btn {
+      color: #141414;
+      border: 1.5px solid #141414;
+      background: transparent;
+    }
+
+    :host([data-theme="light"]) .card-btn:hover,
+    .light-mode .card-btn:hover {
+      background: #141414;
+      color: #FFFFFF;
+      border-color: #141414;
+    }
+
+    :host([data-theme="light"]) .pricing-card.featured .card-btn,
+    .light-mode .pricing-card.featured .card-btn {
+      background: #141414;
+      color: #FFFFFF;
+      border-color: #141414;
+    }
+
+    :host([data-theme="light"]) .pricing-card.featured .card-btn:hover,
+    .light-mode .pricing-card.featured .card-btn:hover {
+      background: #333333;
+      border-color: #333333;
+    }
+
+    :host([data-theme="light"]) .pricing-helper,
+    .light-mode .pricing-helper {
+      color: #666666;
+    }
+
+    :host([data-theme="light"]) .pricing-helper a,
+    .light-mode .pricing-helper a {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .pricing-helper a:hover,
+    .light-mode .pricing-helper a:hover {
+      color: #C08A0A;
+    }
+
+    :host([data-theme="light"]) .inclusions-title,
+    .light-mode .inclusions-title {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .inclusion-card,
+    .light-mode .inclusion-card {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    :host([data-theme="light"]) .inclusion-card:hover,
+    .light-mode .inclusion-card:hover {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.22);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    :host([data-theme="light"]) .inclusion-icon,
+    .light-mode .inclusion-icon {
+      background: #F4F1EC;
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    :host([data-theme="light"]) .inclusion-heading,
+    .light-mode .inclusion-heading {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .inclusion-desc,
+    .light-mode .inclusion-desc {
+      color: #555555;
+    }
+
+    :host([data-theme="light"]) .inclusions-extra-note,
+    .light-mode .inclusions-extra-note {
+      color: #777777;
+    }
+
+    :host([data-theme="light"]) .accordion-item,
+    .light-mode .accordion-item {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    :host([data-theme="light"]) .accordion-item:hover,
+    .light-mode .accordion-item:hover {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.22);
+    }
+
+    :host([data-theme="light"]) .accordion-item[open],
+    .light-mode .accordion-item[open] {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.28);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    :host([data-theme="light"]) .accordion-header,
+    .light-mode .accordion-header {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .accordion-icon,
+    .light-mode .accordion-icon {
+      color: #777777;
+    }
+
+    :host([data-theme="light"]) .accordion-item[open] .accordion-icon,
+    .light-mode .accordion-item[open] .accordion-icon {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .accordion-content,
+    .light-mode .accordion-content {
+      border-top-color: rgba(0, 0, 0, 0.06);
+    }
+
+    :host([data-theme="light"]) .accordion-content p,
+    .light-mode .accordion-content p,
+    :host([data-theme="light"]) .accordion-content li,
+    .light-mode .accordion-content li {
+      color: #444444;
+    }
+
+    :host([data-theme="light"]) .accordion-content li strong,
+    .light-mode .accordion-content li strong {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .instructor-section,
+    .light-mode .instructor-section {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    :host([data-theme="light"]) .instructor-label,
+    .light-mode .instructor-label {
+      color: #777777;
+    }
+
+    :host([data-theme="light"]) .instructor-bio,
+    .light-mode .instructor-bio {
+      color: #555555;
+    }
+
+    :host([data-theme="light"]) .review-card,
+    .light-mode .review-card {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    }
+
+    :host([data-theme="light"]) .review-card:hover,
+    .light-mode .review-card:hover {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.22);
+    }
+
+    :host([data-theme="light"]) .review-tag,
+    .light-mode .review-tag {
+      color: #666666;
+      background: #F4F1EC;
+    }
+
+    :host([data-theme="light"]) .review-text,
+    .light-mode .review-text {
+      color: #444444;
+    }
+
+    :host([data-theme="light"]) .review-author,
+    .light-mode .review-author {
+      border-top-color: rgba(0, 0, 0, 0.06);
+    }
+
+    :host([data-theme="light"]) .review-avatar,
+    .light-mode .review-avatar {
+      background: #EDEAE4;
+      border-color: rgba(0, 0, 0, 0.1);
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .review-name,
+    .light-mode .review-name {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .review-verified,
+    .light-mode .review-verified {
+      color: #888888;
+    }
+
+    :host([data-theme="light"]) .stars,
+    .light-mode .stars {
+      color: #D99E10;
+    }
+
+    :host([data-theme="light"]) .reviews-track,
+    .light-mode .reviews-track {
+      scrollbar-color: rgba(0, 0, 0, 0.18) transparent;
+    }
+
+    :host([data-theme="light"]) .reviews-track::-webkit-scrollbar-thumb,
+    .light-mode .reviews-track::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.18);
+    }
+
+    :host([data-theme="light"]) .contact-button,
+    .light-mode .contact-button {
+      background-color: #141414;
+      color: #FFFFFF;
+      border-color: #141414;
+    }
+
+    :host([data-theme="light"]) .contact-button:hover,
+    .light-mode .contact-button:hover {
+      background-color: #333333;
+      border-color: #333333;
+    }
+
+    :host([data-theme="light"]) .map-container,
+    .light-mode .map-container {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 768px) {
+      :host([data-theme="light"]) .mobile-sticky-bar,
+      .mobile-sticky-bar.light-mode {
+        background: rgba(251, 249, 245, 0.95);
+        border-top-color: rgba(0, 0, 0, 0.1);
+        box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.08);
+      }
+
+      :host([data-theme="light"]) .mobile-sticky-btn,
+      .mobile-sticky-bar.light-mode .mobile-sticky-btn {
+        background: #141414;
+        color: #FFFFFF;
+      }
+
+      :host([data-theme="light"]) .mobile-sticky-btn:hover,
+      .mobile-sticky-bar.light-mode .mobile-sticky-btn:hover {
+        background: #333333;
+      }
     }
   `;
 
   render() {
+    const isLight = this.theme === 'light';
+
     return html`
-      <div class="course-content-column">
+      <div class="course-content-column ${isLight ? 'light-mode' : ''}">
         <a href="/classes.html" class="back-link">&larr; Back to courses</a>
       <h1>Handbuilding Classes</h1>
       <p class="description">
@@ -647,6 +1180,7 @@ export class HandbuildingClassContent extends LitElement {
           <div class="card-header">
             <h3 class="card-title">Explore</h3>
             <div class="card-price">₹9,900</div>
+            <p class="card-ideal-for">Best for beginners wanting a hands-on intro to clay sculpting and hand-formed pieces.</p>
           </div>
           <ul class="card-features">
             <li class="card-feature-item">
@@ -680,6 +1214,7 @@ export class HandbuildingClassContent extends LitElement {
           <div class="card-header">
             <h3 class="card-title">Foundation</h3>
             <div class="card-price">₹16,500</div>
+            <p class="card-ideal-for">Best for building coil, slab, and pinch technique mastery and surface texturing.</p>
           </div>
           <ul class="card-features">
             <li class="card-feature-item">
@@ -712,6 +1247,7 @@ export class HandbuildingClassContent extends LitElement {
           <div class="card-header">
             <h3 class="card-title">Intensive</h3>
             <div class="card-price">₹33,000</div>
+            <p class="card-ideal-for">Best for establishing an independent workflow and setting up your own studio practice.</p>
           </div>
           <ul class="card-features">
             <li class="card-feature-item">
@@ -742,6 +1278,11 @@ export class HandbuildingClassContent extends LitElement {
           <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20Intensive%20(20%20sessions)%20handbuilding%20course" 
              target="_blank" rel="noopener noreferrer" class="card-btn">Choose Intensive</a>
         </div>
+      </div>
+
+      <div class="pricing-helper">
+        <span>Not sure which package fits your schedule?</span>
+        <a href="https://wa.me/917373074962?text=Hi%20Koushik%2C%20I'm%20not%20sure%20which%20handbuilding%20package%20suits%20me%20best.%20Could%20you%20help%20me%20decide%3F" target="_blank" rel="noopener noreferrer">Chat with us on WhatsApp &rarr;</a>
       </div>
 
       <div class="inclusions-section">
@@ -778,12 +1319,12 @@ export class HandbuildingClassContent extends LitElement {
         <div class="gallery-track">
           <!-- Primary images (loads from the array above) -->
           ${this.galleryImages.map(img => html`
-            <img src="/classes-gallery/${img}" alt="Pottery Class Gallery" onerror="this.style.width='300px'" />
+            <img src="/classes-gallery/${img}" alt="Handbuilding Pottery Gallery" onerror="this.style.width='300px'" />
           `)}
           
           <!-- Duplicated for desktop marquee loop -->
           ${this.galleryImages.map(img => html`
-            <img src="/classes-gallery/${img}" alt="Pottery Class Gallery" class="duplicate-for-marquee" onerror="this.style.width='300px'" />
+            <img src="/classes-gallery/${img}" alt="Handbuilding Pottery Gallery" class="duplicate-for-marquee" onerror="this.style.width='300px'" />
           `)}
         </div>
       </div>
@@ -798,30 +1339,56 @@ export class HandbuildingClassContent extends LitElement {
       </div>
 
       <h2>What students say</h2>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <p class="review-text">"Have recently taken a 10 day course on pottery from this studio. The classes are really informative and insightful and taught so well by Koushik. Its a must for those looking to learn pottery. The best in terms of clarity, technique, creativity and also exposure."</p>
-          <div class="review-author">
-            <span>Afshan</span>
-            <span class="stars">★★★★</span>
+      <div class="reviews-carousel">
+        <div class="reviews-track">
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="stars">★★★★★</span>
+              <span class="review-tag">10 Sessions</span>
+            </div>
+            <p class="review-text">"Have recently taken a 10 day course on pottery from this studio. The classes are really informative and insightful and taught so well by Koushik. Its a must for those looking to learn pottery. The best in terms of clarity, technique, creativity and also exposure."</p>
+            <div class="review-author">
+              <div class="review-avatar">A</div>
+              <div class="review-meta">
+                <span class="review-name">Afshan</span>
+                <span class="review-verified">Verified Student</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="review-card">
-          <p class="review-text">"Had an opportunity to attend 10 days of pottery classes on wheel throwing. It was an amazing experience and to mentally rewire our minds into the world of creation. Koushik patiently teaches the techniques and answers all our doubts. Anyone wishing to have an experience in creating things out of clay can definitely step into STUDIO GENKI and enjoy the experience."</p>
-          <div class="review-author">
-            <span>Priya</span>
-            <span class="stars">★★★★★</span>
+
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="stars">★★★★★</span>
+              <span class="review-tag">10 Sessions</span>
+            </div>
+            <p class="review-text">"Had an opportunity to attend 10 days of pottery classes. It was an amazing experience and to mentally rewire our minds into the world of creation. Koushik patiently teaches the techniques and answers all our doubts. Anyone wishing to have an experience in creating things out of clay can definitely step into STUDIO GENKI."</p>
+            <div class="review-author">
+              <div class="review-avatar">P</div>
+              <div class="review-meta">
+                <span class="review-name">Priya</span>
+                <span class="review-verified">Verified Student</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="review-card">
-          <p class="review-text">"I recently took the 30 day pottery class at Studio Genki and it was one of the best decisions ever. Koushik was a great instructor and was very patient with me throughout the class. He knew when to step in and when to let me figure out on my own. Highly recommend :)"</p>
-          <div class="review-author">
-            <span>Dharani</span>
-            <span class="stars">★★★★★</span>
+
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="stars">★★★★★</span>
+              <span class="review-tag">30-day Pass</span>
+            </div>
+            <p class="review-text">"I recently took the 30 day pottery class at Studio Genki and it was one of the best decisions ever. Koushik was a great instructor and was very patient with me throughout the class. He knew when to step in and when to let me figure out on my own. Highly recommend :)"</p>
+            <div class="review-author">
+              <div class="review-avatar">D</div>
+              <div class="review-meta">
+                <span class="review-name">Dharani</span>
+                <span class="review-verified">Verified Student</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
+      <h2>FAQ</h2>
       <div class="accordion-group">
         <details class="accordion-item">
           <summary class="accordion-header">
@@ -831,24 +1398,16 @@ export class HandbuildingClassContent extends LitElement {
           <div class="accordion-content">
             <ul>
               <li><strong>Dates:</strong> On-going regular classes</li>
-              <li><strong>Days:</strong> All days (flexible scheduling)</li>
+              <li><strong>Days:</strong> All days (flexible scheduling across weekdays and weekends)</li>
+              <li><strong>Daily Time Slots:</strong>
+                <ul class="sub-list">
+                  <li>Morning: 10:00 AM – 1:00 PM</li>
+                  <li>Afternoon: 2:00 PM – 5:00 PM</li>
+                  <li>Evening: 5:30 PM – 8:30 PM</li>
+                </ul>
+              </li>
               <li><strong>Duration:</strong> 3 hours per session</li>
-              <li>Clean-up after classes is mandatory</li>
-            </ul>
-          </div>
-        </details>
-
-        <details class="accordion-item">
-          <summary class="accordion-header">
-            <span>What to prepare</span>
-            <span class="accordion-icon">+</span>
-          </summary>
-          <div class="accordion-content">
-            <ul>
-              <li>Wear comfortable clothes you don't mind getting dirty.</li>
-              <li>Bring a hand towel for personal use.</li>
-              <li>Keep your fingernails trimmed short for the best handbuilding experience.</li>
-              <li>Bring some snacks if you feel necessary.</li>
+              <li><strong>Batch Size:</strong> Strictly capped at 3 students per slot for personalized attention</li>
             </ul>
           </div>
         </details>
@@ -868,6 +1427,26 @@ export class HandbuildingClassContent extends LitElement {
             </ul>
           </div>
         </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <span>Can I reschedule if I miss a class?</span>
+            <span class="accordion-icon">+</span>
+          </summary>
+          <div class="accordion-content">
+            <p>Yes. As long as you inform us at least 24 hours in advance, you can reschedule your session to any open slot within your package validity period.</p>
+          </div>
+        </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <span>Can two people share a single package?</span>
+            <span class="accordion-icon">+</span>
+          </summary>
+          <div class="accordion-content">
+            <p>Packages are strictly individual and non-transferable. Handbuilding and clay forming relies on continuous skill progression and personalized instruction across the sequence.</p>
+          </div>
+        </details>
       </div>
 
       <div class="info-section">
@@ -882,6 +1461,14 @@ export class HandbuildingClassContent extends LitElement {
         <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20handbuilding%20course" target="_blank" rel="noopener noreferrer" class="contact-button">Reserve Your Spot</a>
       </div>
     </div>
+
+      <!-- Sticky Mobile Enquiry Bar -->
+      <div class="mobile-sticky-bar ${isLight ? 'light-mode' : ''}">
+        <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20know%20more%20about%20the%20handbuilding%20pottery%20classes" 
+           target="_blank" rel="noopener noreferrer" class="mobile-sticky-btn">
+          Enquire on WhatsApp
+        </a>
+      </div>
     `;
   }
 }

@@ -4,51 +4,181 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="view-transition" content="same-origin" />
-    <meta name="description" content="Explore pottery classes and ceramic workshops at Studio Genki in Coimbatore." />
+    <meta name="description" content="Explore hands-on pottery classes and ceramic workshops at Studio Genki in Coimbatore. Wheel throwing, handbuilding, and sculpting courses capped at 3 students per slot." />
+    <link rel="canonical" href="https://studiogenki.in/classes.html" />
+
+    <!-- Geo & Local SEO Tags -->
+    <meta name="geo.region" content="IN-TN" />
+    <meta name="geo.placename" content="Coimbatore" />
+    <meta name="geo.position" content="11.050665;77.066737" />
+    <meta name="ICBM" content="11.050665, 77.066737" />
+
+    <!-- Theme initialization script (prevents FOUT) -->
+    <script>
+      (function() {
+        var savedTheme = localStorage.getItem('sg_theme');
+        var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = savedTheme ? savedTheme : (systemDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     
-    <title>Classes & Workshops - Studio Genki</title>
+    <title>Pottery Classes & Ceramic Workshops in Coimbatore - Studio Genki</title>
   
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/favicon.svg">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Studio Genki – Classes & Workshops">
-  <meta property="og:description" content="Explore pottery classes and ceramic workshops at Studio Genki in Coimbatore.">
-  <meta property="og:url" content="https://studiogenki.in/classes.html">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://studiogenki.in/og-image.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Studio Genki – Classes & Workshops">
-  <meta name="twitter:description" content="Explore pottery classes and ceramic workshops at Studio Genki in Coimbatore.">
-  <meta name="twitter:image" content="https://studiogenki.in/og-image.jpg">
+    <!-- Open Graph / Twitter -->
+    <meta property="og:title" content="Pottery Classes & Ceramic Workshops in Coimbatore - Studio Genki">
+    <meta property="og:description" content="Small-batch pottery courses in Coimbatore: Wheel Throwing, Handbuilding, and Miniature Sculpting with 1-on-1 mentorship capped at 3 per slot.">
+    <meta property="og:url" content="https://studiogenki.in/classes.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://studiogenki.in/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pottery Classes & Ceramic Workshops in Coimbatore - Studio Genki">
+    <meta name="twitter:description" content="Small-batch pottery courses in Coimbatore: Wheel Throwing, Handbuilding, and Miniature Sculpting with 1-on-1 mentorship capped at 3 per slot.">
+    <meta name="twitter:image" content="https://studiogenki.in/og-image.jpg">
 
-</head>
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ItemList",
+          "@id": "https://studiogenki.in/classes.html#courses",
+          "name": "Pottery Classes and Workshops at Studio Genki",
+          "description": "Comprehensive pottery courses in Coimbatore including wheel throwing, handbuilding, and sculpting.",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "Course",
+                "name": "Wheel Throwing Pottery Classes",
+                "description": "Hands-on electric potter's wheel classes covering centering, pulling cylinders, shaping, trimming, and food-safe glazing. Packages from 6, 10, or 20 sessions.",
+                "provider": {
+                  "@type": "ArtSchool",
+                  "name": "Studio Genki: Pottery Studio",
+                  "url": "https://studiogenki.in/"
+                },
+                "url": "https://studiogenki.in/beginners-pottery-classes-coimbatore.html"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "Course",
+                "name": "Handbuilding Pottery Classes",
+                "description": "Comprehensive handbuilding courses covering pinch pots, coil construction, slab building, surface texturing, and food-safe glazing.",
+                "provider": {
+                  "@type": "ArtSchool",
+                  "name": "Studio Genki: Pottery Studio",
+                  "url": "https://studiogenki.in/"
+                },
+                "url": "https://studiogenki.in/handbuilding-workshop.html"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "Course",
+                "name": "Miniature Sculpting Crash Course",
+                "description": "3-session beginner sculpting workshop learning miniature forms, detailing, and paintwork with air-dry clay.",
+                "provider": {
+                  "@type": "ArtSchool",
+                  "name": "Studio Genki: Pottery Studio",
+                  "url": "https://studiogenki.in/"
+                },
+                "url": "https://studiogenki.in/miniature-sculpting-crash-course.html"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://studiogenki.in/classes.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://studiogenki.in/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Classes",
+              "item": "https://studiogenki.in/classes.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+  </head>
   <body>
+    <theme-toggle></theme-toggle>
     
     <div class="page-overlay">
-      <div class="container header-container">
+      <header class="container header-container">
         <site-header></site-header>
-      </div>
+      </header>
       
-      <div class="container page-content">
-        <classes-list></classes-list>
-      </div>
+      <main class="container page-content">
+        <classes-list>
+          <!-- Semantic SEO / AI Crawler Content -->
+          <div class="sr-only" style="display:none;" aria-hidden="false">
+            <h1>Pottery Classes & Ceramic Workshops in Coimbatore - Studio Genki</h1>
+            <p>Studio Genki offers intensive, hands-on pottery classes and workshops in Coimbatore with small batch sizes capped at 3 students per slot.</p>
+            <ul>
+              <li>
+                <h2><a href="/beginners-pottery-classes-coimbatore.html">Wheel Throwing Classes</a></h2>
+                <p>Learn centering, pulling, shaping, trimming, and glazing on the potter's wheel. Packages: Explore (6 sessions, ₹9,900), Foundation (10 sessions, ₹16,500), and Intensive (20 sessions, ₹33,000 with unlimited free studio practice).</p>
+              </li>
+              <li>
+                <h2><a href="/handbuilding-workshop.html">Handbuilding Classes</a></h2>
+                <p>Master pinch pots, coil building, slab construction, and ceramic surface decoration without a wheel. Packages: Explore (6 sessions, ₹9,900), Foundation (10 sessions, ₹16,500), and Intensive (20 sessions, ₹33,000 with unlimited free studio practice).</p>
+              </li>
+              <li>
+                <h2><a href="/miniature-sculpting-crash-course.html">Miniature Sculpting Crash Course</a></h2>
+                <p>3-session crash course in miniature sculpting and painting fundamentals. 8 spots per batch, Rs. 5,000.</p>
+              </li>
+            </ul>
+          </div>
+        </classes-list>
 
-      <div class="container footer-container">
+        <noscript>
+          <article style="max-width: 800px; margin: 40px auto; font-family: serif; color: #333; line-height: 1.6;">
+            <h1>Pottery Classes & Workshops at Studio Genki, Coimbatore</h1>
+            <ul>
+              <li><strong><a href="/beginners-pottery-classes-coimbatore.html">Wheel Throwing Classes</a>:</strong> 6, 10, or 20 sessions from ₹9,900. Capped at 3 students per slot.</li>
+              <li><strong><a href="/handbuilding-workshop.html">Handbuilding Classes</a>:</strong> 6, 10, or 20 sessions from ₹9,900. Capped at 3 students per slot.</li>
+              <li><strong><a href="/miniature-sculpting-crash-course.html">Miniature Sculpting Crash Course</a>:</strong> 3 sessions, Rs. 5,000.</li>
+            </ul>
+            <p>Enquiries / WhatsApp: <a href="https://wa.me/917373074962">+91 73730 74962</a></p>
+          </article>
+        </noscript>
+      </main>
+
+      <footer class="container footer-container">
         <site-footer></site-footer>
-      </div>
+      </footer>
     </div>
     
     <script type="module">
       import './src/styles/main.css';
+      import './src/components/theme-toggle.js';
       import './src/components/site-header.js';
       import './src/components/site-footer.js';
       import './src/components/static-background.js';
@@ -56,3 +186,4 @@
     </script>
   </body>
 </html>
+

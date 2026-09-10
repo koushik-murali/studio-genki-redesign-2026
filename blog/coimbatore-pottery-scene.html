@@ -13,6 +13,15 @@
     
     <title>Coimbatore Pottery Scene - Studio Genki</title>
 
+    <script>
+      (function() {
+        var savedTheme = localStorage.getItem('sg_theme');
+        var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = savedTheme ? savedTheme : (systemDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+
     <style>
       /* ---- SINGLE POST VIEW ---- */
       .back-link {
@@ -20,24 +29,25 @@
         font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
         font-weight: 300;
         font-size: 16px;
-        color: #B9B9B9;
+        color: var(--color-text-muted, #B9B9B9);
         text-decoration: none;
         margin-bottom: 48px;
         transition: color 0.2s ease;
       }
 
       .back-link:hover {
-        color: #FFFFFF;
+        color: var(--color-text, #FFFFFF);
       }
 
       .single-post .post-meta-info {
         font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
         font-weight: 300;
         font-size: 14px;
-        color: #B9B9B9;
+        color: var(--color-text-muted, #B9B9B9);
         text-transform: uppercase;
         letter-spacing: 1px;
         margin-bottom: 16px;
+        transition: color 0.3s ease;
       }
 
       .meta-separator {
@@ -50,8 +60,9 @@
         font-weight: 400;
         font-size: 40px;
         line-height: 1.2;
-        color: #FFFFFF;
+        color: var(--color-text, #FFFFFF);
         margin: 0 0 40px 0;
+        transition: color 0.3s ease;
       }
 
       /* Rendered markdown content */
@@ -64,24 +75,27 @@
         font-weight: 300;
         font-size: 20px;
         line-height: 1.6;
-        color: #B9B9B9;
+        color: var(--color-text-muted, #B9B9B9);
         margin: 0 0 24px 0;
+        transition: color 0.3s ease;
       }
 
       .prose h2 {
         font-family: var(--font-merriweather, 'Merriweather', serif);
         font-weight: 400;
         font-size: 28px;
-        color: #FFFFFF;
+        color: var(--color-text, #FFFFFF);
         margin: 48px 0 16px 0;
+        transition: color 0.3s ease;
       }
 
       .prose h3 {
         font-family: var(--font-merriweather, 'Merriweather', serif);
         font-weight: 400;
         font-size: 22px;
-        color: #FFFFFF;
+        color: var(--color-text, #FFFFFF);
         margin: 36px 0 12px 0;
+        transition: color 0.3s ease;
       }
 
       .prose ul, .prose ol {
@@ -89,9 +103,10 @@
         font-weight: 300;
         font-size: 20px;
         line-height: 1.6;
-        color: #B9B9B9;
+        color: var(--color-text-muted, #B9B9B9);
         padding-left: 24px;
         margin: 0 0 24px 0;
+        transition: color 0.3s ease;
       }
 
       .prose li {
@@ -99,14 +114,16 @@
       }
 
       .prose strong {
-        color: #FFFFFF;
+        color: var(--color-text, #FFFFFF);
         font-weight: 400;
+        transition: color 0.3s ease;
       }
 
       .prose a {
-        color: #FFFFFF;
+        color: var(--color-text, #FFFFFF);
         text-decoration: underline;
         text-underline-offset: 4px;
+        transition: color 0.3s ease;
       }
 
       .prose a:hover {
@@ -114,66 +131,49 @@
       }
 
       .prose blockquote {
-        font-style: italic;
-        color: #FFFFFF;
-        font-family: var(--font-merriweather, 'Merriweather', serif);
-        font-size: 22px;
-        border-left: 2px solid #FFFFFF;
-        padding-left: 24px;
         margin: 32px 0;
+        padding-left: 24px;
+        border-left: 2px solid var(--color-text, #FFFFFF);
+        font-family: var(--font-merriweather, 'Merriweather', serif);
+        font-size: 24px;
+        font-style: italic;
+        color: var(--color-text, #FFFFFF);
+        line-height: 1.5;
+        transition: color 0.3s ease, border-color 0.3s ease;
       }
 
       .prose code {
-        background: rgba(255, 255, 255, 0.08);
+        font-family: monospace;
+        background: rgba(255, 255, 255, 0.1);
         padding: 2px 6px;
         border-radius: 4px;
-        font-size: 18px;
-      }
-
-      .prose pre {
-        background: rgba(255, 255, 255, 0.05);
-        padding: 20px;
-        border-radius: 8px;
-        overflow-x: auto;
-        margin: 0 0 24px 0;
-      }
-
-      .prose pre code {
-        background: none;
-        padding: 0;
-      }
-
-      .prose img {
-        max-width: 100%;
-        border-radius: 8px;
-        margin: 24px 0;
-      }
-
-      .prose figure {
-        margin: 32px 0;
-      }
-
-      .prose figure img {
-        margin: 0 0 12px 0;
-      }
-
-      .prose figcaption {
-        font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
-        font-weight: 300;
         font-size: 16px;
-        color: #B9B9B9;
-        text-align: center;
-        font-style: italic;
+      }
+
+      :root[data-theme="light"] .prose code {
+        background: rgba(0, 0, 0, 0.06);
+      }
+
+      .prose hr {
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 48px 0;
+      }
+
+      :root[data-theme="light"] .prose hr {
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
       }
 
       @media (max-width: 1024px) {
         .single-post h1 { font-size: 36px; }
+        .prose h2 { font-size: 24px; }
+        .prose h3 { font-size: 20px; }
       }
 
       @media (max-width: 768px) {
-        .single-post h1 { font-size: 32px; }
+        .single-post h1 { font-size: 30px; }
         .prose p, .prose ul, .prose ol { font-size: 18px; }
-        .prose h2 { font-size: 24px; }
+        .prose blockquote { font-size: 20px; padding-left: 16px; }
       }
     </style>
   
@@ -196,6 +196,7 @@
 
 </head>
   <body>
+    <theme-toggle></theme-toggle>
     <!-- Use a subtle dark background for reading long text -->
     
     <div class="page-overlay">
@@ -231,6 +232,7 @@
     
     <script type="module">
       import '/src/styles/main.css';
+      import '/src/components/theme-toggle.js';
       import '/src/components/site-header.js';
       import '/src/components/site-footer.js';
       import '/src/components/static-background.js';

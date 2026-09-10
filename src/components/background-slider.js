@@ -14,7 +14,8 @@ export class BackgroundSlider extends LitElement {
       height: 100%;
       z-index: 0;
       overflow: hidden;
-      background-color: #000;
+      background-color: var(--color-bg, #000);
+      transition: background-color 0.3s ease;
     }
     
     .slider-bg {
@@ -31,11 +32,16 @@ export class BackgroundSlider extends LitElement {
     .slider-bg.active {
       opacity: 0.26; /* Reduced from 0.36 to increase perceived black overlay */
     }
+
+    :host([data-theme="light"]) .slider-bg.active {
+      opacity: 0.14;
+    }
   `;
 
   static properties = {
     images: { type: Array },
-    currentIndex: { type: Number, state: true }
+    currentIndex: { type: Number, state: true },
+    theme: { type: String, state: true }
   };
 
   constructor() {
@@ -47,10 +53,26 @@ export class BackgroundSlider extends LitElement {
       'https://images.unsplash.com/photo-1598920959737-0d50711db1e2?q=80&w=3540&auto=format&fit=crop'  // Pottery making
     ];
     this.currentIndex = 0;
+    this.theme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'dark';
+    this._onThemeChange = () => {
+      const t = document.documentElement.getAttribute('data-theme') || 'dark';
+      this.theme = t;
+      this.setAttribute('data-theme', t);
+    };
   }
 
   connectedCallback() {
     super.connectedCallback();
+    const currentTheme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'dark';
+    this.theme = currentTheme;
+    this.setAttribute('data-theme', currentTheme);
+
+    window.addEventListener('theme-changed', this._onThemeChange);
+    if (typeof MutationObserver !== 'undefined') {
+      this._observer = new MutationObserver(() => this._onThemeChange());
+      this._observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    }
+
     this.timer = setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.images.length;
     }, 5000); // 5 seconds per slide
@@ -59,7 +81,12 @@ export class BackgroundSlider extends LitElement {
   disconnectedCallback() {
     super.disconnectedCallback();
     clearInterval(this.timer);
+    window.removeEventListener('theme-changed', this._onThemeChange);
+    if (this._observer) {
+      this._observer.disconnect();
+    }
   }
+
 
   render() {
     return html`

@@ -17,9 +17,10 @@ export class PoliciesContent extends LitElement {
       font-weight: 400;
       font-size: 32px;
       line-height: 1.2;
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
       margin-top: 60px;
       margin-bottom: 24px;
+      transition: color 0.3s ease;
     }
 
     h2:first-of-type {
@@ -31,9 +32,10 @@ export class PoliciesContent extends LitElement {
       font-weight: 300;
       font-style: italic;
       font-size: 16px;
-      color: #B9B9B9;
+      color: var(--color-text-muted, #B9B9B9);
       margin-bottom: 32px;
       margin-top: -16px;
+      transition: color 0.3s ease;
     }
 
     p {
@@ -41,10 +43,11 @@ export class PoliciesContent extends LitElement {
       font-weight: 300;
       font-size: 18px;
       line-height: 1.6;
-      color: #B9B9B9;
+      color: var(--color-text-muted, #B9B9B9);
       max-width: 800px;
       margin-top: 0;
       margin-bottom: 20px;
+      transition: color 0.3s ease;
     }
 
     ul {
@@ -52,10 +55,11 @@ export class PoliciesContent extends LitElement {
       font-weight: 300;
       font-size: 18px;
       line-height: 1.6;
-      color: #B9B9B9;
+      color: var(--color-text-muted, #B9B9B9);
       max-width: 800px;
       margin-bottom: 32px;
       padding-left: 24px;
+      transition: color 0.3s ease;
     }
 
     li {
@@ -63,9 +67,10 @@ export class PoliciesContent extends LitElement {
     }
     
     a {
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
       text-decoration: underline;
       text-underline-offset: 4px;
+      transition: color 0.3s ease;
     }
     
     a:hover {

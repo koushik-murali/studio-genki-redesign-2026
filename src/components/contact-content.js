@@ -17,9 +17,10 @@ export class ContactContent extends LitElement {
       font-weight: 400;
       font-size: 40px;
       line-height: 1.2;
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
       margin-bottom: 24px;
       margin-top: 0;
+      transition: color 0.3s ease;
     }
 
     p {
@@ -27,9 +28,10 @@ export class ContactContent extends LitElement {
       font-weight: 300;
       font-size: 20px;
       line-height: 1.6;
-      color: #B9B9B9;
+      color: var(--color-text-muted, #B9B9B9);
       margin-bottom: 40px;
       margin-top: 0;
+      transition: color 0.3s ease;
     }
 
     .contact-info {
@@ -43,17 +45,18 @@ export class ContactContent extends LitElement {
       font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
       font-weight: 300;
       font-size: 20px;
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 12px;
+      transition: color 0.3s ease;
     }
 
     .contact-item a {
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
       text-decoration: none;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.2s ease, color 0.3s ease;
     }
 
     .contact-item a:hover {
@@ -63,8 +66,9 @@ export class ContactContent extends LitElement {
 
     .label {
       font-weight: 400;
-      color: #B9B9B9;
+      color: var(--color-text-muted, #B9B9B9);
       width: 120px;
+      transition: color 0.3s ease;
     }
 
     .map-container {

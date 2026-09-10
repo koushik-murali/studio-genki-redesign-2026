@@ -17,9 +17,10 @@ export class AboutContent extends LitElement {
       font-weight: 400;
       font-size: 40px;
       line-height: 1.2;
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
       margin-top: 80px;
       margin-bottom: 32px;
+      transition: color 0.3s ease;
     }
 
     h2:first-of-type {
@@ -31,20 +32,22 @@ export class AboutContent extends LitElement {
       font-weight: 300;
       font-size: 20px;
       line-height: 1.6;
-      color: #B9B9B9;
+      color: var(--color-text-muted, #B9B9B9);
       max-width: 800px;
       margin-top: 0;
       margin-bottom: 24px;
+      transition: color 0.3s ease;
     }
 
     .quote {
       font-style: italic;
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
       font-family: var(--font-merriweather, 'Merriweather', serif);
       font-size: 26px;
-      border-left: 2px solid #FFFFFF;
+      border-left: 2px solid var(--color-text, #FFFFFF);
       padding-left: 24px;
       margin-bottom: 40px;
+      transition: color 0.3s ease, border-color 0.3s ease;
     }
 
     ul {
@@ -52,10 +55,11 @@ export class AboutContent extends LitElement {
       font-weight: 300;
       font-size: 20px;
       line-height: 1.6;
-      color: #B9B9B9;
+      color: var(--color-text-muted, #B9B9B9);
       max-width: 800px;
       margin-bottom: 32px;
       padding-left: 24px;
+      transition: color 0.3s ease;
     }
 
     li {
@@ -63,14 +67,16 @@ export class AboutContent extends LitElement {
     }
     
     li strong {
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
       font-weight: 400;
+      transition: color 0.3s ease;
     }
 
     a {
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
       text-decoration: underline;
       text-underline-offset: 4px;
+      transition: color 0.3s ease;
     }
     
     a:hover {

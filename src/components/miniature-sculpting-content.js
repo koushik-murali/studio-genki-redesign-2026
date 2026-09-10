@@ -2,7 +2,8 @@ import { LitElement, html, css } from 'lit';
 
 export class MiniatureSculptingContent extends LitElement {
   static properties = {
-    galleryImages: { type: Array }
+    galleryImages: { type: Array },
+    theme: { type: String, state: true }
   };
 
   constructor() {
@@ -14,6 +15,33 @@ export class MiniatureSculptingContent extends LitElement {
       '13.png',
       '14.png'
     ];
+    this.theme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'dark';
+    this._onThemeChange = () => {
+      const t = document.documentElement.getAttribute('data-theme') || 'dark';
+      this.theme = t;
+      this.setAttribute('data-theme', t);
+    };
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    const currentTheme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'dark';
+    this.theme = currentTheme;
+    this.setAttribute('data-theme', currentTheme);
+
+    window.addEventListener('theme-changed', this._onThemeChange);
+    if (typeof MutationObserver !== 'undefined') {
+      this._observer = new MutationObserver(() => this._onThemeChange());
+      this._observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    window.removeEventListener('theme-changed', this._onThemeChange);
+    if (this._observer) {
+      this._observer.disconnect();
+    }
   }
 
   static styles = css`
@@ -22,15 +50,16 @@ export class MiniatureSculptingContent extends LitElement {
       width: 100%;
       max-width: 900px;
       margin: 0 auto;
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
       font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
       font-weight: 300;
+      transition: color 0.3s ease;
     }
 
     .back-link {
       display: inline-flex;
       align-items: center;
-      color: #B9B9B9;
+      color: var(--color-text-muted, #B9B9B9);
       text-decoration: none;
       font-size: 16px;
       font-weight: 400;
@@ -40,7 +69,7 @@ export class MiniatureSculptingContent extends LitElement {
     }
     
     .back-link:hover {
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
     }
 
     h1 {
@@ -49,6 +78,8 @@ export class MiniatureSculptingContent extends LitElement {
       font-size: 40px;
       line-height: 1.2;
       margin: 0 0 24px 0;
+      color: var(--color-text, #FFFFFF);
+      transition: color 0.3s ease;
     }
 
     h2 {
@@ -56,7 +87,8 @@ export class MiniatureSculptingContent extends LitElement {
       font-weight: 700;
       font-size: 28px;
       margin: 0 0 24px 0;
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
+      transition: color 0.3s ease;
     }
     
     h3 {
@@ -64,23 +96,26 @@ export class MiniatureSculptingContent extends LitElement {
       font-weight: 600;
       font-size: 20px;
       margin: 0 0 12px 0;
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
       line-height: 1.4;
+      transition: color 0.3s ease;
     }
 
     .description {
       font-size: 20px;
       line-height: 1.6;
-      color: #B9B9B9;
+      color: var(--color-text-muted, #B9B9B9);
       margin-bottom: 24px;
       font-family: var(--font-merriweather, 'Merriweather', serif);
+      transition: color 0.3s ease;
     }
     
     .subtitle {
       font-size: 18px;
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
       margin-bottom: 48px;
       font-weight: 400;
+      transition: color 0.3s ease;
     }
 
     .course-meta-bar {
@@ -91,17 +126,20 @@ export class MiniatureSculptingContent extends LitElement {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
       margin-bottom: 32px;
+      transition: border-color 0.3s ease;
     }
     
     .course-meta-bar span {
       font-size: 18px;
       color: #E0E0E0;
+      transition: color 0.3s ease;
     }
-    
+
     .course-meta-bar strong {
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
       font-weight: 600;
       margin-right: 8px;
+      transition: color 0.3s ease;
     }
 
     /* Features list */
@@ -113,14 +151,15 @@ export class MiniatureSculptingContent extends LitElement {
     
     .features-list li {
       margin-bottom: 32px;
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
     }
     
     .features-list p {
-      color: #B9B9B9;
+      color: var(--color-text-muted, #B9B9B9);
       line-height: 1.6;
       margin: 0;
       font-size: 18px;
+      transition: color 0.3s ease;
     }
 
     /* Gallery section */
@@ -217,22 +256,25 @@ export class MiniatureSculptingContent extends LitElement {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: background 0.3s ease, border-color 0.3s ease;
     }
     
     .review-text {
-      color: #B9B9B9;
+      color: var(--color-text-muted, #B9B9B9);
       font-style: italic;
       line-height: 1.6;
       margin: 0 0 24px 0;
       font-size: 16px;
+      transition: color 0.3s ease;
     }
     
     .review-author {
       font-weight: 600;
-      color: #FFFFFF;
+      color: var(--color-text, #FFFFFF);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      transition: color 0.3s ease;
     }
     
     .stars {
@@ -252,15 +294,17 @@ export class MiniatureSculptingContent extends LitElement {
       border: 1px solid rgba(255, 255, 255, 0.2);
       padding: 16px 24px;
       text-align: left;
+      transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
     }
 
     th {
       font-weight: 700;
       background: rgba(255, 255, 255, 0.05);
+      color: var(--color-text, #FFFFFF);
     }
 
     td {
-      color: #B9B9B9;
+      color: var(--color-text-muted, #B9B9B9);
     }
 
     .info-section {
@@ -276,8 +320,9 @@ export class MiniatureSculptingContent extends LitElement {
     .info-list li {
       font-size: 18px;
       line-height: 1.8;
-      color: #B9B9B9;
+      color: var(--color-text-muted, #B9B9B9);
       margin-bottom: 8px;
+      transition: color 0.3s ease;
     }
     
     /* Button */
@@ -303,6 +348,73 @@ export class MiniatureSculptingContent extends LitElement {
     .contact-button:hover {
       background: #e0e0e0;
       border-color: #e0e0e0;
+    }
+
+    /* Light Mode Overrides */
+    :host([data-theme="light"]) .instructor-section {
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    :host([data-theme="light"]) .instructor-info h2 {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .instructor-label {
+      color: #888888;
+    }
+
+    :host([data-theme="light"]) .instructor-info p.instructor-bio {
+      color: #555555;
+    }
+
+    :host([data-theme="light"]) .review-card {
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    :host([data-theme="light"]) .review-text {
+      color: #555555;
+    }
+
+    :host([data-theme="light"]) .review-author {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) th {
+      background: rgba(0, 0, 0, 0.04);
+      color: #141414;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    :host([data-theme="light"]) td {
+      color: #555555;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    :host([data-theme="light"]) .course-meta-bar {
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+
+    :host([data-theme="light"]) .course-meta-bar span {
+      color: #555555;
+    }
+
+    :host([data-theme="light"]) .course-meta-bar strong {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .contact-button {
+      background: #141414;
+      color: #FFFFFF;
+      border: 1px solid #141414;
+    }
+
+    :host([data-theme="light"]) .contact-button:hover {
+      background: #2a2a2a;
+      border-color: #2a2a2a;
     }
 
     /* Map container */

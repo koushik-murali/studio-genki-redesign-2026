@@ -6,8 +6,25 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="view-transition" content="same-origin" />
   <meta name="description"
-    content="Studio Genki is a dual-function ceramics and pottery studio in Coimbatore offering classes, workshops, and handcrafted works." />
-  <title>Studio Genki</title>
+    content="Studio Genki is a dual-function ceramics and pottery studio in Coimbatore offering pottery classes, wheel throwing, handbuilding workshops, and handcrafted ceramic works." />
+  <title>Studio Genki - Hand-made Ceramics & Pottery Classes in Coimbatore</title>
+  <link rel="canonical" href="https://studiogenki.in/" />
+
+  <!-- Geo & Local SEO Tags -->
+  <meta name="geo.region" content="IN-TN" />
+  <meta name="geo.placename" content="Coimbatore" />
+  <meta name="geo.position" content="11.050665;77.066737" />
+  <meta name="ICBM" content="11.050665, 77.066737" />
+
+  <!-- Theme initialization script (prevents FOUT) -->
+  <script>
+    (function() {
+      var savedTheme = localStorage.getItem('sg_theme');
+      var systemDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var theme = savedTheme ? savedTheme : (systemDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,38 +39,141 @@
   <link rel="apple-touch-icon" href="/favicon.svg">
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="Studio Genki – Hand-made Ceramics & Pottery Classes">
+  <meta property="og:title" content="Studio Genki – Hand-made Ceramics & Pottery Classes in Coimbatore">
   <meta property="og:description"
-    content="Studio Genki is an art & design studio in Coimbatore offering handcrafted pottery and hands-on classes.">
+    content="Dual-practice ceramics studio in Coimbatore offering wheel throwing pottery classes, handbuilding workshops, and small-batch handcrafted tableware.">
   <meta property="og:url" content="https://studiogenki.in/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://studiogenki.in/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Studio Genki – Hand-made Ceramics & Pottery Classes">
+  <meta name="twitter:title" content="Studio Genki – Hand-made Ceramics & Pottery Classes in Coimbatore">
   <meta name="twitter:description"
-    content="Studio Genki is an art & design studio in Coimbatore offering handcrafted pottery and hands-on classes.">
+    content="Dual-practice ceramics studio in Coimbatore offering wheel throwing pottery classes, handbuilding workshops, and small-batch handcrafted tableware.">
   <meta name="twitter:image" content="https://studiogenki.in/og-image.jpg">
 
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://studiogenki.in/#website",
+        "url": "https://studiogenki.in/",
+        "name": "Studio Genki",
+        "description": "Ceramic Art and Design Studio Based Out of Coimbatore",
+        "publisher": {
+          "@id": "https://studiogenki.in/#organization"
+        }
+      },
+      {
+        "@type": ["ArtSchool", "LocalBusiness"],
+        "@id": "https://studiogenki.in/#organization",
+        "name": "Studio Genki: Pottery Studio",
+        "alternateName": "Studio Genki",
+        "url": "https://studiogenki.in/",
+        "logo": "https://studiogenki.in/favicon.svg",
+        "image": "https://studiogenki.in/og-image.jpg",
+        "description": "Studio Genki is a dual-practice space in Coimbatore dedicated to small-batch ceramic production and hands-on pottery classes including wheel throwing and handbuilding.",
+        "telephone": "+917373074962",
+        "email": "koushik@studiogenki.in",
+        "priceRange": "₹₹",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Civil Aerodrome Post, SITRA",
+          "addressLocality": "Coimbatore",
+          "addressRegion": "Tamil Nadu",
+          "postalCode": "641014",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 11.050665,
+          "longitude": 77.066737
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "10:00",
+            "closes": "20:30"
+          }
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Pottery Courses & Workshops",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Course",
+                "name": "Wheel Throwing Pottery Classes",
+                "url": "https://studiogenki.in/beginners-pottery-classes-coimbatore.html"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Course",
+                "name": "Handbuilding Pottery Classes",
+                "url": "https://studiogenki.in/handbuilding-workshop.html"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Course",
+                "name": "Miniature Sculpting Crash Course",
+                "url": "https://studiogenki.in/miniature-sculpting-crash-course.html"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
+  <theme-toggle></theme-toggle>
 
   <background-slider></background-slider>
 
   <div class="page-overlay">
-    <div class="container header-container">
+    <header class="container header-container">
       <site-header></site-header>
-    </div>
+    </header>
 
     <main class="container main-content">
-      <hero-content></hero-content>
+      <hero-content>
+        <!-- Semantic SEO / AI Crawler Content -->
+        <div class="sr-only" style="display:none;" aria-hidden="false">
+          <h1>Ceramic Art and Design Studio Based Out of Coimbatore - Studio Genki</h1>
+          <p>Studio Genki is a dual-practice space in Coimbatore, dedicated to both small-batch ceramic production and an alternative, progressive design curriculum.</p>
+          <p>We offer beginner wheel throwing pottery classes, handbuilding ceramic courses, and weekend crash courses taught with dedicated 1-on-1 mentorship capped at 3 students per slot.</p>
+          <ul>
+            <li><a href="/beginners-pottery-classes-coimbatore.html">Beginners Wheel Throwing Pottery Course</a></li>
+            <li><a href="/handbuilding-workshop.html">Handbuilding Pottery Classes & Sculpting</a></li>
+            <li><a href="/works.html">Handcrafted Ceramic Tableware & Works</a></li>
+          </ul>
+        </div>
+      </hero-content>
+
+      <noscript>
+        <article style="max-width: 800px; margin: 40px auto; font-family: serif; color: #333; line-height: 1.6;">
+          <h1>Studio Genki - Ceramic Art and Design Studio in Coimbatore</h1>
+          <p>Studio Genki is a dual-practice space in Coimbatore offering hands-on pottery classes (wheel throwing and handbuilding) and small-batch ceramic tableware.</p>
+          <p>Location: SITRA / Civil Aerodrome Post, Coimbatore, Tamil Nadu. WhatsApp: <a href="https://wa.me/917373074962">+91 73730 74962</a></p>
+        </article>
+      </noscript>
     </main>
 
-    <div class="container footer-container">
+    <footer class="container footer-container">
       <site-footer></site-footer>
-    </div>
+    </footer>
   </div>
 
   <script type="module" src="/src/main.js"></script>
