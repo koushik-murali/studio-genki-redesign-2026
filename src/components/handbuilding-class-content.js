@@ -83,44 +83,84 @@ export class HandbuildingClassContent extends LitElement {
       font-weight: 400;
     }
 
-    .course-meta-bar {
+    /* Accordion styles */
+    .accordion-group {
       display: flex;
-      flex-wrap: wrap;
-      gap: 32px;
-      padding: 24px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 32px;
-    }
-    
-    .course-meta-bar span {
-      font-size: 18px;
-      color: #E0E0E0;
-    }
-    
-    .course-meta-bar strong {
-      color: #FFFFFF;
-      font-weight: 600;
-      margin-right: 8px;
-    }
-
-    /* Features list */
-    .features-list {
-      list-style-type: disc;
-      padding-left: 24px;
+      flex-direction: column;
+      gap: 16px;
       margin-bottom: 80px;
     }
-    
-    .features-list li {
-      margin-bottom: 32px;
+
+    .accordion-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .accordion-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .accordion-item[open] {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .accordion-header {
+      padding: 22px 28px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      user-select: none;
+      font-family: var(--font-merriweather, serif);
+      font-size: 20px;
+      font-weight: 700;
       color: #FFFFFF;
     }
-    
-    .features-list p {
+
+    .accordion-header::-webkit-details-marker {
+      display: none;
+    }
+
+    .accordion-icon {
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 300;
       color: #B9B9B9;
-      line-height: 1.6;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .accordion-item[open] .accordion-icon {
+      transform: rotate(45deg);
+      color: #FFFFFF;
+    }
+
+    .accordion-content {
+      padding: 0 28px 24px 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 18px;
+    }
+
+    .accordion-content ul {
+      list-style-type: disc;
+      padding-left: 20px;
       margin: 0;
-      font-size: 18px;
+    }
+
+    .accordion-content li {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #B9B9B9;
+      margin-bottom: 8px;
+    }
+
+    .accordion-content li:last-child {
+      margin-bottom: 0;
     }
 
     /* Gallery section */
@@ -241,26 +281,213 @@ export class HandbuildingClassContent extends LitElement {
       letter-spacing: 2px;
     }
 
-    /* Table styles */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 80px;
+    /* Pricing Cards */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0 24px 0;
+      align-items: stretch;
     }
 
-    th, td {
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 16px 24px;
-      text-align: left;
+    .pricing-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
 
-    th {
-      font-weight: 700;
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.25);
       background: rgba(255, 255, 255, 0.05);
     }
 
-    td {
-      color: #B9B9B9;
+    .pricing-card.featured {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #FFFFFF;
+      color: #000000;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .card-header {
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .card-title {
+      font-family: var(--font-merriweather, serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 0 0 12px 0;
+    }
+
+    .card-price {
+      font-family: var(--font-merriweather-sans, sans-serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .card-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px 0;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+    }
+
+    .card-feature-item {
+      font-size: 15px;
+      color: #CCCCCC;
+      line-height: 1.4;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .card-feature-item strong {
+      color: #FFFFFF;
+    }
+
+    .card-feature-bullet {
+      color: #FFFFFF;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .card-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 20px;
+      background: transparent;
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-align: center;
+      font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
+    }
+
+    .card-btn:hover {
+      background: #FFFFFF;
+      color: #000000;
+      border-color: #FFFFFF;
+    }
+
+    .pricing-card.featured .card-btn {
+      background: #FFFFFF;
+      color: #000000;
+      border-color: #FFFFFF;
+    }
+
+    .pricing-card.featured .card-btn:hover {
+      background: #e0e0e0;
+      border-color: #e0e0e0;
+    }
+
+    /* Inclusions Feature Cards */
+    .inclusions-section {
+      margin: 48px 0 80px 0;
+    }
+
+    .inclusions-title {
+      font-family: var(--font-merriweather, serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 0 0 24px 0;
+      text-align: center;
+    }
+
+    .inclusions-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .inclusion-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .inclusion-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .inclusion-icon {
+      font-size: 24px;
+      margin-bottom: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+    }
+
+    .inclusion-heading {
+      font-family: var(--font-merriweather-sans, sans-serif);
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 0 0 8px 0;
+      line-height: 1.3;
+    }
+
+    .inclusion-desc {
+      font-size: 14px;
+      color: #A0A0A0;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    .inclusions-extra-note {
+      text-align: center;
+      font-size: 14px;
+      color: #8E8E8E;
+      margin: 0;
+      font-style: italic;
     }
 
     .info-section {
@@ -324,53 +551,35 @@ export class HandbuildingClassContent extends LitElement {
       h2 { font-size: 24px; }
       h3 { font-size: 18px; }
       .description { font-size: 18px; }
-      th, td { padding: 12px 16px; }
-      
-      /* Vertical table on mobile */
-      table, thead, tbody, th, td, tr { 
-        display: block; 
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
       }
       
-      thead tr { 
-        display: none; 
+      .pricing-card {
+        padding: 32px 20px;
       }
-      
-      tr { 
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        margin-bottom: 16px;
+
+      .inclusions-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
       }
-      
-      td { 
-        border: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-        position: relative;
-        padding-left: 50%; 
-        text-align: right;
-      }
-      
-      td:before { 
-        position: absolute;
-        top: 12px;
-        left: 16px;
-        width: 45%; 
-        padding-right: 10px; 
-        white-space: nowrap;
+
+      .inclusions-title, .inclusions-extra-note {
         text-align: left;
-        font-weight: 700;
-        color: #FFFFFF;
       }
-      
-      td:nth-of-type(1):before { content: "Sessions"; }
-      td:nth-of-type(2):before { content: "Fee"; }
-      td:nth-of-type(3):before { content: "Firing Included"; }
-      td:nth-of-type(4):before { content: "Weekday Pass"; }
-      td:nth-of-type(5):before { content: "Weekend Pass"; }
-      td:nth-of-type(6):before { content: "Glaze Completion"; }
-      
-      td:last-child {
-        border-bottom: 0;
+
+      .accordion-header {
+        padding: 18px 20px;
+        font-size: 18px;
       }
-      
+
+      .accordion-content {
+        padding: 0 20px 20px 20px;
+        padding-top: 14px;
+      }
+
       .instructor-section, .review-card {
         padding: 24px;
       }
@@ -419,36 +628,141 @@ export class HandbuildingClassContent extends LitElement {
     return html`
       <a href="/classes.html" class="back-link">&larr; Back to courses</a>
       <h1>Handbuilding Classes</h1>
-    
+      <p class="description">
+        Studio Genki is a place for aspiring potters and people who take the craft seriously.
+      </p>
       <p class="description">
         An introduction to handbuilding ceramics. Learn to make functional and decorative forms without the potter's wheel. No prior experience or artistic background is required.
       </p>
 
-      <div class="course-meta-bar">
-        <span><strong>Sessions:</strong> 6, 10, or 20</span>
-        <span><strong>Fee:</strong> From Rs. 9,900</span>
-        <span><strong>Duration:</strong> Regular classes</span>
-        <span><strong>Class Passes:</strong> Weekday & Weekend</span>
+      <div class="pricing-grid">
+        <!-- Explore (6 Sessions) -->
+        <div class="pricing-card">
+          <div class="card-header">
+            <h3 class="card-title">Explore</h3>
+            <div class="card-price">₹9,900</div>
+          </div>
+          <ul class="card-features">
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>6 Sessions</strong> (18 hrs total)</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>Prerequisite:</strong> None</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>2 pieces</strong> glazed & fired included</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>Validity:</strong> 3 weeks</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span>Flexible scheduling across all days</span>
+            </li>
+          </ul>
+          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20Explore%20(6%20sessions)%20handbuilding%20course" 
+             target="_blank" rel="noopener noreferrer" class="card-btn">Choose Explore</a>
+        </div>
+
+        <!-- Foundation (10 Sessions - Featured) -->
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="card-header">
+            <h3 class="card-title">Foundation</h3>
+            <div class="card-price">₹16,500</div>
+          </div>
+          <ul class="card-features">
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>10 Sessions</strong> (30 hrs total)</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>Prerequisite:</strong> None</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>5 pieces</strong> glazed & fired included</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>Validity:</strong> 5 weeks</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span>Flexible scheduling across all days</span>
+            </li>
+          </ul>
+          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20Foundation%20(10%20sessions)%20handbuilding%20course" 
+             target="_blank" rel="noopener noreferrer" class="card-btn">Choose Foundation</a>
+        </div>
+
+        <!-- Intensive (20 Sessions) -->
+        <div class="pricing-card">
+          <div class="card-header">
+            <h3 class="card-title">Intensive</h3>
+            <div class="card-price">₹33,000</div>
+          </div>
+          <ul class="card-features">
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>20 Sessions</strong> (60 hrs total)</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>Prerequisite:</strong> Beginner course required</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>10 pieces</strong> glazed & fired included</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>Validity:</strong> 8 weeks</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span>Flexible scheduling across all days</span>
+            </li>
+          </ul>
+          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20Intensive%20(20%20sessions)%20handbuilding%20course" 
+             target="_blank" rel="noopener noreferrer" class="card-btn">Choose Intensive</a>
+        </div>
       </div>
 
-      <p class="subtitle" style="margin-bottom: 24px; color: #F5C518; font-weight: 600;">Only 6 spots left.</p>
-      
-      <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20handbuilding%20course" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 0; margin-bottom: 64px;">Reserve Your Spot</a>
+      <div class="inclusions-section">
+        <h2 class="inclusions-title">All packages include</h2>
+        <div class="inclusions-grid">
+          <div class="inclusion-card">
+            <div class="inclusion-icon">🏺</div>
+            <div class="inclusion-heading">Handbuilding Fundamentals</div>
+            <p class="inclusion-desc">Master pinching, coiling, slab construction, surface texture carving, and functional joins (handles, spouts).</p>
+          </div>
 
-      <ul class="features-list">
-        <li>
-          <h3>Learn the fundamental techniques of handbuilding.</h3>
-          <p>Understand pinching, coiling, and slab building techniques to create unique ceramic pieces.</p>
-        </li>
-        <li>
-          <h3>Personalized attention and guidance.</h3>
-          <p>We take in a limited number of students per session to ensure you receive ample one-on-one time and a solid foundation.</p>
-        </li>
-        <li>
-          <h3>From wet clay to finished piece.</h3>
-          <p>Understand the complete cycle of making, drying, bisque firing, and glazing. You will take home finished pieces made entirely by you (e.g., mugs, bowls, or planters).</p>
-        </li>
-      </ul>
+          <div class="inclusion-card">
+            <div class="inclusion-icon">🛠️</div>
+            <div class="inclusion-heading">Full Studio Access</div>
+            <p class="inclusion-desc">Unlimited practice clay, sculpting tools, wooden modeling ribs, texture mats, and clean studio aprons.</p>
+          </div>
+
+          <div class="inclusion-card">
+            <div class="inclusion-icon">🔥</div>
+            <div class="inclusion-heading">Firings & Glazing</div>
+            <p class="inclusion-desc">Understand drying, bisque firing, and glaze application. Professional firings included for your quota of pieces.</p>
+          </div>
+
+          <div class="inclusion-card">
+            <div class="inclusion-icon">👥</div>
+            <div class="inclusion-heading">1-on-1 Guidance</div>
+            <p class="inclusion-desc">Small batch studio setting (max 6 students) providing dedicated attention suited to your pace and creative ideas.</p>
+          </div>
+        </div>
+        <p class="inclusions-extra-note">* Additional pieces beyond your package quota can be fired at ₹1,000 / kg.</p>
+      </div>
 
       <div class="gallery-wrapper">
         <div class="gallery-track">
@@ -498,56 +812,6 @@ export class HandbuildingClassContent extends LitElement {
         </div>
       </div>
 
-      <h2>Packages & Class Passes</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Sessions</th>
-            <th>Fee</th>
-            <th>Firing Included</th>
-            <th>Weekday Pass</th>
-            <th>Weekend Pass</th>
-            <th>Glaze Completion</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>6 Sessions</td>
-            <td>Rs. 9,900</td>
-            <td>2 pieces</td>
-            <td>Valid for 2 weeks</td>
-            <td>Valid for 3 weeks</td>
-            <td>Weekday: within 1 week post last session<br>Weekend: following weekend</td>
-          </tr>
-          <tr>
-            <td>10 Sessions</td>
-            <td>Rs. 16,500</td>
-            <td>5 pieces</td>
-            <td>Valid for 4 weeks</td>
-            <td>Valid for 5 weeks</td>
-            <td>Weekday: within 1 week post last session<br>Weekend: following weekend</td>
-          </tr>
-          <tr>
-            <td>20 Sessions</td>
-            <td>Rs. 33,000</td>
-            <td>10 pieces</td>
-            <td>Valid for 8 weeks</td>
-            <td>Valid for 10 weeks</td>
-            <td>Weekday: within 1 week post last session<br>Weekend: following weekend</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="info-section">
-        <h2>Course inclusions</h2>
-        <ul class="info-list">
-          <li>Clay</li>
-          <li>Apron and basic tools for use in the studio.</li>
-          <li>Firing included based on package: 2 pieces (6 sessions), 5 pieces (10 sessions), or 10 pieces (20 sessions).</li>
-          <li>Additional pieces can be fired at the rate of 1000 rupees per kg.</li>
-        </ul>
-      </div>
-
       <div class="info-section">
         <h2>Schedule</h2>
         <ul class="info-list">
@@ -558,24 +822,36 @@ export class HandbuildingClassContent extends LitElement {
         </ul>
       </div>
 
-      <div class="info-section">
-        <h2>What to prepare</h2>
-        <ul class="info-list">
-          <li>Wear comfortable clothes you don't mind getting dirty.</li>
-          <li>Bring a hand towel for personal use.</li>
-          <li>Keep your fingernails trimmed short for the best handbuilding experience.</li>
-          <li>Bring some snacks if you feel necessary.</li>
-        </ul>
-      </div>
+      <div class="accordion-group">
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <span>What to prepare</span>
+            <span class="accordion-icon">+</span>
+          </summary>
+          <div class="accordion-content">
+            <ul>
+              <li>Wear comfortable clothes you don't mind getting dirty.</li>
+              <li>Bring a hand towel for personal use.</li>
+              <li>Keep your fingernails trimmed short for the best handbuilding experience.</li>
+              <li>Bring some snacks if you feel necessary.</li>
+            </ul>
+          </div>
+        </details>
 
-      <div class="info-section">
-        <h2>Policies</h2>
-        <ul class="info-list">
-          <li>Registration validity depends on the selected session package and pass type (Weekday or Weekend pass).</li>
-          <li>All sessions must be completed within the designated pass validity period unless a reschedule is initiated by the studio due to production work or official holidays.</li>
-          <li>Glaze completion: Within a week after the last session for Weekday Passes, and the following weekend for Weekend Passes.</li>
-          <li>Finished articles must be collected within the designated pick-up window communicated by the studio. Articles will not be retained or saved in the studio beyond the pick-up deadline.</li>
-        </ul>
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <span>Studio Policies & Validity</span>
+            <span class="accordion-icon">+</span>
+          </summary>
+          <div class="accordion-content">
+            <ul>
+              <li><strong>Validity periods:</strong> 3 weeks for Explore (6 sessions), 5 weeks for Foundation (10 sessions), and 8 weeks for Intensive (20 sessions).</li>
+              <li>All sessions must be completed within your designated pass validity period unless a reschedule is initiated by the studio due to production work or official holidays.</li>
+              <li>Glaze completion: Within one week following your final session.</li>
+              <li>Finished articles must be collected within the designated pick-up window communicated by the studio. Articles will not be retained or saved in the studio beyond the pick-up deadline.</li>
+            </ul>
+          </div>
+        </details>
       </div>
 
       <div class="info-section">
