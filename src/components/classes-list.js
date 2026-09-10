@@ -138,18 +138,6 @@ export class ClassesList extends LitElement {
       border: 1px solid rgba(226, 74, 74, 0.3);
     }
 
-    .spots-tag {
-      display: inline-block;
-      background-color: rgba(245, 197, 24, 0.15);
-      color: #F5C518;
-      font-size: 13px;
-      font-weight: 700;
-      padding: 6px 12px;
-      border-radius: 6px;
-      margin-bottom: 20px;
-      align-self: flex-start;
-    }
-
     .card-meta {
       font-size: 15px;
       color: #B9B9B9;
@@ -211,7 +199,6 @@ export class ClassesList extends LitElement {
             <div class="card-content">
               ${cls.level ? html`<div class="level-tag level-${cls.level}">${cls.level}</div>` : ''}
               <h2 class="card-title">${cls.title}</h2>
-              ${cls.spots ? html`<div class="spots-tag">Only ${cls.spots} spots left</div>` : ''}
               <div class="card-meta">
                 <span><strong>Sessions:</strong> ${cls.sessions}</span>
                 <span><strong>Fee:</strong> ${cls.fees}</span>

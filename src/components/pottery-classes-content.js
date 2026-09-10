@@ -594,8 +594,6 @@ export class PotteryClassesContent extends LitElement {
         Our wheel throwing classes are designed as an introduction to wheel throwing and ceramics. No prior experience or artistic background is required.
       </p>
 
-      <p class="subtitle" style="margin-bottom: 20px; color: #F5C518; font-weight: 600;">Only 6 spots left.</p>
-
       <div class="pricing-grid">
         <!-- 6 Sessions -->
         <div class="pricing-card">
