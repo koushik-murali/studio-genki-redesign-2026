@@ -163,25 +163,6 @@ export class PotteryClassesContent extends LitElement {
       margin-bottom: 0;
     }
 
-    /* Features list */
-    .features-list {
-      list-style-type: disc;
-      padding-left: 24px;
-      margin-bottom: 80px;
-    }
-    
-    .features-list li {
-      margin-bottom: 32px;
-      color: #FFFFFF;
-    }
-    
-    .features-list p {
-      color: #B9B9B9;
-      line-height: 1.6;
-      margin: 0;
-      font-size: 18px;
-    }
-
     /* Gallery section */
     .gallery-wrapper {
       margin: 80px 0;
@@ -668,7 +649,7 @@ export class PotteryClassesContent extends LitElement {
           <ul class="card-features">
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
-              <span><strong>6 Sessions</strong> (3 hrs each / 18 hrs total)</span>
+              <span><strong>6 Sessions</strong> (18 hrs total)</span>
             </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
@@ -701,7 +682,7 @@ export class PotteryClassesContent extends LitElement {
           <ul class="card-features">
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
-              <span><strong>10 Sessions</strong> (3 hrs each / 30 hrs total)</span>
+              <span><strong>10 Sessions</strong> (30 hrs total)</span>
             </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
@@ -733,7 +714,7 @@ export class PotteryClassesContent extends LitElement {
           <ul class="card-features">
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
-              <span><strong>20 Sessions</strong> (3 hrs each / 60 hrs total)</span>
+              <span><strong>20 Sessions</strong> (60 hrs total)</span>
             </li>
             <li class="card-feature-item">
               <span class="card-feature-bullet">✓</span>
@@ -762,45 +743,30 @@ export class PotteryClassesContent extends LitElement {
         <div class="inclusions-grid">
           <div class="inclusion-card">
             <div class="inclusion-icon">🏺</div>
-            <div class="inclusion-heading">Clay & Wheels</div>
-            <p class="inclusion-desc">High-grade stoneware clay for practice, with your own electric wheel for every session.</p>
+            <div class="inclusion-heading">Wheel Fundamentals</div>
+            <p class="inclusion-desc">Learn clay preparation, centering, pulling cylinders & bowls, trimming foot rings, and attaching handles.</p>
           </div>
 
           <div class="inclusion-card">
             <div class="inclusion-icon">🛠️</div>
-            <div class="inclusion-heading">Tools & Apron</div>
-            <p class="inclusion-desc">Complete set of throwing ribs, trimming tools, wire cutters, sponges, and clean studio aprons.</p>
+            <div class="inclusion-heading">Full Studio & Wheel Access</div>
+            <p class="inclusion-desc">Your own dedicated electric wheel, unlimited clay for practice, complete trimming tools, and clean aprons.</p>
           </div>
 
           <div class="inclusion-card">
             <div class="inclusion-icon">🔥</div>
-            <div class="inclusion-heading">Firings & Glaze</div>
-            <p class="inclusion-desc">Professional high-fire bisque and food-safe glaze firings included for your quota of finished pieces.</p>
+            <div class="inclusion-heading">Firings & Glazing</div>
+            <p class="inclusion-desc">Understand the entire firing cycle. Bisque and food-safe glaze firings included for your quota of finished pieces.</p>
           </div>
 
           <div class="inclusion-card">
             <div class="inclusion-icon">👥</div>
             <div class="inclusion-heading">1-on-1 Guidance</div>
-            <p class="inclusion-desc">Intimate studio format capped at max 4 students for focused, individualized instruction.</p>
+            <p class="inclusion-desc">Intimate studio format (max 4 students per session) with personalized instruction suited to your pace.</p>
           </div>
         </div>
         <p class="inclusions-extra-note">* Additional pieces beyond your package quota can be fired at ₹1,000 / kg.</p>
       </div>
-
-      <ul class="features-list">
-        <li>
-          <h3>During the course, you will learn the fundamentals of wheel work.</h3>
-          <p>Preparing clay for throwing, throwing cylinders and bowls, trimming, attaching handles, and an introduction to glazing.</p>
-        </li>
-        <li>
-          <h3>The course is catered to the individual student's needs.</h3>
-          <p>Training is personalized. We take in a limited number of students per session to ensure that everyone has ample time and a solid foundation.</p>
-        </li>
-        <li>
-          <h3>From making to firing. Understand the whole process.</h3>
-          <p>The course is designed to make you an independent potter. You will learn the entire process from start to finish, and take home finished, food-safe pieces you threw yourself.</p>
-        </li>
-      </ul>
 
       <div class="gallery-wrapper">
         <div class="gallery-track">
