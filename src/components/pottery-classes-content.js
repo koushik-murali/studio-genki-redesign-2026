@@ -929,6 +929,7 @@ export class PotteryClassesContent extends LitElement {
         </div>
       </div>
 
+      <h2>FAQ</h2>
       <div class="accordion-group">
         <details class="accordion-item">
           <summary class="accordion-header">
@@ -990,16 +991,6 @@ export class PotteryClassesContent extends LitElement {
           </summary>
           <div class="accordion-content">
             <p>Yes. As long as you inform us at least 24 hours in advance, you can reschedule your session to any open slot within your package validity period.</p>
-          </div>
-        </details>
-
-        <details class="accordion-item">
-          <summary class="accordion-header">
-            <span>When and how do I get my finished pieces?</span>
-            <span class="accordion-icon">+</span>
-          </summary>
-          <div class="accordion-content">
-            <p>Pottery requires careful, slow air-drying, a bisque firing, glazing, and a final high-fire kiln run. Finished pieces are typically ready for pickup 2 to 3 weeks after your glazing session. We will notify you as soon as they are ready.</p>
           </div>
         </details>
 
