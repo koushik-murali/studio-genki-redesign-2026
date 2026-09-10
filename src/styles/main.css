@@ -9,6 +9,14 @@
   --color-overlay: rgba(217, 217, 217, 0);
 }
 
+:root[data-theme="light"],
+html[data-theme="light"],
+body[data-theme="light"] {
+  --color-bg: #FBF9F5;
+  --color-text: #141414;
+  --color-text-muted: #666666;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -22,6 +30,7 @@ html, body {
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .page-overlay {

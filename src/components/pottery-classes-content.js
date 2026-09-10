@@ -2,7 +2,8 @@ import { LitElement, html, css } from 'lit';
 
 export class PotteryClassesContent extends LitElement {
   static properties = {
-    galleryImages: { type: Array }
+    galleryImages: { type: Array },
+    theme: { type: String, state: true }
   };
 
   constructor() {
@@ -14,6 +15,36 @@ export class PotteryClassesContent extends LitElement {
       '03.png',
       '04.png'
     ];
+    this.theme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'dark';
+    this._onThemeChange = () => {
+      const t = document.documentElement.getAttribute('data-theme') || 'dark';
+      this.theme = t;
+      this.setAttribute('data-theme', t);
+    };
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    const currentTheme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'dark';
+    this.theme = currentTheme;
+    this.setAttribute('data-theme', currentTheme);
+
+    window.addEventListener('theme-changed', this._onThemeChange);
+    this._themeObserver = new MutationObserver(() => {
+      this._onThemeChange();
+    });
+    this._themeObserver.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    window.removeEventListener('theme-changed', this._onThemeChange);
+    if (this._themeObserver) {
+      this._themeObserver.disconnect();
+    }
   }
 
   static styles = css`
@@ -23,6 +54,11 @@ export class PotteryClassesContent extends LitElement {
       color: #FFFFFF;
       font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
       font-weight: 300;
+      transition: color 0.3s ease;
+    }
+
+    :host([data-theme="light"]) {
+      color: #141414;
     }
 
     .course-content-column {
@@ -809,11 +845,351 @@ export class PotteryClassesContent extends LitElement {
         transform: scale(0.98);
       }
     }
+
+    /* ==========================================================================
+       Light Mode Overrides (Warm Japanese Ceramic Bisque Minimalist)
+       ========================================================================== */
+    :host([data-theme="light"]) h1,
+    .light-mode h1,
+    :host([data-theme="light"]) h2,
+    .light-mode h2,
+    :host([data-theme="light"]) h3,
+    .light-mode h3 {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .description,
+    .light-mode .description {
+      color: #555555;
+    }
+
+    :host([data-theme="light"]) .back-link,
+    .light-mode .back-link {
+      color: #666666;
+    }
+
+    :host([data-theme="light"]) .back-link:hover,
+    .light-mode .back-link:hover {
+      color: #000000;
+    }
+
+    :host([data-theme="light"]) .pricing-card,
+    .light-mode .pricing-card {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    :host([data-theme="light"]) .pricing-card:hover,
+    .light-mode .pricing-card:hover {
+      border-color: rgba(0, 0, 0, 0.28);
+      background: #FFFFFF;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    :host([data-theme="light"]) .pricing-card.featured,
+    .light-mode .pricing-card.featured {
+      background: #FFFFFF;
+      border: 2px solid #141414;
+      box-shadow: 0 10px 36px rgba(0, 0, 0, 0.09);
+    }
+
+    :host([data-theme="light"]) .pricing-badge,
+    .light-mode .pricing-badge {
+      background: #141414;
+      color: #FFFFFF;
+    }
+
+    :host([data-theme="light"]) .card-title,
+    .light-mode .card-title,
+    :host([data-theme="light"]) .card-price,
+    .light-mode .card-price {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .card-ideal-for,
+    .light-mode .card-ideal-for {
+      color: #666666;
+    }
+
+    :host([data-theme="light"]) .card-subtext,
+    .light-mode .card-subtext {
+      color: #777777;
+    }
+
+    :host([data-theme="light"]) .card-features,
+    .light-mode .card-features {
+      border-top-color: rgba(0, 0, 0, 0.08);
+    }
+
+    :host([data-theme="light"]) .card-feature-item,
+    .light-mode .card-feature-item {
+      color: #444444;
+    }
+
+    :host([data-theme="light"]) .card-feature-item strong,
+    .light-mode .card-feature-item strong,
+    :host([data-theme="light"]) .card-feature-bullet,
+    .light-mode .card-feature-bullet {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .card-btn,
+    .light-mode .card-btn {
+      color: #141414;
+      border: 1.5px solid #141414;
+      background: transparent;
+    }
+
+    :host([data-theme="light"]) .card-btn:hover,
+    .light-mode .card-btn:hover {
+      background: #141414;
+      color: #FFFFFF;
+      border-color: #141414;
+    }
+
+    :host([data-theme="light"]) .pricing-card.featured .card-btn,
+    .light-mode .pricing-card.featured .card-btn {
+      background: #141414;
+      color: #FFFFFF;
+      border-color: #141414;
+    }
+
+    :host([data-theme="light"]) .pricing-card.featured .card-btn:hover,
+    .light-mode .pricing-card.featured .card-btn:hover {
+      background: #333333;
+      border-color: #333333;
+    }
+
+    :host([data-theme="light"]) .pricing-helper,
+    .light-mode .pricing-helper {
+      color: #666666;
+    }
+
+    :host([data-theme="light"]) .pricing-helper a,
+    .light-mode .pricing-helper a {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .pricing-helper a:hover,
+    .light-mode .pricing-helper a:hover {
+      color: #C08A0A;
+    }
+
+    :host([data-theme="light"]) .inclusions-title,
+    .light-mode .inclusions-title {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .inclusion-card,
+    .light-mode .inclusion-card {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+    }
+
+    :host([data-theme="light"]) .inclusion-card:hover,
+    .light-mode .inclusion-card:hover {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.22);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    :host([data-theme="light"]) .inclusion-icon,
+    .light-mode .inclusion-icon {
+      background: #F4F1EC;
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    :host([data-theme="light"]) .inclusion-heading,
+    .light-mode .inclusion-heading {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .inclusion-desc,
+    .light-mode .inclusion-desc {
+      color: #555555;
+    }
+
+    :host([data-theme="light"]) .inclusions-extra-note,
+    .light-mode .inclusions-extra-note {
+      color: #777777;
+    }
+
+    :host([data-theme="light"]) .accordion-item,
+    .light-mode .accordion-item {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    }
+
+    :host([data-theme="light"]) .accordion-item:hover,
+    .light-mode .accordion-item:hover {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.22);
+    }
+
+    :host([data-theme="light"]) .accordion-item[open],
+    .light-mode .accordion-item[open] {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.28);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    :host([data-theme="light"]) .accordion-header,
+    .light-mode .accordion-header {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .accordion-icon,
+    .light-mode .accordion-icon {
+      color: #777777;
+    }
+
+    :host([data-theme="light"]) .accordion-item[open] .accordion-icon,
+    .light-mode .accordion-item[open] .accordion-icon {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .accordion-content,
+    .light-mode .accordion-content {
+      border-top-color: rgba(0, 0, 0, 0.06);
+    }
+
+    :host([data-theme="light"]) .accordion-content p,
+    .light-mode .accordion-content p,
+    :host([data-theme="light"]) .accordion-content li,
+    .light-mode .accordion-content li {
+      color: #444444;
+    }
+
+    :host([data-theme="light"]) .accordion-content li strong,
+    .light-mode .accordion-content li strong {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .instructor-section,
+    .light-mode .instructor-section {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    :host([data-theme="light"]) .instructor-label,
+    .light-mode .instructor-label {
+      color: #777777;
+    }
+
+    :host([data-theme="light"]) .instructor-bio,
+    .light-mode .instructor-bio {
+      color: #555555;
+    }
+
+    :host([data-theme="light"]) .review-card,
+    .light-mode .review-card {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+    }
+
+    :host([data-theme="light"]) .review-card:hover,
+    .light-mode .review-card:hover {
+      background: #FFFFFF;
+      border-color: rgba(0, 0, 0, 0.22);
+    }
+
+    :host([data-theme="light"]) .review-tag,
+    .light-mode .review-tag {
+      color: #666666;
+      background: #F4F1EC;
+    }
+
+    :host([data-theme="light"]) .review-text,
+    .light-mode .review-text {
+      color: #444444;
+    }
+
+    :host([data-theme="light"]) .review-author,
+    .light-mode .review-author {
+      border-top-color: rgba(0, 0, 0, 0.06);
+    }
+
+    :host([data-theme="light"]) .review-avatar,
+    .light-mode .review-avatar {
+      background: #EDEAE4;
+      border-color: rgba(0, 0, 0, 0.1);
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .review-name,
+    .light-mode .review-name {
+      color: #141414;
+    }
+
+    :host([data-theme="light"]) .review-verified,
+    .light-mode .review-verified {
+      color: #888888;
+    }
+
+    :host([data-theme="light"]) .stars,
+    .light-mode .stars {
+      color: #D99E10;
+    }
+
+    :host([data-theme="light"]) .reviews-track,
+    .light-mode .reviews-track {
+      scrollbar-color: rgba(0, 0, 0, 0.18) transparent;
+    }
+
+    :host([data-theme="light"]) .reviews-track::-webkit-scrollbar-thumb,
+    .light-mode .reviews-track::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.18);
+    }
+
+    :host([data-theme="light"]) .contact-button,
+    .light-mode .contact-button {
+      background-color: #141414;
+      color: #FFFFFF;
+      border-color: #141414;
+    }
+
+    :host([data-theme="light"]) .contact-button:hover,
+    .light-mode .contact-button:hover {
+      background-color: #333333;
+      border-color: #333333;
+    }
+
+    :host([data-theme="light"]) .map-container,
+    .light-mode .map-container {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 768px) {
+      :host([data-theme="light"]) .mobile-sticky-bar,
+      .mobile-sticky-bar.light-mode {
+        background: rgba(251, 249, 245, 0.95);
+        border-top-color: rgba(0, 0, 0, 0.1);
+        box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.08);
+      }
+
+      :host([data-theme="light"]) .mobile-sticky-btn,
+      .mobile-sticky-bar.light-mode .mobile-sticky-btn {
+        background: #141414;
+        color: #FFFFFF;
+      }
+
+      :host([data-theme="light"]) .mobile-sticky-btn:hover,
+      .mobile-sticky-bar.light-mode .mobile-sticky-btn:hover {
+        background: #333333;
+      }
+    }
   `;
 
   render() {
+    const isLight = this.theme === 'light';
+
     return html`
-      <div class="course-content-column">
+      <div class="course-content-column ${isLight ? 'light-mode' : ''}">
         <a href="/classes.html" class="back-link">&larr; Back to courses</a>
       <h1>Wheel Throwing Classes</h1>
       <p class="description">
@@ -1123,7 +1499,7 @@ export class PotteryClassesContent extends LitElement {
     </div>
 
       <!-- Sticky Mobile Enquiry Bar -->
-      <div class="mobile-sticky-bar">
+      <div class="mobile-sticky-bar ${isLight ? 'light-mode' : ''}">
         <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20know%20more%20about%20the%20wheel%20throwing%20pottery%20classes" 
            target="_blank" rel="noopener noreferrer" class="mobile-sticky-btn">
           Enquire on WhatsApp
