@@ -20,11 +20,16 @@ export class HandbuildingClassContent extends LitElement {
     :host {
       display: block;
       width: 100%;
-      max-width: 900px;
-      margin: 0 auto;
       color: #FFFFFF;
       font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
       font-weight: 300;
+    }
+
+    .course-content-column {
+      width: 100%;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .back-link {
@@ -626,7 +631,8 @@ export class HandbuildingClassContent extends LitElement {
 
   render() {
     return html`
-      <a href="/classes.html" class="back-link">&larr; Back to courses</a>
+      <div class="course-content-column">
+        <a href="/classes.html" class="back-link">&larr; Back to courses</a>
       <h1>Handbuilding Classes</h1>
       <p class="description">
         Studio Genki is a place for aspiring potters and people who take the craft seriously.
@@ -870,6 +876,7 @@ export class HandbuildingClassContent extends LitElement {
         <h2>Ready to start?</h2>
         <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20handbuilding%20course" target="_blank" rel="noopener noreferrer" class="contact-button">Reserve Your Spot</a>
       </div>
+    </div>
     `;
   }
 }
