@@ -146,10 +146,24 @@ export class PotteryClassesContent extends LitElement {
       padding-top: 18px;
     }
 
+    .accordion-content p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #B9B9B9;
+      margin: 0;
+    }
+
     .accordion-content ul {
       list-style-type: disc;
       padding-left: 20px;
       margin: 0;
+    }
+
+    .accordion-content .sub-list {
+      list-style-type: circle;
+      padding-left: 20px;
+      margin-top: 6px;
+      margin-bottom: 6px;
     }
 
     .accordion-content li {
@@ -348,12 +362,40 @@ export class PotteryClassesContent extends LitElement {
       font-weight: 700;
       color: #FFFFFF;
       line-height: 1;
-      margin-bottom: 6px;
+      margin-bottom: 12px;
+    }
+
+    .card-ideal-for {
+      font-size: 13.5px;
+      color: #A0A0A0;
+      line-height: 1.45;
+      margin: 0;
+      min-height: 40px;
     }
 
     .card-subtext {
       font-size: 14px;
       color: #8E8E8E;
+    }
+
+    .pricing-helper {
+      text-align: center;
+      margin: 28px 0 64px 0;
+      font-size: 15px;
+      color: #8E8E8E;
+    }
+
+    .pricing-helper a {
+      color: #FFFFFF;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      margin-left: 6px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .pricing-helper a:hover {
+      color: #F5C518;
     }
 
     .card-features {
@@ -551,7 +593,15 @@ export class PotteryClassesContent extends LitElement {
       display: block;
     }
 
+    .mobile-sticky-bar {
+      display: none;
+    }
+
     @media (max-width: 768px) {
+      :host {
+        padding-bottom: 80px;
+      }
+
       h1 { font-size: 32px; }
       h2 { font-size: 24px; }
       h3 { font-size: 18px; }
@@ -625,6 +675,61 @@ export class PotteryClassesContent extends LitElement {
         font-size: 16px;
         box-sizing: border-box;
       }
+
+      .mobile-sticky-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(15, 15, 15, 0.95);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 12px 20px calc(12px + env(safe-area-inset-bottom, 0px)) 20px;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 999;
+        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
+      }
+
+      .mobile-sticky-info {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .mobile-sticky-label {
+        font-size: 11px;
+        color: #8E8E8E;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      .mobile-sticky-price {
+        font-size: 16px;
+        font-weight: 700;
+        color: #FFFFFF;
+        font-family: var(--font-merriweather, serif);
+      }
+
+      .mobile-sticky-btn {
+        background: #FFFFFF;
+        color: #000000;
+        font-size: 13px;
+        font-weight: 700;
+        padding: 10px 16px;
+        border-radius: 6px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        transition: background 0.2s ease;
+        font-family: var(--font-merriweather-sans, sans-serif);
+      }
+
+      .mobile-sticky-btn:hover {
+        background: #e0e0e0;
+      }
     }
   `;
 
@@ -645,6 +750,7 @@ export class PotteryClassesContent extends LitElement {
           <div class="card-header">
             <h3 class="card-title">Explore</h3>
             <div class="card-price">₹9,900</div>
+            <p class="card-ideal-for">Best for beginners wanting a hands-on intro and their first finished pieces.</p>
           </div>
           <ul class="card-features">
             <li class="card-feature-item">
@@ -678,6 +784,7 @@ export class PotteryClassesContent extends LitElement {
           <div class="card-header">
             <h3 class="card-title">Foundation</h3>
             <div class="card-price">₹16,500</div>
+            <p class="card-ideal-for">Best for building muscle memory, centering consistency, and trimming skills.</p>
           </div>
           <ul class="card-features">
             <li class="card-feature-item">
@@ -710,6 +817,7 @@ export class PotteryClassesContent extends LitElement {
           <div class="card-header">
             <h3 class="card-title">Intensive</h3>
             <div class="card-price">₹33,000</div>
+            <p class="card-ideal-for">For dedicated potters aiming to throw larger, complex forms independently.</p>
           </div>
           <ul class="card-features">
             <li class="card-feature-item">
@@ -736,6 +844,11 @@ export class PotteryClassesContent extends LitElement {
           <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20Intensive%20(20%20sessions)%20wheel%20throwing%20course" 
              target="_blank" rel="noopener noreferrer" class="card-btn">Choose Intensive</a>
         </div>
+      </div>
+
+      <div class="pricing-helper">
+        <span>Not sure which package fits your schedule?</span>
+        <a href="https://wa.me/917373074962?text=Hi%20Koushik%2C%20I'm%20not%20sure%20which%20wheel%20throwing%20package%20suits%20me%20best.%20Could%20you%20help%20me%20decide%3F" target="_blank" rel="noopener noreferrer">Chat with us on WhatsApp &rarr;</a>
       </div>
 
       <div class="inclusions-section">
@@ -825,8 +938,16 @@ export class PotteryClassesContent extends LitElement {
           <div class="accordion-content">
             <ul>
               <li><strong>Dates:</strong> On-going regular classes</li>
-              <li><strong>Days:</strong> All days (flexible scheduling)</li>
+              <li><strong>Days:</strong> All days (flexible scheduling across weekdays and weekends)</li>
+              <li><strong>Daily Time Slots:</strong>
+                <ul class="sub-list">
+                  <li>Morning: 10:00 AM – 1:00 PM</li>
+                  <li>Afternoon: 2:00 PM – 5:00 PM</li>
+                  <li>Evening: 5:30 PM – 8:30 PM</li>
+                </ul>
+              </li>
               <li><strong>Duration:</strong> 3 hours per session</li>
+              <li><strong>Batch Size:</strong> Intimate cap of 4–6 students per slot for personalized wheel attention</li>
               <li>Clean-up after classes is mandatory</li>
             </ul>
           </div>
@@ -861,6 +982,36 @@ export class PotteryClassesContent extends LitElement {
             </ul>
           </div>
         </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <span>Can I reschedule if I miss a class?</span>
+            <span class="accordion-icon">+</span>
+          </summary>
+          <div class="accordion-content">
+            <p>Yes. As long as you inform us at least 24 hours in advance, you can reschedule your session to any open slot within your package validity period.</p>
+          </div>
+        </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <span>When and how do I get my finished pieces?</span>
+            <span class="accordion-icon">+</span>
+          </summary>
+          <div class="accordion-content">
+            <p>Pottery requires careful, slow air-drying, a bisque firing, glazing, and a final high-fire kiln run. Finished pieces are typically ready for pickup 2 to 3 weeks after your glazing session. We will notify you as soon as they are ready.</p>
+          </div>
+        </details>
+
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <span>Can two people share a single package?</span>
+            <span class="accordion-icon">+</span>
+          </summary>
+          <div class="accordion-content">
+            <p>Packages are strictly individual and non-transferable. Wheel throwing relies on continuous muscle memory and focused 1-on-1 wheel guidance across the entire sequence.</p>
+          </div>
+        </details>
       </div>
 
       <div class="info-section">
@@ -873,6 +1024,18 @@ export class PotteryClassesContent extends LitElement {
       <div class="info-section">
         <h2>Ready to start?</h2>
         <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20wheel%20throwing%20course" target="_blank" rel="noopener noreferrer" class="contact-button">Reserve Your Spot</a>
+      </div>
+
+      <!-- Sticky Mobile Enquiry Bar -->
+      <div class="mobile-sticky-bar">
+        <div class="mobile-sticky-info">
+          <span class="mobile-sticky-label">Wheel Classes</span>
+          <span class="mobile-sticky-price">from ₹9,900</span>
+        </div>
+        <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20know%20more%20about%20the%20wheel%20throwing%20pottery%20classes" 
+           target="_blank" rel="noopener noreferrer" class="mobile-sticky-btn">
+          Enquire on WhatsApp
+        </a>
       </div>
     `;
   }
