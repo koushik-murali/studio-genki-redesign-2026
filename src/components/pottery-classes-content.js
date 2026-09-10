@@ -241,26 +241,163 @@ export class PotteryClassesContent extends LitElement {
       letter-spacing: 2px;
     }
 
-    /* Table styles */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 80px;
+    /* Pricing Cards */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 40px 0 24px 0;
+      align-items: stretch;
     }
 
-    th, td {
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 16px 24px;
-      text-align: left;
+    .pricing-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
     }
 
-    th {
-      font-weight: 700;
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 255, 255, 0.25);
       background: rgba(255, 255, 255, 0.05);
     }
 
-    td {
+    .pricing-card.featured {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #FFFFFF;
+      color: #000000;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    .card-header {
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .card-title {
+      font-family: var(--font-merriweather, serif);
+      font-size: 24px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 0 0 12px 0;
+    }
+
+    .card-price {
+      font-family: var(--font-merriweather-sans, sans-serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .card-subtext {
+      font-size: 14px;
+      color: #8E8E8E;
+    }
+
+    .card-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px 0;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+    }
+
+    .card-feature-item {
+      font-size: 15px;
+      color: #CCCCCC;
+      line-height: 1.4;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .card-feature-item strong {
+      color: #FFFFFF;
+    }
+
+    .card-feature-bullet {
+      color: #FFFFFF;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .card-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 14px 20px;
+      background: transparent;
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-align: center;
+      font-family: var(--font-merriweather-sans, 'Merriweather Sans', sans-serif);
+    }
+
+    .card-btn:hover {
+      background: #FFFFFF;
+      color: #000000;
+      border-color: #FFFFFF;
+    }
+
+    .pricing-card.featured .card-btn {
+      background: #FFFFFF;
+      color: #000000;
+      border-color: #FFFFFF;
+    }
+
+    .pricing-card.featured .card-btn:hover {
+      background: #e0e0e0;
+      border-color: #e0e0e0;
+    }
+
+    .packages-footer-note {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 64px;
+      font-size: 15px;
       color: #B9B9B9;
+      line-height: 1.6;
+    }
+
+    .packages-footer-note h3 {
+      margin: 0 0 8px 0;
+      font-size: 16px;
+      color: #FFFFFF;
+      font-weight: 600;
     }
 
     .info-section {
@@ -324,50 +461,6 @@ export class PotteryClassesContent extends LitElement {
       h2 { font-size: 24px; }
       h3 { font-size: 18px; }
       .description { font-size: 18px; }
-      th, td { padding: 12px 16px; }
-      
-      /* Vertical table on mobile */
-      table, thead, tbody, th, td, tr { 
-        display: block; 
-      }
-      
-      thead tr { 
-        display: none; 
-      }
-      
-      tr { 
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        margin-bottom: 16px;
-      }
-      
-      td { 
-        border: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
-        position: relative;
-        padding-left: 50%; 
-        text-align: right;
-      }
-      
-      td:before { 
-        position: absolute;
-        top: 12px;
-        left: 16px;
-        width: 45%; 
-        padding-right: 10px; 
-        white-space: nowrap;
-        text-align: left;
-        font-weight: 700;
-        color: #FFFFFF;
-      }
-      
-      td:nth-of-type(1):before { content: "Sessions"; }
-      td:nth-of-type(2):before { content: "Fee"; }
-      td:nth-of-type(3):before { content: "Firing Included"; }
-      td:nth-of-type(4):before { content: "Weekday Pass"; }
-      td:nth-of-type(5):before { content: "Weekend Pass"; }
-      td:nth-of-type(6):before { content: "Glaze Completion"; }
-      
-      td:last-child {
         border-bottom: 0;
       }
       
@@ -501,53 +594,103 @@ export class PotteryClassesContent extends LitElement {
       </div>
 
       <h2>Packages & Class Passes</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Sessions</th>
-            <th>Fee</th>
-            <th>Firing Included</th>
-            <th>Weekday Pass</th>
-            <th>Weekend Pass</th>
-            <th>Glaze Completion</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>6 Sessions</td>
-            <td>Rs. 9,900</td>
-            <td>2 pieces</td>
-            <td>Valid for 2 weeks</td>
-            <td>Valid for 3 weeks</td>
-            <td>Weekday: within 1 week post last session<br>Weekend: following weekend</td>
-          </tr>
-          <tr>
-            <td>10 Sessions</td>
-            <td>Rs. 16,500</td>
-            <td>5 pieces</td>
-            <td>Valid for 4 weeks</td>
-            <td>Valid for 5 weeks</td>
-            <td>Weekday: within 1 week post last session<br>Weekend: following weekend</td>
-          </tr>
-          <tr>
-            <td>20 Sessions</td>
-            <td>Rs. 33,000</td>
-            <td>10 pieces</td>
-            <td>Valid for 8 weeks</td>
-            <td>Valid for 10 weeks</td>
-            <td>Weekday: within 1 week post last session<br>Weekend: following weekend</td>
-          </tr>
-        </tbody>
-      </table>
+      <p style="color: #B9B9B9; font-size: 18px; margin-bottom: 8px;">
+        Choose the package that suits your schedule. All packages offer individual wheel access and flexible booking.
+      </p>
 
-      <div class="info-section">
-        <h2>Course inclusions</h2>
-        <ul class="info-list">
-          <li>Clay</li>
-          <li>Apron and basic tools for use in the studio.</li>
-          <li>Firing included based on package: 2 pieces (6 sessions), 5 pieces (10 sessions), or 10 pieces (20 sessions).</li>
-          <li>Additional pieces can be fired at the rate of 1000 rupees per kg.</li>
-        </ul>
+      <div class="pricing-grid">
+        <!-- 6 Sessions -->
+        <div class="pricing-card">
+          <div class="card-header">
+            <h3 class="card-title">6 Sessions</h3>
+            <div class="card-price">₹9,900</div>
+            <div class="card-subtext">₹1,650 / session</div>
+          </div>
+          <ul class="card-features">
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>2 pieces</strong> glazed & fired included</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>Weekday Pass:</strong> Valid for 2 weeks</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>Weekend Pass:</strong> Valid for 3 weeks</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>3 hours</strong> per session (18 hrs total)</span>
+            </li>
+          </ul>
+          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%206%20sessions%20wheel%20throwing%20package" 
+             target="_blank" rel="noopener noreferrer" class="card-btn">Choose 6 Sessions</a>
+        </div>
+
+        <!-- 10 Sessions (Featured) -->
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="card-header">
+            <h3 class="card-title">10 Sessions</h3>
+            <div class="card-price">₹16,500</div>
+            <div class="card-subtext">₹1,650 / session</div>
+          </div>
+          <ul class="card-features">
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>5 pieces</strong> glazed & fired included</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>Weekday Pass:</strong> Valid for 4 weeks</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>Weekend Pass:</strong> Valid for 5 weeks</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>3 hours</strong> per session (30 hrs total)</span>
+            </li>
+          </ul>
+          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%2010%20sessions%20wheel%20throwing%20package" 
+             target="_blank" rel="noopener noreferrer" class="card-btn">Choose 10 Sessions</a>
+        </div>
+
+        <!-- 20 Sessions -->
+        <div class="pricing-card">
+          <div class="card-header">
+            <h3 class="card-title">20 Sessions</h3>
+            <div class="card-price">₹33,000</div>
+            <div class="card-subtext">₹1,650 / session</div>
+          </div>
+          <ul class="card-features">
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>10 pieces</strong> glazed & fired included</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>Weekday Pass:</strong> Valid for 8 weeks</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>Weekend Pass:</strong> Valid for 10 weeks</span>
+            </li>
+            <li class="card-feature-item">
+              <span class="card-feature-bullet">✓</span>
+              <span><strong>3 hours</strong> per session (60 hrs total)</span>
+            </li>
+          </ul>
+          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%2020%20sessions%20wheel%20throwing%20package" 
+             target="_blank" rel="noopener noreferrer" class="card-btn">Choose 20 Sessions</a>
+        </div>
+      </div>
+
+      <div class="packages-footer-note">
+        <h3>All packages include:</h3>
+        Clay, studio aprons, trimming and throwing tools, bisque & glaze firings, and dedicated one-on-one guidance (max 4 students per slot). Additional pieces beyond package allowance can be fired at ₹1,000 / kg.
       </div>
 
       <div class="info-section">
