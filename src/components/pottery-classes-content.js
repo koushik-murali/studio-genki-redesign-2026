@@ -83,25 +83,84 @@ export class PotteryClassesContent extends LitElement {
       font-weight: 400;
     }
 
-    .course-meta-bar {
+    /* Accordion styles */
+    .accordion-group {
       display: flex;
-      flex-wrap: wrap;
-      gap: 32px;
-      padding: 24px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      margin-bottom: 32px;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 80px;
     }
-    
-    .course-meta-bar span {
-      font-size: 18px;
-      color: #E0E0E0;
+
+    .accordion-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.2s ease;
     }
-    
-    .course-meta-bar strong {
+
+    .accordion-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .accordion-item[open] {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .accordion-header {
+      padding: 22px 28px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      user-select: none;
+      font-family: var(--font-merriweather, serif);
+      font-size: 20px;
+      font-weight: 700;
       color: #FFFFFF;
-      font-weight: 600;
-      margin-right: 8px;
+    }
+
+    .accordion-header::-webkit-details-marker {
+      display: none;
+    }
+
+    .accordion-icon {
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 300;
+      color: #B9B9B9;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .accordion-item[open] .accordion-icon {
+      transform: rotate(45deg);
+      color: #FFFFFF;
+    }
+
+    .accordion-content {
+      padding: 0 28px 24px 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 18px;
+    }
+
+    .accordion-content ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .accordion-content li {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #B9B9B9;
+      margin-bottom: 8px;
+    }
+
+    .accordion-content li:last-child {
+      margin-bottom: 0;
     }
 
     /* Features list */
@@ -461,9 +520,25 @@ export class PotteryClassesContent extends LitElement {
       h2 { font-size: 24px; }
       h3 { font-size: 18px; }
       .description { font-size: 18px; }
-        border-bottom: 0;
+
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
       }
       
+      .pricing-card {
+        padding: 32px 20px;
+      }
+
+      .accordion-header {
+        padding: 18px 20px;
+        font-size: 18px;
+      }
+
+      .accordion-content {
+        padding: 0 20px 20px 20px;
+        padding-top: 14px;
+      }
       .instructor-section, .review-card {
         padding: 24px;
       }
@@ -519,84 +594,7 @@ export class PotteryClassesContent extends LitElement {
         Our wheel throwing classes are designed as an introduction to wheel throwing and ceramics. No prior experience or artistic background is required.
       </p>
 
-      <div class="course-meta-bar">
-        <span><strong>Sessions:</strong> 6, 10, or 20</span>
-        <span><strong>Fee:</strong> From Rs. 9,900</span>
-        <span><strong>Duration:</strong> Regular classes</span>
-        <span><strong>Class Passes:</strong> Weekday & Weekend</span>
-      </div>
-
-      <p class="subtitle" style="margin-bottom: 24px; color: #F5C518; font-weight: 600;">Only 6 spots left.</p>
-      
-      <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20wheel%20throwing%20course" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 0; margin-bottom: 64px;">Reserve Your Spot</a>
-
-      <ul class="features-list">
-        <li>
-          <h3>During the course, you will learn the fundamentals of wheel work.</h3>
-          <p>Preparing clay for throwing, throwing cylinders and bowls, trimming, attaching handles, and an introduction to glazing.</p>
-        </li>
-        <li>
-          <h3>The course is catered to the individual student's needs.</h3>
-          <p>Training is personalized. We take in a limited number of students per session to ensure that everyone has ample time and a solid foundation.</p>
-        </li>
-        <li>
-          <h3>From making to firing. Understand the whole process.</h3>
-          <p>The course is designed to make you an independent potter. You will learn the entire process from start to finish, and take home finished, food-safe pieces you threw yourself.</p>
-        </li>
-      </ul>
-
-      <div class="gallery-wrapper">
-        <div class="gallery-track">
-          <!-- Primary images (loads from the array above) -->
-          ${this.galleryImages.map(img => html`
-            <img src="/classes-gallery/${img}" alt="Pottery Class Gallery" onerror="this.style.width='300px'" />
-          `)}
-          
-          <!-- Duplicated for desktop marquee loop -->
-          ${this.galleryImages.map(img => html`
-            <img src="/classes-gallery/${img}" alt="Pottery Class Gallery" class="duplicate-for-marquee" onerror="this.style.width='300px'" />
-          `)}
-        </div>
-      </div>
-
-      <div class="instructor-section">
-        <img src="/profile-picture.png" alt="Koushik Murali" class="instructor-image" />
-        <div class="instructor-info">
-          <p class="instructor-label">Your instructor</p>
-          <h2>Koushik Murali</h2>
-          <p class="instructor-bio">Koushik Murali is a studio potter and designer. He has spent the last 4 years working with clay and understanding the complex material. He runs the studio full-time and is looking forward to sharing his knowledge and helping you on your clay journey.</p>
-        </div>
-      </div>
-
-      <h2>What students say</h2>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <p class="review-text">"Have recently taken a 10 day course on pottery from this studio. The classes are really informative and insightful and taught so well by Koushik. Its a must for those looking to learn pottery. The best in terms of clarity, technique, creativity and also exposure."</p>
-          <div class="review-author">
-            <span>Afshan</span>
-            <span class="stars">★★★★</span>
-          </div>
-        </div>
-        <div class="review-card">
-          <p class="review-text">"Had an opportunity to attend 10 days of pottery classes on wheel throwing. It was an amazing experience and to mentally rewire our minds into the world of creation. Koushik patiently teaches the techniques and answers all our doubts. Anyone wishing to have an experience in creating things out of clay can definitely step into STUDIO GENKI and enjoy the experience."</p>
-          <div class="review-author">
-            <span>Priya</span>
-            <span class="stars">★★★★★</span>
-          </div>
-        </div>
-        <div class="review-card">
-          <p class="review-text">"I recently took the 30 day pottery class at Studio Genki and it was one of the best decisions ever. Koushik was a great instructor and was very patient with me throughout the class. He knew when to step in and when to let me figure out on my own. Highly recommend :)"</p>
-          <div class="review-author">
-            <span>Dharani</span>
-            <span class="stars">★★★★★</span>
-          </div>
-        </div>
-      </div>
-
-      <h2>Packages & Class Passes</h2>
-      <p style="color: #B9B9B9; font-size: 18px; margin-bottom: 8px;">
-        Choose the package that suits your schedule. All packages offer individual wheel access and flexible booking.
-      </p>
+      <p class="subtitle" style="margin-bottom: 20px; color: #F5C518; font-weight: 600;">Only 6 spots left.</p>
 
       <div class="pricing-grid">
         <!-- 6 Sessions -->
@@ -693,6 +691,69 @@ export class PotteryClassesContent extends LitElement {
         Clay, studio aprons, trimming and throwing tools, bisque & glaze firings, and dedicated one-on-one guidance (max 4 students per slot). Additional pieces beyond package allowance can be fired at ₹1,000 / kg.
       </div>
 
+      <ul class="features-list">
+        <li>
+          <h3>During the course, you will learn the fundamentals of wheel work.</h3>
+          <p>Preparing clay for throwing, throwing cylinders and bowls, trimming, attaching handles, and an introduction to glazing.</p>
+        </li>
+        <li>
+          <h3>The course is catered to the individual student's needs.</h3>
+          <p>Training is personalized. We take in a limited number of students per session to ensure that everyone has ample time and a solid foundation.</p>
+        </li>
+        <li>
+          <h3>From making to firing. Understand the whole process.</h3>
+          <p>The course is designed to make you an independent potter. You will learn the entire process from start to finish, and take home finished, food-safe pieces you threw yourself.</p>
+        </li>
+      </ul>
+
+      <div class="gallery-wrapper">
+        <div class="gallery-track">
+          <!-- Primary images (loads from the array above) -->
+          ${this.galleryImages.map(img => html`
+            <img src="/classes-gallery/${img}" alt="Pottery Class Gallery" onerror="this.style.width='300px'" />
+          `)}
+          
+          <!-- Duplicated for desktop marquee loop -->
+          ${this.galleryImages.map(img => html`
+            <img src="/classes-gallery/${img}" alt="Pottery Class Gallery" class="duplicate-for-marquee" onerror="this.style.width='300px'" />
+          `)}
+        </div>
+      </div>
+
+      <div class="instructor-section">
+        <img src="/profile-picture.png" alt="Koushik Murali" class="instructor-image" />
+        <div class="instructor-info">
+          <p class="instructor-label">Your instructor</p>
+          <h2>Koushik Murali</h2>
+          <p class="instructor-bio">Koushik Murali is a studio potter and designer. He has spent the last 4 years working with clay and understanding the complex material. He runs the studio full-time and is looking forward to sharing his knowledge and helping you on your clay journey.</p>
+        </div>
+      </div>
+
+      <h2>What students say</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <p class="review-text">"Have recently taken a 10 day course on pottery from this studio. The classes are really informative and insightful and taught so well by Koushik. Its a must for those looking to learn pottery. The best in terms of clarity, technique, creativity and also exposure."</p>
+          <div class="review-author">
+            <span>Afshan</span>
+            <span class="stars">★★★★</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <p class="review-text">"Had an opportunity to attend 10 days of pottery classes on wheel throwing. It was an amazing experience and to mentally rewire our minds into the world of creation. Koushik patiently teaches the techniques and answers all our doubts. Anyone wishing to have an experience in creating things out of clay can definitely step into STUDIO GENKI and enjoy the experience."</p>
+          <div class="review-author">
+            <span>Priya</span>
+            <span class="stars">★★★★★</span>
+          </div>
+        </div>
+        <div class="review-card">
+          <p class="review-text">"I recently took the 30 day pottery class at Studio Genki and it was one of the best decisions ever. Koushik was a great instructor and was very patient with me throughout the class. He knew when to step in and when to let me figure out on my own. Highly recommend :)"</p>
+          <div class="review-author">
+            <span>Dharani</span>
+            <span class="stars">★★★★★</span>
+          </div>
+        </div>
+      </div>
+
       <div class="info-section">
         <h2>Schedule</h2>
         <ul class="info-list">
@@ -703,24 +764,36 @@ export class PotteryClassesContent extends LitElement {
         </ul>
       </div>
 
-      <div class="info-section">
-        <h2>What to prepare</h2>
-        <ul class="info-list">
-          <li>Wear comfortable clothes you don't mind getting dirty.</li>
-          <li>Bring a hand towel for personal use.</li>
-          <li>Keep your fingernails trimmed short for the best experience on the wheel.</li>
-          <li>Bring some snacks if you feel necessary.</li>
-        </ul>
-      </div>
+      <div class="accordion-group">
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <span>What to prepare</span>
+            <span class="accordion-icon">+</span>
+          </summary>
+          <div class="accordion-content">
+            <ul>
+              <li>Wear comfortable clothes you don't mind getting dirty.</li>
+              <li>Bring a hand towel for personal use.</li>
+              <li>Keep your fingernails trimmed short for the best experience on the wheel.</li>
+              <li>Bring some snacks if you feel necessary.</li>
+            </ul>
+          </div>
+        </details>
 
-      <div class="info-section">
-        <h2>Policies</h2>
-        <ul class="info-list">
-          <li>Registration validity depends on the selected session package and pass type (Weekday or Weekend pass).</li>
-          <li>All sessions must be completed within the designated pass validity period unless a reschedule is initiated by the studio due to production work or official holidays.</li>
-          <li>Glaze completion: Within a week after the last session for Weekday Passes, and the following weekend for Weekend Passes.</li>
-          <li>Finished articles must be collected within the designated pick-up window communicated by the studio. Articles will not be retained or saved in the studio beyond the pick-up deadline.</li>
-        </ul>
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <span>Studio Policies & Validity</span>
+            <span class="accordion-icon">+</span>
+          </summary>
+          <div class="accordion-content">
+            <ul>
+              <li>Registration validity depends on the selected session package and pass type (Weekday or Weekend pass).</li>
+              <li>All sessions must be completed within the designated pass validity period unless a reschedule is initiated by the studio due to production work or official holidays.</li>
+              <li>Glaze completion: Within a week after the last session for Weekday Passes, and the following weekend for Weekend Passes.</li>
+              <li>Finished articles must be collected within the designated pick-up window communicated by the studio. Articles will not be retained or saved in the studio beyond the pick-up deadline.</li>
+            </ul>
+          </div>
+        </details>
       </div>
 
       <div class="info-section">
