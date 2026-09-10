@@ -255,43 +255,124 @@ export class PotteryClassesContent extends LitElement {
       font-size: 18px;
     }
 
-    /* Reviews section */
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      margin-bottom: 96px;
+    /* Reviews Carousel */
+    .reviews-carousel {
+      margin-bottom: 80px;
+      position: relative;
     }
-    
+
+    .reviews-track {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 6px 4px 18px 4px;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+    }
+
+    .reviews-track::-webkit-scrollbar {
+      height: 4px;
+    }
+
+    .reviews-track::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .reviews-track::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 4px;
+    }
+
     .review-card {
+      flex: 0 0 340px;
+      scroll-snap-align: start;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 40px;
+      padding: 26px 24px;
       border-radius: 12px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: background 0.2s ease, border-color 0.2s ease;
+      box-sizing: border-box;
     }
-    
+
+    .review-card:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .review-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .review-tag {
+      font-size: 11px;
+      color: #8E8E8E;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
     .review-text {
       color: #B9B9B9;
       font-style: italic;
       line-height: 1.6;
-      margin: 0 0 24px 0;
-      font-size: 16px;
+      margin: 0 0 20px 0;
+      font-size: 15px;
+      flex-grow: 1;
     }
-    
+
     .review-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 14px;
+    }
+
+    .review-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-merriweather-sans, sans-serif);
+      flex-shrink: 0;
+    }
+
+    .review-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .review-name {
       font-weight: 600;
       color: #FFFFFF;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      font-size: 14px;
+    }
+
+    .review-verified {
+      font-size: 11px;
+      color: #7E7E7E;
     }
     
     .stars {
       color: #F5C518;
-      font-size: 18px;
+      font-size: 15px;
       letter-spacing: 2px;
     }
 
@@ -634,8 +715,13 @@ export class PotteryClassesContent extends LitElement {
         padding: 0 20px 20px 20px;
         padding-top: 14px;
       }
-      .instructor-section, .review-card {
+      .instructor-section {
         padding: 24px;
+      }
+
+      .review-card {
+        flex: 0 0 290px;
+        padding: 22px 18px;
       }
 
       .gallery-wrapper {
@@ -682,53 +768,40 @@ export class PotteryClassesContent extends LitElement {
         bottom: 0;
         left: 0;
         right: 0;
-        background: rgba(15, 15, 15, 0.95);
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
-        border-top: 1px solid rgba(255, 255, 255, 0.12);
-        padding: 12px 20px calc(12px + env(safe-area-inset-bottom, 0px)) 20px;
-        align-items: center;
-        justify-content: space-between;
+        background: rgba(12, 12, 12, 0.95);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px)) 16px;
         z-index: 999;
-        box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
-      }
-
-      .mobile-sticky-info {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .mobile-sticky-label {
-        font-size: 11px;
-        color: #8E8E8E;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-
-      .mobile-sticky-price {
-        font-size: 16px;
-        font-weight: 700;
-        color: #FFFFFF;
-        font-family: var(--font-merriweather, serif);
+        box-shadow: 0 -8px 28px rgba(0, 0, 0, 0.75);
       }
 
       .mobile-sticky-btn {
+        width: 100%;
+        box-sizing: border-box;
         background: #FFFFFF;
         color: #000000;
-        font-size: 13px;
+        font-size: 16px;
         font-weight: 700;
-        padding: 10px 16px;
-        border-radius: 6px;
+        padding: 16px 20px;
+        border-radius: 10px;
         text-decoration: none;
-        display: inline-flex;
+        display: flex;
         align-items: center;
-        gap: 6px;
-        transition: background 0.2s ease;
+        justify-content: center;
+        text-align: center;
+        letter-spacing: 0.3px;
+        transition: background 0.2s ease, transform 0.1s ease;
         font-family: var(--font-merriweather-sans, sans-serif);
       }
 
       .mobile-sticky-btn:hover {
         background: #e0e0e0;
+      }
+
+      .mobile-sticky-btn:active {
+        transform: scale(0.98);
       }
     }
   `;
@@ -905,26 +978,51 @@ export class PotteryClassesContent extends LitElement {
       </div>
 
       <h2>What students say</h2>
-      <div class="reviews-grid">
-        <div class="review-card">
-          <p class="review-text">"Have recently taken a 10 day course on pottery from this studio. The classes are really informative and insightful and taught so well by Koushik. Its a must for those looking to learn pottery. The best in terms of clarity, technique, creativity and also exposure."</p>
-          <div class="review-author">
-            <span>Afshan</span>
-            <span class="stars">★★★★</span>
+      <div class="reviews-carousel">
+        <div class="reviews-track">
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="stars">★★★★★</span>
+              <span class="review-tag">10 Sessions</span>
+            </div>
+            <p class="review-text">"Have recently taken a 10 day course on pottery from this studio. The classes are really informative and insightful and taught so well by Koushik. Its a must for those looking to learn pottery. The best in terms of clarity, technique, creativity and also exposure."</p>
+            <div class="review-author">
+              <div class="review-avatar">A</div>
+              <div class="review-meta">
+                <span class="review-name">Afshan</span>
+                <span class="review-verified">Verified Student</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="review-card">
-          <p class="review-text">"Had an opportunity to attend 10 days of pottery classes on wheel throwing. It was an amazing experience and to mentally rewire our minds into the world of creation. Koushik patiently teaches the techniques and answers all our doubts. Anyone wishing to have an experience in creating things out of clay can definitely step into STUDIO GENKI and enjoy the experience."</p>
-          <div class="review-author">
-            <span>Priya</span>
-            <span class="stars">★★★★★</span>
+
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="stars">★★★★★</span>
+              <span class="review-tag">10 Sessions</span>
+            </div>
+            <p class="review-text">"Had an opportunity to attend 10 days of pottery classes on wheel throwing. It was an amazing experience and to mentally rewire our minds into the world of creation. Koushik patiently teaches the techniques and answers all our doubts. Anyone wishing to have an experience in creating things out of clay can definitely step into STUDIO GENKI and enjoy the experience."</p>
+            <div class="review-author">
+              <div class="review-avatar">P</div>
+              <div class="review-meta">
+                <span class="review-name">Priya</span>
+                <span class="review-verified">Verified Student</span>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="review-card">
-          <p class="review-text">"I recently took the 30 day pottery class at Studio Genki and it was one of the best decisions ever. Koushik was a great instructor and was very patient with me throughout the class. He knew when to step in and when to let me figure out on my own. Highly recommend :)"</p>
-          <div class="review-author">
-            <span>Dharani</span>
-            <span class="stars">★★★★★</span>
+
+          <div class="review-card">
+            <div class="review-card-top">
+              <span class="stars">★★★★★</span>
+              <span class="review-tag">30-day Pass</span>
+            </div>
+            <p class="review-text">"I recently took the 30 day pottery class at Studio Genki and it was one of the best decisions ever. Koushik was a great instructor and was very patient with me throughout the class. He knew when to step in and when to let me figure out on my own. Highly recommend :)"</p>
+            <div class="review-author">
+              <div class="review-avatar">D</div>
+              <div class="review-meta">
+                <span class="review-name">Dharani</span>
+                <span class="review-verified">Verified Student</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1019,10 +1117,6 @@ export class PotteryClassesContent extends LitElement {
 
       <!-- Sticky Mobile Enquiry Bar -->
       <div class="mobile-sticky-bar">
-        <div class="mobile-sticky-info">
-          <span class="mobile-sticky-label">Wheel Classes</span>
-          <span class="mobile-sticky-price">from ₹9,900</span>
-        </div>
         <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20know%20more%20about%20the%20wheel%20throwing%20pottery%20classes" 
            target="_blank" rel="noopener noreferrer" class="mobile-sticky-btn">
           Enquire on WhatsApp
