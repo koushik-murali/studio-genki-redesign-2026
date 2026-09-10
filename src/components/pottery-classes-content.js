@@ -816,17 +816,22 @@ export class PotteryClassesContent extends LitElement {
         </div>
       </div>
 
-      <div class="info-section">
-        <h2>Schedule</h2>
-        <ul class="info-list">
-          <li>Dates : On-going regular classes</li>
-          <li>Days : All days (flexible schedule)</li>
-          <li>Duration per session : 3 hrs / session</li>
-          <li>Clean-up after classes is mandatory</li>
-        </ul>
-      </div>
-
       <div class="accordion-group">
+        <details class="accordion-item">
+          <summary class="accordion-header">
+            <span>Schedule & Timings</span>
+            <span class="accordion-icon">+</span>
+          </summary>
+          <div class="accordion-content">
+            <ul>
+              <li><strong>Dates:</strong> On-going regular classes</li>
+              <li><strong>Days:</strong> All days (flexible scheduling)</li>
+              <li><strong>Duration:</strong> 3 hours per session</li>
+              <li>Clean-up after classes is mandatory</li>
+            </ul>
+          </div>
+        </details>
+
         <details class="accordion-item">
           <summary class="accordion-header">
             <span>What to prepare</span>
