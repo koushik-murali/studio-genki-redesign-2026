@@ -875,7 +875,7 @@ export class PotteryClassesContent extends LitElement {
           <div class="inclusion-card">
             <div class="inclusion-icon">👥</div>
             <div class="inclusion-heading">1-on-1 Guidance</div>
-            <p class="inclusion-desc">Intimate studio format (max 4 students per session) with personalized instruction suited to your pace.</p>
+            <p class="inclusion-desc">Intimate studio format (max 3 students per slot) with personalized instruction suited to your pace.</p>
           </div>
         </div>
         <p class="inclusions-extra-note">* Additional pieces beyond your package quota can be fired at ₹1,000 / kg.</p>
@@ -948,7 +948,7 @@ export class PotteryClassesContent extends LitElement {
                 </ul>
               </li>
               <li><strong>Duration:</strong> 3 hours per session</li>
-              <li><strong>Batch Size:</strong> Intimate cap of 4–6 students per slot for personalized wheel attention</li>
+              <li><strong>Batch Size:</strong> Strictly capped at 3 students per slot for personalized wheel attention</li>
               <li>Clean-up after classes is mandatory</li>
             </ul>
           </div>

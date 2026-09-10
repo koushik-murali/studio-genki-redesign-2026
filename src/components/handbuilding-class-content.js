@@ -758,7 +758,7 @@ export class HandbuildingClassContent extends LitElement {
           <div class="inclusion-card">
             <div class="inclusion-icon">👥</div>
             <div class="inclusion-heading">1-on-1 Guidance</div>
-            <p class="inclusion-desc">Small batch studio setting (max 6 students) providing dedicated attention suited to your pace and creative ideas.</p>
+            <p class="inclusion-desc">Small batch studio setting (max 3 students per slot) providing dedicated attention suited to your pace and creative ideas.</p>
           </div>
         </div>
         <p class="inclusions-extra-note">* Additional pieces beyond your package quota can be fired at ₹1,000 / kg.</p>
