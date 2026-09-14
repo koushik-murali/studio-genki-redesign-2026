@@ -1328,7 +1328,7 @@ export class PotteryClassesContent extends LitElement {
           <div class="inclusion-card">
             <div class="inclusion-icon">🔥</div>
             <div class="inclusion-heading">Firings & Glazing</div>
-            <p class="inclusion-desc">Understand the entire firing cycle. Bisque and food-safe glaze firings included for your quota of finished pieces.</p>
+            <p class="inclusion-desc">Understand drying, bisque firing, and glaze application. Professional firings included for your quota of pieces.</p>
           </div>
 
           <div class="inclusion-card">
