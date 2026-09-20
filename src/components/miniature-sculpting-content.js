@@ -546,7 +546,7 @@ export class MiniatureSculptingContent extends LitElement {
       <ul class="features-list">
         <li>
           <h3>During the course, you will learn the fundamentals of miniature sculpting.</h3>
-          <p>Working with air-dry clay, shaping miniature forms, detailing, and proper painting techniques.</p>
+          <p>Working with stoneware clay, shaping miniature forms, detailing, and proper painting techniques.</p>
         </li>
         <li>
           <h3>Sculpt independently with confidence.</h3>
@@ -604,7 +604,9 @@ export class MiniatureSculptingContent extends LitElement {
       <div class="info-section">
         <h2>Course inclusions</h2>
         <ul class="info-list">
-          <li>1.5 kg of air-dry clay</li>
+          <li>1.5 kg of stoneware clay</li>
+          <li>Pre-fired miniatures to paint on and take home</li>
+          <li>Bisque firing of pieces made during the course and shipping them home</li>
         </ul>
       </div>
 
@@ -630,7 +632,7 @@ export class MiniatureSculptingContent extends LitElement {
         <h2>Policies</h2>
         <ul class="info-list">
           <li>Crash course purchases are final and no reschedule is possible.</li>
-          <li>Finished articles must be collected within the designated pick-up window communicated by the studio. Articles will not be retained or saved in the studio beyond the pick-up deadline.</li>
+          <li>Articles made during the course will be bisque fired and safely shipped to your home address.</li>
         </ul>
       </div>
 
