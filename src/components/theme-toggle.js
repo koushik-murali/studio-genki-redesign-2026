@@ -7,9 +7,9 @@ export class ThemeToggle extends LitElement {
 
   constructor() {
     super();
-    // Default to dark or saved preference
-    const savedTheme = localStorage.getItem('theme');
-    this.theme = savedTheme ? savedTheme : 'dark';
+    const savedTheme = localStorage.getItem('theme') || localStorage.getItem('sg_theme');
+    const docTheme = typeof document !== 'undefined' ? document.documentElement.getAttribute('data-theme') : null;
+    this.theme = savedTheme ? savedTheme : (docTheme || 'light');
   }
 
   connectedCallback() {
@@ -23,6 +23,7 @@ export class ThemeToggle extends LitElement {
     document.documentElement.setAttribute('data-theme', this.theme);
     this.setAttribute('data-theme', this.theme);
     localStorage.setItem('theme', this.theme);
+    localStorage.setItem('sg_theme', this.theme);
     window.dispatchEvent(new CustomEvent('theme-changed', { detail: { theme: this.theme } }));
   }
 

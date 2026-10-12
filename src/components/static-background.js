@@ -8,9 +8,9 @@ export class StaticBackground extends LitElement {
 
   constructor() {
     super();
-    this.theme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'dark';
+    this.theme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'light';
     this._onThemeChange = () => {
-      const t = document.documentElement.getAttribute('data-theme') || 'dark';
+      const t = document.documentElement.getAttribute('data-theme') || 'light';
       this.theme = t;
       this.setAttribute('data-theme', t);
     };
@@ -18,7 +18,7 @@ export class StaticBackground extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    const currentTheme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'dark';
+    const currentTheme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'light';
     this.theme = currentTheme;
     this.setAttribute('data-theme', currentTheme);
 
