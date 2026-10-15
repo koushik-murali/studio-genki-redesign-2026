@@ -15,7 +15,7 @@ export class ClassesList extends LitElement {
         image: '/classes-gallery/02.png',
         link: '/beginners-pottery-classes-coimbatore.html',
         sessions: '9',
-        fees: 'Rs. 16,500',
+        fees: 'Rs. 15,900',
         duration: 'Weekends (Oct 24 - Nov 21)',
         spots: '3 seats per slot',
         level: 'beginner',

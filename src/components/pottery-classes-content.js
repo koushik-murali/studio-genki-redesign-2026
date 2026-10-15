@@ -1003,7 +1003,7 @@ export class PotteryClassesContent extends LitElement {
         <div class="cta-bar">
           <div class="fee-info">
             <div class="fee-headline">
-              <span class="fee-amount">₹16,500</span>
+              <span class="fee-amount">₹15,900</span>
               <span class="fee-badge">● Only 3 seats per slot</span>
             </div>
             <p class="fee-desc">All materials, unlimited practice clay & firings included</p>
