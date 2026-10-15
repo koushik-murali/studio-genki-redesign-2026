@@ -18,18 +18,8 @@ export class ClassesList extends LitElement {
         fees: 'Rs. 16,500',
         duration: 'Weekends (Oct 24 - Nov 21)',
         spots: '3 seats per slot',
-        level: 'beginner'
-      },
-      {
-        id: 'handbuilding-classes',
-        title: 'Handbuilding Classes',
-        image: '/classes-gallery/09.png',
-        link: '/handbuilding-workshop.html',
-        sessions: '6, 10, or 20',
-        fees: 'From Rs. 9,900',
-        duration: 'Regular classes',
-        spots: '3 per slot',
-        level: 'beginner'
+        level: 'beginner',
+        status: 'Open'
       },
       {
         id: 'miniature-sculpting-crash-course',
@@ -39,8 +29,9 @@ export class ClassesList extends LitElement {
         sessions: '3',
         fees: 'Rs. 5,000',
         duration: 'October 2, 3, 4',
-        spots: '8',
-        level: 'beginner'
+        spots: 'Completed',
+        level: 'beginner',
+        status: 'Completed'
       }
     ];
     this.theme = (typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme')) || 'dark';
@@ -103,8 +94,10 @@ export class ClassesList extends LitElement {
 
     .classes-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 860px;
+      margin: 0 auto;
+      gap: 36px;
     }
 
     .class-card {
@@ -120,6 +113,14 @@ export class ClassesList extends LitElement {
     .class-card:hover {
       transform: translateY(-5px);
       border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .class-card.is-completed {
+      opacity: 0.94;
+    }
+
+    .class-card.is-completed .card-image {
+      filter: saturate(0.85);
     }
 
     .card-image {
@@ -144,6 +145,18 @@ export class ClassesList extends LitElement {
       margin: 0 0 12px 0;
       line-height: 1.3;
       transition: color 0.3s ease;
+    }
+
+    .card-tags {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .card-tags .level-tag {
+      margin-bottom: 0;
     }
 
     .level-tag {
@@ -174,6 +187,30 @@ export class ClassesList extends LitElement {
       background-color: rgba(226, 74, 74, 0.2);
       color: #E24A4A;
       border: 1px solid rgba(226, 74, 74, 0.3);
+    }
+
+    .status-tag {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      align-self: flex-start;
+    }
+
+    .status-completed {
+      background-color: rgba(220, 53, 69, 0.15);
+      color: #ff6b6b;
+      border: 1px solid rgba(220, 53, 69, 0.35);
+    }
+
+    :host([data-theme="light"]) .status-completed,
+    .light-mode .status-completed {
+      background-color: #FEE2E2;
+      color: #DC2626;
+      border: 1px solid #FCA5A5;
     }
 
     .card-meta {
@@ -288,10 +325,13 @@ export class ClassesList extends LitElement {
         <h1>Classes & Workshops</h1>
         <div class="classes-grid">
           ${this.classes.map(cls => html`
-            <div class="class-card">
+            <div class="class-card ${cls.status === 'Completed' ? 'is-completed' : ''}">
               <img src="${cls.image}" alt="${cls.title}" class="card-image" onerror="this.style.backgroundColor='#333'" />
               <div class="card-content">
-                ${cls.level ? html`<div class="level-tag level-${cls.level}">${cls.level}</div>` : ''}
+                <div class="card-tags">
+                  ${cls.level ? html`<div class="level-tag level-${cls.level}">${cls.level}</div>` : ''}
+                  ${cls.status === 'Completed' ? html`<div class="status-tag status-completed">Completed</div>` : ''}
+                </div>
                 <h2 class="card-title">${cls.title}</h2>
                 <div class="card-meta">
                   <span><strong>Sessions:</strong> ${cls.sessions}</span>
@@ -299,7 +339,7 @@ export class ClassesList extends LitElement {
                   <span><strong>Duration:</strong> ${cls.duration}</span>
                   <span><strong>Batch:</strong> ${cls.spots}</span>
                 </div>
-                <a href="${cls.link}" class="read-more">Read more</a>
+                <a href="${cls.link}" class="read-more">${cls.status === 'Completed' ? 'View Details (Completed)' : 'Read more'}</a>
               </div>
             </div>
           `)}

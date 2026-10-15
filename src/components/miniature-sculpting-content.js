@@ -118,6 +118,72 @@ export class MiniatureSculptingContent extends LitElement {
       transition: color 0.3s ease;
     }
 
+    .badge-completed {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background-color: rgba(220, 53, 69, 0.15);
+      color: #ff6b6b;
+      border: 1px solid rgba(220, 53, 69, 0.35);
+      margin-bottom: 16px;
+    }
+
+    :host([data-theme="light"]) .badge-completed {
+      background-color: #FEE2E2;
+      color: #DC2626;
+      border: 1px solid #FCA5A5;
+    }
+
+    .completed-banner {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-left: 4px solid #ff6b6b;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .completed-banner-icon {
+      font-size: 20px;
+      line-height: 1;
+      margin-top: 2px;
+    }
+
+    .completed-banner h4 {
+      margin: 0 0 4px 0;
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--color-text, #FFFFFF);
+    }
+
+    .completed-banner p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--color-text-muted, #B9B9B9);
+    }
+
+    :host([data-theme="light"]) .completed-banner {
+      background: #FDF2F2;
+      border: 1px solid #FECACA;
+      border-left: 4px solid #DC2626;
+    }
+
+    :host([data-theme="light"]) .completed-banner h4 {
+      color: #991B1B;
+    }
+
+    :host([data-theme="light"]) .completed-banner p {
+      color: #7F1D1D;
+    }
+
     .course-meta-bar {
       display: flex;
       flex-wrap: wrap;
@@ -527,21 +593,29 @@ export class MiniatureSculptingContent extends LitElement {
   render() {
     return html`
       <a href="/classes.html" class="back-link">&larr; Back to courses</a>
+      <div><span class="badge-completed">Course Completed</span></div>
       <h1>Miniature Sculpting Crash Course</h1>
       <p class="description">
         Learn to sculpt miniature animals and objects and paint on them.
       </p>
 
       <div class="course-meta-bar">
+        <span><strong>Status:</strong> Completed</span>
         <span><strong>Level:</strong> Beginner</span>
         <span><strong>Sessions:</strong> 3</span>
         <span><strong>Fee:</strong> Rs. 5,000</span>
         <span><strong>Duration:</strong> October 2, 3, 4</span>
       </div>
 
-      <p class="subtitle" style="margin-bottom: 24px; color: #F5C518; font-weight: 600;">Only 8 spots left.</p>
+      <div class="completed-banner">
+        <div class="completed-banner-icon">✓</div>
+        <div>
+          <h4>This batch has been completed</h4>
+          <p>The October 2–4 batch has concluded. Reach out to join our waitlist or express interest for future workshop dates.</p>
+        </div>
+      </div>
       
-      <a href="https://wa.me/917373074962?text=I%20want%20to%20sign%20up%20for%20sculpting%20course" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 0; margin-bottom: 64px;">Reserve Your Spot</a>
+      <a href="https://wa.me/917373074962?text=Hi%20Koushik%2C%20I%20would%20like%20to%20enquire%20about%20future%20batches%20for%20the%20Miniature%20Sculpting%20course" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 0; margin-bottom: 64px;">Enquire for Next Batch</a>
 
       <ul class="features-list">
         <li>
@@ -644,8 +718,11 @@ export class MiniatureSculptingContent extends LitElement {
       </div>
 
       <div class="info-section">
-        <h2>Ready to start?</h2>
-        <a href="https://wa.me/917373074962?text=I%20want%20to%20sign%20up%20for%20sculpting%20course" target="_blank" rel="noopener noreferrer" class="contact-button">Reserve Your Spot</a>
+        <h2>Interested in future batches?</h2>
+        <p style="color: var(--color-text-muted, #B9B9B9); font-size: 18px; margin-bottom: 24px; line-height: 1.6;">
+          This batch has concluded. If you would like to be notified when future miniature sculpting workshop dates are announced, send us a message on WhatsApp.
+        </p>
+        <a href="https://wa.me/917373074962?text=Hi%20Koushik%2C%20I%20would%20like%20to%20enquire%20about%20future%20batches%20for%20the%20Miniature%20Sculpting%20course" target="_blank" rel="noopener noreferrer" class="contact-button">Enquire for Next Batch</a>
       </div>
     `;
   }
