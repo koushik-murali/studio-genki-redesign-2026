@@ -973,9 +973,9 @@ export class PotteryClassesContent extends LitElement {
       <div class="${isLight ? 'light-mode' : ''}">
         <a href="/classes.html" class="back-link">&larr; Back to courses</a>
 
-        <h1>Weekend Wheel Throwing Classes</h1>
+        <h1>Wheel Throwing Class</h1>
         <p class="description">
-          A dedicated 9-session weekend course designed for aspiring potters. No prior experience required.
+          A dedicated 9-session course designed for aspiring potters, available on weekdays or weekends. No prior experience required.
         </p>
 
         <!-- Top Information Cards: Sessions, Schedule, Slots -->
@@ -988,8 +988,8 @@ export class PotteryClassesContent extends LitElement {
 
           <div class="info-card">
             <span class="info-card-label">Schedule</span>
-            <div class="info-card-value">Weekends Only</div>
-            <p class="info-card-sub">Oct 24 – Nov 21 · 5 weekends (Saturdays & Sundays)</p>
+            <div class="info-card-value">Weekdays / Weekends</div>
+            <p class="info-card-sub">Weekdays: complete in 20 days · Weekends: complete in 5 weeks</p>
           </div>
 
           <div class="info-card">
@@ -1008,7 +1008,7 @@ export class PotteryClassesContent extends LitElement {
             </div>
             <p class="fee-desc">All materials, unlimited practice clay & firings included</p>
           </div>
-          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20weekend%20wheel%20throwing%20classes%20starting%20Oct%2024" 
+          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20wheel%20throwing%20class" 
              target="_blank" rel="noopener noreferrer" class="contact-button">
             Reserve Your Spot
           </a>
@@ -1018,7 +1018,7 @@ export class PotteryClassesContent extends LitElement {
         <div class="curriculum-section">
           <h2>Curriculum & Progression</h2>
           <p class="section-intro">
-            Focused on making bowls, cylinders, and mugs with handles. Weeks 1 & 2 are for practice without saving pieces; Weeks 3 & 4 are for your finished ware.
+            Focused on making bowls, cylinders, and mugs with handles. Sessions 1–4 are for practice without saving pieces; Sessions 5–8 are for your finished ware.
           </p>
 
           <div class="curriculum-grid">
@@ -1026,13 +1026,13 @@ export class PotteryClassesContent extends LitElement {
             <div class="curriculum-card">
               <div class="card-top">
                 <div class="card-meta-row">
-                  <span class="week-badge">Week 1</span>
-                  <span class="session-count">Sessions 1 & 2 • Oct 24 & 25</span>
+                  <span class="week-badge">Part 1</span>
+                  <span class="session-count">Sessions 1 & 2</span>
                 </div>
                 <div class="card-title">Bowls</div>
                 <ul class="session-details">
-                  <li><strong>Sat:</strong> Centering clay and making your first bowls.</li>
-                  <li><strong>Sun:</strong> Shaping and throwing open bowls.</li>
+                  <li><strong>Session 1:</strong> Centering clay and making your first bowls.</li>
+                  <li><strong>Session 2:</strong> Shaping and throwing open bowls.</li>
                 </ul>
               </div>
               <div class="card-tag">Practice only — pieces are not saved.</div>
@@ -1042,13 +1042,13 @@ export class PotteryClassesContent extends LitElement {
             <div class="curriculum-card">
               <div class="card-top">
                 <div class="card-meta-row">
-                  <span class="week-badge">Week 2</span>
-                  <span class="session-count">Sessions 3 & 4 • Oct 31 & Nov 1</span>
+                  <span class="week-badge">Part 2</span>
+                  <span class="session-count">Sessions 3 & 4</span>
                 </div>
                 <div class="card-title">Cylinders</div>
                 <ul class="session-details">
-                  <li><strong>Sat:</strong> Pulling straight walls and making cylinders.</li>
-                  <li><strong>Sun:</strong> Shaping taller, even cylinders.</li>
+                  <li><strong>Session 3:</strong> Pulling straight walls and making cylinders.</li>
+                  <li><strong>Session 4:</strong> Shaping taller, even cylinders.</li>
                 </ul>
               </div>
               <div class="card-tag">Practice only — pieces are not saved.</div>
@@ -1058,13 +1058,13 @@ export class PotteryClassesContent extends LitElement {
             <div class="curriculum-card">
               <div class="card-top">
                 <div class="card-meta-row">
-                  <span class="week-badge">Week 3</span>
-                  <span class="session-count">Sessions 5 & 6 • Nov 7 & 8</span>
+                  <span class="week-badge">Part 3</span>
+                  <span class="session-count">Sessions 5 & 6</span>
                 </div>
                 <div class="card-title">Bowls & Cylinders</div>
                 <ul class="session-details">
-                  <li><strong>Sat:</strong> Throwing foundation bowls and cylinders to keep.</li>
-                  <li><strong>Sun:</strong> Trimming foot rings on your leather-hard pieces.</li>
+                  <li><strong>Session 5:</strong> Throwing foundation bowls and cylinders to keep.</li>
+                  <li><strong>Session 6:</strong> Trimming foot rings on your leather-hard pieces.</li>
                 </ul>
               </div>
               <div class="card-tag highlight">Pieces kept for firing.</div>
@@ -1074,13 +1074,13 @@ export class PotteryClassesContent extends LitElement {
             <div class="curriculum-card">
               <div class="card-top">
                 <div class="card-meta-row">
-                  <span class="week-badge">Week 4</span>
-                  <span class="session-count">Sessions 7 & 8 • Nov 14 & 15</span>
+                  <span class="week-badge">Part 4</span>
+                  <span class="session-count">Sessions 7 & 8</span>
                 </div>
                 <div class="card-title">Mugs & Finished Ware</div>
                 <ul class="session-details">
-                  <li><strong>Sat:</strong> Throwing finished pieces; making coiled handles for mugs.</li>
-                  <li><strong>Sun:</strong> Final trimming, detailing, and prep for the bisque kiln.</li>
+                  <li><strong>Session 7:</strong> Throwing finished pieces; making coiled handles for mugs.</li>
+                  <li><strong>Session 8:</strong> Final trimming, detailing, and prep for the bisque kiln.</li>
                 </ul>
               </div>
               <div class="card-tag highlight">Prepped for bisque firing.</div>
@@ -1090,7 +1090,7 @@ export class PotteryClassesContent extends LitElement {
           <!-- Session 9 Glazing Banner -->
           <div class="glazing-banner">
             <div class="glazing-left">
-              <span class="glazing-badge">Week 5 • Nov 21</span>
+              <span class="glazing-badge">Final Session</span>
               <h3>Session 9: Glazing</h3>
               <p>Glaze all your finished bowls, cylinders, and mugs for the final stoneware firing.</p>
             </div>
@@ -1116,7 +1116,7 @@ export class PotteryClassesContent extends LitElement {
             <div class="inclusion-card">
               <div class="inclusion-icon">🔥</div>
               <div class="inclusion-heading">Firings & Glazes</div>
-              <p class="inclusion-desc">Studio bisque firing and cone 6 glaze firings for your finished pieces made in Weeks 3 & 4.</p>
+              <p class="inclusion-desc">Studio bisque firing and cone 6 glaze firings for your finished pieces made in Sessions 5–8.</p>
             </div>
 
             <div class="inclusion-card">
@@ -1131,10 +1131,10 @@ export class PotteryClassesContent extends LitElement {
         <div class="gallery-wrapper">
           <div class="gallery-track">
             ${this.galleryImages.map(img => html`
-              <img src="/classes-gallery/${img}" alt="Weekend Wheel Throwing Pottery Class at Studio Genki" onerror="this.style.width='300px'" />
+              <img src="/classes-gallery/${img}" alt="Wheel Throwing Class at Studio Genki" onerror="this.style.width='300px'" />
             `)}
             ${this.galleryImages.map(img => html`
-              <img src="/classes-gallery/${img}" alt="Weekend Wheel Throwing Pottery Class at Studio Genki" class="duplicate-for-marquee" onerror="this.style.width='300px'" />
+              <img src="/classes-gallery/${img}" alt="Wheel Throwing Class at Studio Genki" class="duplicate-for-marquee" onerror="this.style.width='300px'" />
             `)}
           </div>
         </div>
@@ -1210,7 +1210,8 @@ export class PotteryClassesContent extends LitElement {
             </summary>
             <div class="accordion-content">
               <ul>
-                <li><strong>Dates:</strong> Oct 24 – Nov 21, 2026 (Weekends only).</li>
+                <li><strong>Schedule:</strong> Weekdays / Weekends.</li>
+                <li><strong>Completion Policy:</strong> Weekday batch to be completed in 20 days; weekend batch to be completed in 5 weeks.</li>
                 <li><strong>Sessions:</strong> 9 sessions (8 throwing/trimming + 1 glazing). 3 hours each.</li>
                 <li><strong>Slots:</strong> Morning (10:00 AM – 1:00 PM) or Afternoon (2:00 PM – 5:00 PM).</li>
                 <li><strong>Batch Size:</strong> Strictly 3 students per slot.</li>
@@ -1226,7 +1227,8 @@ export class PotteryClassesContent extends LitElement {
             <div class="accordion-content">
               <ul>
                 <li><strong>Refunds:</strong> All registrations are final and non-refundable. Non-transferable between people.</li>
-                <li><strong>Cohort Commitment:</strong> Because sessions build sequentially on previous drying stages, attending all weekend sessions is required.</li>
+                <li><strong>Completion Policy:</strong> Weekday classes must be completed within 20 days; weekend classes must be completed within 5 weeks.</li>
+                <li><strong>Session Commitment:</strong> Because sessions build sequentially on previous drying stages, consistent attendance is required.</li>
                 <li><strong>Emergency Reschedule:</strong> Inform the studio at least 24 hours in advance to coordinate a catch-up before the next trimming window.</li>
                 <li><strong>Pickup:</strong> Finished pieces must be collected within the designated pickup window communicated by the studio.</li>
               </ul>
@@ -1249,11 +1251,11 @@ export class PotteryClassesContent extends LitElement {
 
           <details class="accordion-item">
             <summary class="accordion-header">
-              <span>Why aren't Week 1 & 2 pieces saved?</span>
+              <span>Why aren't Sessions 1–4 pieces saved?</span>
               <span class="accordion-icon">+</span>
             </summary>
             <div class="accordion-content">
-              <p>Recycling early clay eliminates performance pressure so you can focus entirely on muscle memory. You throw pieces to keep in Weeks 3 & 4 with confidence and clean technique.</p>
+              <p>Recycling early clay eliminates performance pressure so you can focus entirely on muscle memory. You throw pieces to keep in Sessions 5–8 with confidence and clean technique.</p>
             </div>
           </details>
         </div>
@@ -1268,13 +1270,13 @@ export class PotteryClassesContent extends LitElement {
 
         <div class="info-section">
           <h2>Ready to learn?</h2>
-          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20weekend%20wheel%20throwing%20classes%20starting%20Oct%2024" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 16px;">Reserve Your Spot</a>
+          <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20wheel%20throwing%20class" target="_blank" rel="noopener noreferrer" class="contact-button" style="margin-top: 16px;">Reserve Your Spot</a>
         </div>
       </div>
 
       <!-- Sticky Mobile Bar -->
       <div class="mobile-sticky-bar ${isLight ? 'light-mode' : ''}">
-        <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20weekend%20wheel%20throwing%20classes%20starting%20Oct%2024" 
+        <a href="https://wa.me/917373074962?text=I%20would%20like%20to%20register%20for%20the%20wheel%20throwing%20class" 
            target="_blank" rel="noopener noreferrer" class="mobile-sticky-btn">
           Reserve Spot on WhatsApp
         </a>

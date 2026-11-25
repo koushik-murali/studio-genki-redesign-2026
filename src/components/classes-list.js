@@ -11,12 +11,12 @@ export class ClassesList extends LitElement {
     this.classes = [
       {
         id: 'beginners-wheel-throwing',
-        title: 'Weekend Wheel Throwing Classes',
+        title: 'Wheel Throwing Class',
         image: '/classes-gallery/02.png',
         link: '/beginners-pottery-classes-coimbatore.html',
         sessions: '9',
         fees: 'Rs. 15,900',
-        duration: 'Weekends (Oct 24 - Nov 21)',
+        duration: 'Weekdays (20 days) / Weekends (5 weeks)',
         spots: '3 seats per slot',
         level: 'beginner',
         status: 'Open'
